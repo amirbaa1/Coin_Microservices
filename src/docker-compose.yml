@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+
+  basketdb:
+     image: redis
+     ports:
+      - "6379:6379"
+  ###############################     
+  coin.api:
+    image: coin.api
+    build:
+      context: .
+      dockerfile: Coin.API/Dockerfile
+
+  ocelot.apigate:
+    image: ocelot.apigate
+    build:
+      context: .
+      dockerfile: Ocelot.ApiGate/Dockerfile
+
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Basket.API/Dockerfile
+

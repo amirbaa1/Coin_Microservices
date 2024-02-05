@@ -1,0 +1,77 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/coin",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "port": "7001"
+        }
+      ],
+      "UpstreamPathTemplate": "/coin",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/Coin/AllCoin",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "coin.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/coin/all",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/coin/coin/{symbol}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "port": "7001"
+        }
+      ],
+      "UpstreamPathTemplate": "/coin/{symbol}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/coin/categories",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "port": "7001"
+        }
+      ],
+      "UpstreamPathTemplate": "/coin/category",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/coin/categories/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "port": "7001"
+        }
+      ],
+      "UpstreamPathTemplate": "/coin/category/{id}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https//localhost:7070"
+  }
+}
