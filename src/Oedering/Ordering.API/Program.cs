@@ -8,6 +8,7 @@ using Ordering.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -17,20 +18,22 @@ builder.Services.AddSwaggerGen();
 //----------------------
 builder.Services.AddApplicationServices();
 builder.Services.AddInfrastructureService(builder.Configuration);
-//builder.Services.AddMediatR(typeof(Program));
-//builder.Services.AddAutoMapper(typeof(MappingProfile));
-//builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddAutoMapper(typeof(Program));
 //---------------------
+
+
 var app = builder.Build();
 
-app.MigrationDatabase<OrderContext>((context, services) =>
+//app.MigrateDatabase<Program>();
+app.MigrateDatabase<OrderContext>((context, services) =>
 {
     var logger = services.GetService<ILogger<OrderContextSeed>>();
     OrderContextSeed
         .SeedAsync(context, logger)
         .Wait();
 });
-// Configure the HTTP request pipeline.
+//Configure the HTTP request pipeline.
 
 if (app.Environment.IsDevelopment())
 {

@@ -26,7 +26,7 @@ namespace Ordering.API.Controllers
 
             return Ok(order);
         }
-        [HttpPost]
+        [HttpPost("OrderCheckout")]
         public async Task<ActionResult<int>> OrderCheckout([FromBody] CheckoutOrderCommand checkoutOrderCommand)
         {
             var result = await _mediatR.Send(checkoutOrderCommand);
@@ -37,7 +37,7 @@ namespace Ordering.API.Controllers
         public async Task<ActionResult> UpdateOrder([FromBody] UpdadeOrderCommand updadeOrderCommand)
         {
             await _mediatR.Send(updadeOrderCommand);
-            return NotFound();
+            return Ok(updadeOrderCommand);
         }
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteOrder(int id)
@@ -47,7 +47,7 @@ namespace Ordering.API.Controllers
                 Id = id
             };
             await _mediatR.Send(command);
-            return NotFound();
+            return Ok($"Delete ID : {command.Id}");
         }
     }
 }

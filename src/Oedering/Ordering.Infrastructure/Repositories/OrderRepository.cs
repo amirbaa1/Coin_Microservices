@@ -8,8 +8,6 @@ namespace Ordering.Infrastructure.Repositories
 {
     internal class OrderRepository : RepositoryBase<Order>, IOrderRepository
     {
-        private readonly OrderContext _context;
-
         public OrderRepository(OrderContext orderContext) : base(orderContext)
         {
 
@@ -17,7 +15,7 @@ namespace Ordering.Infrastructure.Repositories
 
         public async Task<IEnumerable<Order>> GetOrderByUserName(string userName)
         {
-            var Order = await _context.orders.Where(x=>x.UserName == userName).ToListAsync();
+            var Order = await _orderContext.orders.Where(x=>x.UserName == userName).ToListAsync();
             return Order;
         }
     }

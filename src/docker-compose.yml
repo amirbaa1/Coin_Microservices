@@ -2,10 +2,17 @@ version: '3.4'
 
 services:
 
+  portainer:
+    image: portainer/portainer
+
   basketdb:
      image: redis
      ports:
       - "6379:6379"
+    
+  orderdb:
+     image: mcr.microsoft.com/mssql/server:latest
+
   ###############################     
   coin.api:
     image: coin.api
@@ -25,3 +32,13 @@ services:
       context: .
       dockerfile: Basket.API/Dockerfile
 
+
+  ordering.api:
+    image: ${DOCKER_REGISTRY-}orderingapi
+    build:
+      context: .
+      dockerfile: Oedering/Ordering.API/Dockerfile
+
+
+volumes:
+    portainer_data:

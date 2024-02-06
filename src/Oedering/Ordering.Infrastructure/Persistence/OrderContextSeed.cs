@@ -13,8 +13,12 @@ namespace Ordering.Infrastructure.Persistence
         private static bool _isSeeded = false;
         public static async Task SeedAsync(OrderContext context, ILogger<OrderContextSeed> logger)
         {
+            logger.LogInformation("Seeding data...");
+            logger.LogInformation($"-----> GET User :  {GetUserOrder()} <-----");
+            logger.LogInformation($"{context.orders.Any()}");
             if (!context.orders.Any())
             {
+                logger.LogInformation($"-----> GET User :  {GetUserOrder()} <-----");
                 context.orders.AddRange(GetUserOrder());
                 await context.SaveChangesAsync();   
                 logger.LogInformation("seed save in database with context {DbContextName}",typeof(OrderContextSeed).Name);
@@ -34,17 +38,19 @@ namespace Ordering.Infrastructure.Persistence
                     EmailAddress="s@m.com",
                     AddressLine = "NYC",
                     Country="USA",
+                    State = "DefaultState",
                     TotalPrice = 360,
                 },
                 new Order
                 {
 
-                    UserName = "amiba",
+                    UserName = "amirba",
                     FirstName = "amir",
                     LastName = "ba",
                     EmailAddress="amir.2002.ba@gmail.com",
                     AddressLine="Jant",
                     Country = "Iran",
+                    State = "DefaultState",
                     TotalPrice = 200,
                 }
             };

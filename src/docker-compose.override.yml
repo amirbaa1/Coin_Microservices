@@ -1,13 +1,33 @@
 version: '3.4'
 
 services:
+    
+  portainer:
+    container_name: portainer
+    restart: always
+    ports:
+       # - "8080:80"
+      - "8080:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer_data:/data
 
   basketdb:
     container_name: basketdb
     restart: always
     ports:
       - "6379:6379"
+ 
+  orderdb:
+    container_name: orderdb
+    environment:
+      - SA_PASSWORD=amirB1379
+      - ACCEPT_EULA=Y
+    restart: always
+    ports:
+      - "1433:1433"
 
+      ###############################
 
   coin.api:
     container_name: coin.api
@@ -33,4 +53,16 @@ services:
       - "8002:80"
     depends_on:
       - basketdb
+
+
+  ordering.api:
+    container_name: ordering.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "ConnectionStrings:OrderingConnectionString=Server=orderdb,1433;TrustServerCertificate=True;Database=Ordering.API;User ID=sa;Password=amirB1379"
+    depends_on:
+      - orderdb
+    ports:
+      - "8003:80"
+
 
