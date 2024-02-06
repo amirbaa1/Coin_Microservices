@@ -1,5 +1,8 @@
-﻿using Basket.API.Model;
+﻿using AutoMapper;
+using Basket.API.Model;
 using Basket.API.Services;
+using EventBus.Messages.Events;
+using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Basket.API.Controllers
@@ -9,10 +12,13 @@ namespace Basket.API.Controllers
     public class BasketController : Controller
     {
         private readonly IBasketService _basketService;
-
-        public BasketController(IBasketService basketService)
+        private readonly IMapper _mapper;
+        private readonly IPublishEndpoint _publishEndpoint;
+        public BasketController(IBasketService basketService, IMapper mapper, IPublishEndpoint publishEndpoint)
         {
             _basketService = basketService;
+            _mapper = mapper;
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet("{userName}")]
@@ -32,10 +38,21 @@ namespace Basket.API.Controllers
             await _basketService?.DeleteBasket(userName);
         return Ok();
         }
-        //[HttpPost]
-        //public IActionResult CheckOut(string userName)
-        //{
+        [HttpPost("BasketCheckOut")]
+        public async Task<ActionResult> CheckOut([FromBody]CheckOut checkOut)
+        {
+            var basket = await _basketService.GetBasket(checkOut.UserName);
+            if(basket == null)
+            {
+                return BadRequest();
+            }
+            var eventMessage = _mapper.Map<BasketCheckOutEvent>(checkOut);
+            eventMessage.TotalPrice = basket.TotalPrice;
+            await _publishEndpoint.Publish<BasketCheckOutEvent>(eventMessage);
 
-        //}
+            await _basketService.DeleteBasket(basket.UserName);
+            return Accepted();
+
+        }
     }
 }

@@ -1,4 +1,6 @@
+using Basket.API.Mapping;
 using Basket.API.Services;
+using MassTransit;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,6 +13,8 @@ builder.Services.AddSwaggerGen();
 
 // --------------- add Services -------------------//
 builder.Services.AddScoped<IBasketService,BasketService>();
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddAutoMapper(typeof(BasketProfile));
 // ----------------------------------------------- //
 
 // --------------- redis --------------------------//
@@ -20,6 +24,22 @@ builder.Services.AddStackExchangeRedisCache(op =>
     op.InstanceName = "Basket.API";
 });
 // ------------------------------------------------//
+
+
+// --------------- MassTrasnsit -----------------//
+
+builder.Services.AddMassTransit(config =>
+{
+    config.UsingRabbitMq((ctx, cfg) =>
+    {
+        cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+    });
+});
+//builder.Services.AddMassTransitHostedService(typeof(Program);
+
+//--------------------------------------------//
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

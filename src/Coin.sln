@@ -21,6 +21,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ordering.Infrastructure", "
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{6B641A83-EC1D-4B4C-929C-012DA070A7B6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBus.Messages", "BuildingBus.Messages", "{59102983-191A-4DA3-8FDA-F6296B8A4B0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventBus.Messages", "EventBus.Messages\EventBus.Messages.csproj", "{8146513E-B2AD-45AD-9707-782E81F25DCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +63,10 @@ Global
 		{6B641A83-EC1D-4B4C-929C-012DA070A7B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6B641A83-EC1D-4B4C-929C-012DA070A7B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6B641A83-EC1D-4B4C-929C-012DA070A7B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8146513E-B2AD-45AD-9707-782E81F25DCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8146513E-B2AD-45AD-9707-782E81F25DCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8146513E-B2AD-45AD-9707-782E81F25DCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8146513E-B2AD-45AD-9707-782E81F25DCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -68,6 +76,7 @@ Global
 		{2EE57E11-6B41-4631-8D3E-21A743540A3A} = {E63C23BA-687B-4791-9542-DBF811B28EA4}
 		{093739B8-E638-43A1-B86E-A4B828913A19} = {E63C23BA-687B-4791-9542-DBF811B28EA4}
 		{D054E6A8-5C4F-4796-9C63-BF9B2D3EAA4D} = {E63C23BA-687B-4791-9542-DBF811B28EA4}
+		{8146513E-B2AD-45AD-9707-782E81F25DCD} = {59102983-191A-4DA3-8FDA-F6296B8A4B0F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {05EF33CB-DD12-4393-8854-B18BE1827E53}

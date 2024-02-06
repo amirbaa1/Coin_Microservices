@@ -9,6 +9,7 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Oedering/Ordering.API/Ordering.API.csproj", "Oedering/Ordering.API/"]
+COPY ["Basket.API/Basket.API.csproj", "Basket.API/"]
 COPY ["EventBus.Messages/EventBus.Messages.csproj", "EventBus.Messages/"]
 COPY ["Oedering/Ordering.Application/Ordering.Application.csproj", "Oedering/Ordering.Application/"]
 COPY ["Oedering/Odering.Domain/Ordering.Domain.csproj", "Oedering/Odering.Domain/"]

@@ -5,6 +5,11 @@ services:
   portainer:
     image: portainer/portainer
 
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+
+
   basketdb:
      image: redis
      ports:

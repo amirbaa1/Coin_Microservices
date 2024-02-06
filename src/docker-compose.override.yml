@@ -11,13 +11,21 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data
+ 
+  rabbitmq:
+    container_name: rabbitmq
+    restart: always
+    ports:
+       - "5672:5672"
+       - "15672:15672" 
 
+  
   basketdb:
     container_name: basketdb
     restart: always
     ports:
       - "6379:6379"
- 
+  
   orderdb:
     container_name: orderdb
     environment:
@@ -49,10 +57,12 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "CacheSettings:ConnectionString=basketdb:6379"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     ports:
       - "8002:80"
     depends_on:
       - basketdb
+      - rabbitmq
 
 
   ordering.api:
@@ -60,8 +70,10 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "ConnectionStrings:OrderingConnectionString=Server=orderdb,1433;TrustServerCertificate=True;Database=Ordering.API;User ID=sa;Password=amirB1379"
+      - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:
       - orderdb
+      - rabbitmq
     ports:
       - "8003:80"
 
