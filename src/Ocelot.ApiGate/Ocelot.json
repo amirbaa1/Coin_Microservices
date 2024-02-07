@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/coin",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "port": "7001"
+          "Host": "coin.api",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/coin",
@@ -30,11 +30,11 @@
     },
     {
       "DownstreamPathTemplate": "/coin/coin/{symbol}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "port": "7001"
+          "Host": "coin.api",
+          "Port": "80"
         }
       ],
       "UpstreamPathTemplate": "/coin/{symbol}",
@@ -43,31 +43,145 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/coin/categories",
-      "DownstreamScheme": "https",
+      "DownstreamPathTemplate": "/coin/categories", // not work !!
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "port": "7001"
+          "Host": "coin.api",
+          "Port": "80"
         }
       ],
-      "UpstreamPathTemplate": "/coin/category",
+      "UpstreamPathTemplate": "/coin/categories",
       "UpstreamHttpMethod": [
         "GET"
       ]
     },
     {
       "DownstreamPathTemplate": "/coin/categories/{id}",
-      "DownstreamScheme": "https",
+      "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "port": "7001"
+          "Host": "coin.api",
+          "Port": "80"
         }
       ],
-      "UpstreamPathTemplate": "/coin/category/{id}",
+      "UpstreamPathTemplate": "/coin/categories/{id}",
       "UpstreamHttpMethod": [
         "GET"
+      ]
+    },
+    /////////////////////////////
+    {
+      "DownstreamPathTemplate": "/basket/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket/{username}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/basket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/basket/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket/{username}",
+      "UpstreamHttpMethod": [
+        "DELETE"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/basket/BasketCheckOut",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket/BasketCheckOut",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+    //////////////////////////////////////
+    {
+      "DownstreamPathTemplate": "/api/Order/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "Ordering.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/order/{username}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Order/OrderCheckout",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "Ordering.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/order/OrderCheckout",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Order",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "Ordering.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/order",
+      "UpstreamHttpMethod": [
+        "PUT"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Order/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "Ordering.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/order/{id}",
+      "UpstreamHttpMethod": [
+        "DELETE"
       ]
     }
   ],

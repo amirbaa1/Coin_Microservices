@@ -1,0 +1,35 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Coin Market</h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Coin</th>
+                <th scope="col">Rank</th>
+                <th scope="col">Price USD</th>
+                <th scope="col">percent_change_1h</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.coinList.Data)
+            {
+                <tr>
+
+                    <td scope="row">@item.Id</td>
+                    <td scope="row">@item.Name</td>
+                    <td scope="row">@item.rank</td>
+                    <td scope="row">@item.Quote["USD"].Price</td>
+                    <td scope="row">@item.Quote["USD"].percent_change_1h</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

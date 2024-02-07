@@ -44,12 +44,12 @@ services:
     ports:
       - "8001:80"
         
-  ocelot.apigate:
-    container_name: ocelot.apigate
+  ocelot.Gateways:
+    container_name: ocelot.Gateways
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
-      - "8020:80"
+      - "8010:80"
   
     
   basket.api:

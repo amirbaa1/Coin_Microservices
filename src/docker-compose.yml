@@ -25,7 +25,7 @@ services:
       context: .
       dockerfile: Coin.API/Dockerfile
 
-  ocelot.apigate:
+  ocelot.Gateways:
     image: ocelot.apigate
     build:
       context: .
