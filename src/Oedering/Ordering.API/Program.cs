@@ -6,6 +6,9 @@ using Ordering.API.Extensions;
 using MassTransit;
 using EventBus.Messages.Common;
 using Ordering.API.EventBusConsumer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -41,6 +44,71 @@ builder.Services.AddMassTransit(config =>
 });
 //--------------------------------------------------//
 
+
+//------------ identity server ---------------//
+
+//builder.Services.AddAuthentication("bearer").AddJwtBearer("bearer", op =>
+//{
+//    op.Authority = "https://localhost:7005";// loacl identityServer
+//    op.TokenValidationParameters = new TokenValidationParameters
+//    {
+//        ValidateAudience = false,
+//    };
+//});
+
+//------------ identity ---------------//
+builder.Services.AddAuthentication("Bearer")
+    .AddJwtBearer("Bearer", options =>
+    {
+        options.Authority = "https://localhost:7015"; //  Identity.API
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey =
+           new SymmetricSecurityKey(
+               Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("TokenAuthAPI:JWTOption:Secret")!)),
+            ValidateLifetime = true,
+            ValidateIssuer = true,
+            ValidIssuer = "coin_api",
+            ValidAudience = "coin_client",
+            ClockSkew = TimeSpan.Zero,
+        };
+    });
+//--------------------------------------------//
+
+
+builder.Services.AddSwaggerGen(op =>
+{
+    op.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
+    {
+        Name = "Authorization",
+        Description = "Enter the Bearer Authorization string as following: `Bearer Generated-JWT-Token`",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer"
+    });
+    op.AddSecurityRequirement(new OpenApiSecurityRequirement
+{
+    {
+        new OpenApiSecurityScheme
+        {
+            Name = "Bearer",
+            In = ParameterLocation.Header,
+            Reference = new OpenApiReference
+            {
+                Id = "Bearer",
+                Type = ReferenceType.SecurityScheme
+            }
+        },
+        new List<string>()
+    },
+
+
+});
+    op.SwaggerDoc("v1", new OpenApiInfo { Title = "Ordering API", Version = "v1" });
+});
+
 var app = builder.Build();
 
 //app.MigrateDatabase<Program>();
@@ -59,8 +127,14 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ordering API V1");
+});
+
 app.UseHttpsRedirection();
 
+app.UseAuthentication();    
 app.UseAuthorization();
 
 app.MapControllers();

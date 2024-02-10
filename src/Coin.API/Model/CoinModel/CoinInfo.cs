@@ -14,6 +14,8 @@ public class CoinInfo
     public string Symbol { get; set; }
     [JsonProperty("slug")]
     public string slug { get; set; }
+    [JsonProperty("cmc_rank")]
+    public int cmc_rank { get; set; }
     [JsonProperty("platform")]
     public CoinPlatform? CoinPlatform { get; set; }
     [JsonProperty("quote")]

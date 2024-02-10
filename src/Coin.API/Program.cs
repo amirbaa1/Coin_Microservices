@@ -1,6 +1,7 @@
 using Coin.API.Model;
 using Coin.API.Services;
 using Microsoft.AspNetCore.Authentication.Negotiate;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,9 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<ICoinMarket, CoinMarket>();
 builder.Services.AddScoped<ApiRequestService>();
 builder.Services.Configure<GetCoin>(builder.Configuration.GetSection("KeyCOIN"));
+
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -26,6 +30,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

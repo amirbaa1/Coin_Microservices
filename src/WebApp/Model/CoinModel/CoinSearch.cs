@@ -9,6 +9,8 @@ public class CoinSearch
     public int Id { get; set; }
     [JsonProperty("name")]
     public string Name { get; set; }
+    [JsonProperty("cmc_rank")]
+    public int cmc_rank { get; set; }
     [JsonProperty("Symbol")]
     public string Symbol { get; set; }
     [JsonProperty("last_updated")]

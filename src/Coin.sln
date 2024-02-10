@@ -25,7 +25,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BuildingBus.Messages", "Bui
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventBus.Messages", "EventBus.Messages\EventBus.Messages.csproj", "{8146513E-B2AD-45AD-9707-782E81F25DCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{557B7574-3FF5-4D40-8A8C-3EB1716C0CDD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApp", "WebApp\WebApp.csproj", "{557B7574-3FF5-4D40-8A8C-3EB1716C0CDD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IdentityServer", "IdentityServer\IdentityServer.csproj", "{07C08E09-9D7D-437E-8A73-0BE611A3A566}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.API", "Identity.API\Identity.API.csproj", "{3AF2DF99-DCE5-404E-B951-55512F58ADF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +77,14 @@ Global
 		{557B7574-3FF5-4D40-8A8C-3EB1716C0CDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{557B7574-3FF5-4D40-8A8C-3EB1716C0CDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{557B7574-3FF5-4D40-8A8C-3EB1716C0CDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07C08E09-9D7D-437E-8A73-0BE611A3A566}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07C08E09-9D7D-437E-8A73-0BE611A3A566}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07C08E09-9D7D-437E-8A73-0BE611A3A566}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07C08E09-9D7D-437E-8A73-0BE611A3A566}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF2DF99-DCE5-404E-B951-55512F58ADF4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF2DF99-DCE5-404E-B951-55512F58ADF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF2DF99-DCE5-404E-B951-55512F58ADF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF2DF99-DCE5-404E-B951-55512F58ADF4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

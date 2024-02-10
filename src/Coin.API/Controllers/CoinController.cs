@@ -2,6 +2,7 @@ using Coin.API.Model;
 using Coin.API.Model.CoinModel;
 using Coin.API.Model.Response;
 using Coin.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Coin.API.Controllers;

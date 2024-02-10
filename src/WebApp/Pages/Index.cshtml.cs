@@ -15,9 +15,20 @@ namespace WebApp.Pages
             _coinService = coinService;
         }
         public CoinMarketResponse coinList { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string Symbol { get; set; }
+        public CoinSearchResponse coinSearchResponse { get; set; }
         public async Task<IActionResult> OnGetAsync()
         {
             coinList = await _coinService.GetCoinMarket();
+            return Page();
+        }
+        public async Task<IActionResult> OnPostCoinSearchAsync(string symbol)
+        {
+            if (!string.IsNullOrEmpty(Symbol))
+            {
+                coinSearchResponse = await _coinService.GetCoinBySymbol(Symbol);
+            }
             return Page();
         }
     }

@@ -3,12 +3,14 @@ using Basket.API.Model;
 using Basket.API.Services;
 using EventBus.Messages.Events;
 using MassTransit;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Basket.API.Controllers
 {
     [Route("/[Controller]")]
     [ApiController]
+    [Authorize]
     public class BasketController : Controller
     {
         private readonly IBasketService _basketService;

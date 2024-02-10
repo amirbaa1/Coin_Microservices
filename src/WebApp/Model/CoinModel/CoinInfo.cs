@@ -12,11 +12,13 @@ public class CoinInfo
     public string Name { get; set; }
     [JsonProperty("symbol")]
     public string Symbol { get; set; }
+    [JsonProperty("cmc_rank")]
+    public int cmc_rank { get; set; }
     [JsonProperty("slug")]
     public string slug { get; set; }
     [JsonProperty("platform")]
     public CoinPlatform? CoinPlatform { get; set; }
     [JsonProperty("quote")]
     public Dictionary<string, CoinUsdQuote> Quote { get; set; }
-    
+
 }
