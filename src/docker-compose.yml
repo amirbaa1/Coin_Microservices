@@ -15,9 +15,15 @@ services:
      ports:
       - "6379:6379"
     
+
   orderdb:
      image: mcr.microsoft.com/mssql/server:latest
 
+
+  identitydb:
+     image: mcr.microsoft.com/mssql/server:latest
+     ports:
+      - "1434:1433"
   ###############################     
   coin.api:
     image: coin.api
@@ -44,6 +50,12 @@ services:
       context: .
       dockerfile: Oedering/Ordering.API/Dockerfile
 
+
+  identity.api:
+    image: ${DOCKER_REGISTRY-}identityapi
+    build:
+      context: .
+      dockerfile: Identity.API/Dockerfile
 
 volumes:
     portainer_data:
