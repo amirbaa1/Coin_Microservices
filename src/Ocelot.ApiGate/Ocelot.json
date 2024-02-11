@@ -1,12 +1,204 @@
+//{
+//  "Routes": [
+//    {
+//      "DownstreamPathTemplate": "/coin",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "coin.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/coin",
+//      "UpstreamHttpMethod": [
+//        "GET"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/Coin/AllCoin",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "coin.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/coin/all",
+//      "UpstreamHttpMethod": [
+//        "GET"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/coin/coin/{symbol}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "coin.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/coin/{symbol}",
+//      "UpstreamHttpMethod": [
+//        "GET"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/coin/categories", // not work !!
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "coin.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/coin/categories",
+//      "UpstreamHttpMethod": [
+//        "GET"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/coin/categories/{id}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "coin.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/coin/categories/{id}",
+//      "UpstreamHttpMethod": [
+//        "GET"
+//      ]
+//    },
+//    /////////////////////////////
+//    {
+//      "DownstreamPathTemplate": "/basket/{username}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "basket.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/basket/{username}",
+//      "UpstreamHttpMethod": [
+//        "GET"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/basket",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "basket.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/basket",
+//      "UpstreamHttpMethod": [
+//        "POST"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/basket/{username}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "basket.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/basket/{username}",
+//      "UpstreamHttpMethod": [
+//        "DELETE"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/basket/BasketCheckOut",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "basket.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/basket/BasketCheckOut",
+//      "UpstreamHttpMethod": [
+//        "POST"
+//      ]
+//    },
+//    //////////////////////////////////////
+//    {
+//      "DownstreamPathTemplate": "/api/Order/{username}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "Ordering.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/order/{username}",
+//      "UpstreamHttpMethod": [
+//        "GET"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/Order/OrderCheckout",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "Ordering.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/order/OrderCheckout",
+//      "UpstreamHttpMethod": [
+//        "POST"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/Order",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "Ordering.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/order",
+//      "UpstreamHttpMethod": [
+//        "PUT"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/Order/{id}",
+//      "DownstreamScheme": "http",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "Ordering.api",
+//          "Port": "80"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/order/{id}",
+//      "UpstreamHttpMethod": [
+//        "DELETE"
+//      ]
+//    }
+//  ],
+//  "GlobalConfiguration": {
+//    "BaseUrl": "https//localhost:7070"
+//  }
+//}
+/////////////////////
 {
   "Routes": [
     {
       "DownstreamPathTemplate": "/coin",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "coin.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7001"
         }
       ],
       "UpstreamPathTemplate": "/coin",
@@ -16,11 +208,11 @@
     },
     {
       "DownstreamPathTemplate": "/Coin/AllCoin",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "coin.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7001"
         }
       ],
       "UpstreamPathTemplate": "/coin/all",
@@ -30,11 +222,11 @@
     },
     {
       "DownstreamPathTemplate": "/coin/coin/{symbol}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "coin.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7001"
         }
       ],
       "UpstreamPathTemplate": "/coin/{symbol}",
@@ -44,11 +236,11 @@
     },
     {
       "DownstreamPathTemplate": "/coin/categories", // not work !!
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "coin.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7001"
         }
       ],
       "UpstreamPathTemplate": "/coin/categories",
@@ -58,11 +250,11 @@
     },
     {
       "DownstreamPathTemplate": "/coin/categories/{id}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "coin.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7001"
         }
       ],
       "UpstreamPathTemplate": "/coin/categories/{id}",
@@ -73,25 +265,27 @@
     /////////////////////////////
     {
       "DownstreamPathTemplate": "/basket/{username}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "basket.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7002"
         }
       ],
       "UpstreamPathTemplate": "/basket/{username}",
       "UpstreamHttpMethod": [
         "GET"
-      ]
+      ],
+      "AuthenticationProviderKey": "IdentityApiKey",
+      "AllowedScopes": []
     },
     {
       "DownstreamPathTemplate": "/basket",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "basket.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7002"
         }
       ],
       "UpstreamPathTemplate": "/basket",
@@ -101,11 +295,11 @@
     },
     {
       "DownstreamPathTemplate": "/basket/{username}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "basket.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7002"
         }
       ],
       "UpstreamPathTemplate": "/basket/{username}",
@@ -115,11 +309,11 @@
     },
     {
       "DownstreamPathTemplate": "/basket/BasketCheckOut",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "basket.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7002"
         }
       ],
       "UpstreamPathTemplate": "/basket/BasketCheckOut",
@@ -130,25 +324,27 @@
     //////////////////////////////////////
     {
       "DownstreamPathTemplate": "/api/Order/{username}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Ordering.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7003"
         }
       ],
       "UpstreamPathTemplate": "/order/{username}",
       "UpstreamHttpMethod": [
         "GET"
-      ]
+      ],
+      "AuthenticationProviderKey": "IdentityApiKey",
+      "AllowedScopes": []
     },
     {
       "DownstreamPathTemplate": "/api/Order/OrderCheckout",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Ordering.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7003"
         }
       ],
       "UpstreamPathTemplate": "/order/OrderCheckout",
@@ -158,11 +354,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/Order",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Ordering.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7003"
         }
       ],
       "UpstreamPathTemplate": "/order",
@@ -172,11 +368,11 @@
     },
     {
       "DownstreamPathTemplate": "/api/Order/{id}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "Ordering.api",
-          "Port": "80"
+          "Host": "localhost",
+          "Port": "7003"
         }
       ],
       "UpstreamPathTemplate": "/order/{id}",
