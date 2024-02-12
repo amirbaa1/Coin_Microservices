@@ -36,10 +36,7 @@ builder.Services.AddMassTransit(config =>
     {
         cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
         cfg.ReceiveEndpoint(EventBusConstants.BasketCheckOutQueue,
-            c =>
-            {
-                c.ConfigureConsumer<BasketCheckoutConsumer>(ctx);
-            });
+            c => { c.ConfigureConsumer<BasketCheckoutConsumer>(ctx); });
     });
 });
 //--------------------------------------------------//
@@ -60,16 +57,16 @@ builder.Services.AddMassTransit(config =>
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
-        options.Authority = "https://localhost:7015"; //  Identity.API
+        // options.Authority = "https://localhost:7015"; //  Identity.API
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateAudience = true,
+            ValidateAudience = false,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey =
-           new SymmetricSecurityKey(
-               Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("TokenAuthAPI:JWTOption:Secret")!)),
+                new SymmetricSecurityKey(
+                    Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("TokenAuthAPI:JWTOption:Secret")!)),
             ValidateLifetime = true,
-            ValidateIssuer = true,
+            ValidateIssuer = false,
             ValidIssuer = "coin_api",
             ValidAudience = "coin_client",
             ClockSkew = TimeSpan.Zero,
@@ -77,7 +74,7 @@ builder.Services.AddAuthentication("Bearer")
     });
 //--------------------------------------------//
 
-
+// ------------------ swagger opt ------------------//
 builder.Services.AddSwaggerGen(op =>
 {
     op.AddSecurityDefinition(name: "Bearer", securityScheme: new OpenApiSecurityScheme
@@ -89,36 +86,36 @@ builder.Services.AddSwaggerGen(op =>
         Scheme = "Bearer"
     });
     op.AddSecurityRequirement(new OpenApiSecurityRequirement
-{
     {
-        new OpenApiSecurityScheme
         {
-            Name = "Bearer",
-            In = ParameterLocation.Header,
-            Reference = new OpenApiReference
+            new OpenApiSecurityScheme
             {
-                Id = "Bearer",
-                Type = ReferenceType.SecurityScheme
-            }
+                Name = "Bearer",
+                In = ParameterLocation.Header,
+                Reference = new OpenApiReference
+                {
+                    Id = "Bearer",
+                    Type = ReferenceType.SecurityScheme
+                }
+            },
+            new List<string>()
         },
-        new List<string>()
-    },
-
-
-});
+    });
     op.SwaggerDoc("v1", new OpenApiInfo { Title = "Ordering API", Version = "v1" });
 });
+//-----------------------------------------------//
 
 var app = builder.Build();
 
 //app.MigrateDatabase<Program>();
-app.MigrateDatabase<OrderContext>((context, services) =>
-{
-    var logger = services.GetService<ILogger<OrderContextSeed>>();
-    OrderContextSeed
-        .SeedAsync(context, logger)
-        .Wait();
-});
+// app.MigrateDatabase<OrderContext>((context, services) =>
+// {
+//     var logger = services.GetService<ILogger<OrderContextSeed>>();
+//     OrderContextSeed
+//         .SeedAsync(context, logger)
+//         .Wait();
+// });
+app.MigrateDatabase<OrderContext>();
 //Configure the HTTP request pipeline.
 
 if (app.Environment.IsDevelopment())
@@ -127,14 +124,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ordering API V1");
-});
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ordering API V1"); });
 
 app.UseHttpsRedirection();
 
-app.UseAuthentication();    
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

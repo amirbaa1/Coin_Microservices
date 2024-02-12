@@ -33,7 +33,7 @@ services:
       - ACCEPT_EULA=Y
     restart: always
     ports:
-      - "1433:1433"
+      - "1434:1433"
 
   identitydb:
     container_name: identitydb
@@ -78,7 +78,7 @@ services:
     container_name: ordering.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:OrderingConnectionString=Server=orderdb,1433;TrustServerCertificate=True;Database=Ordering.API;User ID=sa;Password=amirB1379"
+      - "ConnectionStrings:OrderingConnectionString=Server=orderdb;TrustServerCertificate=True;Database=Ordering.API;User ID=sa;Password=amirB1379"
       - "EventBusSettings:HostAddress=amqp://guest:guest@rabbitmq:5672"
     depends_on:
       - orderdb
@@ -91,7 +91,7 @@ services:
     container_name: identity.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:IdentityConnectionString=Server=identitydb,1434;TrustServerCertificate=True;Database=Identity.API;User ID=sa;Password=amirB1379"
+      - "ConnectionStrings:IdentityConnectionString=Server=identitydb;TrustServerCertificate=True;Database=Identity.API;User ID=sa;Password=amirB1379"
     depends_on:
       - identitydb
     ports:

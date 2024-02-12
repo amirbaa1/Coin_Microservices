@@ -2,13 +2,12 @@
 using Microsoft.EntityFrameworkCore;
 using Polly;
 
-namespace Ordering.API.Extensions
+namespace Identity.API.Extensions
 {
     public static class HostExtensions
     {
         public static IHost MigrateDatabase<TContext>(this IHost host,
-            Action<TContext, IServiceProvider>? seeder = null)
-            where TContext : DbContext
+            Action<TContext, IServiceProvider>? seeder = null) where TContext : DbContext
         {
             using (var scope = host.Services.CreateScope())
             {
@@ -16,6 +15,30 @@ namespace Ordering.API.Extensions
                 var logger = services.GetRequiredService<ILogger<TContext>>();
                 var context = services.GetService<TContext>();
 
+                // try
+                // {
+                //     logger.LogInformation("Migrating database associated with context {DbContextName}", typeof(TContext).Name);
+                //
+                //     var retry = Policy.Handle<SqlException>()
+                //             .WaitAndRetry(
+                //                 retryCount: 5,
+                //                 sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt)), // 2,4,8,16,32 sc
+                //                 onRetry: (exception, retryCount, context) =>
+                //                 {
+                //                     logger.LogError($"Retry {retryCount} of {context.PolicyKey} at {context.OperationKey}, due to: {exception}.");
+                //                 });
+                //
+                //     //if the sql server container is not created on run docker compose this
+                //     //migration can't fail for network related exception. The retry options for DbContext only 
+                //     //apply to transient exceptions                    
+                //     retry.Execute(() => InvokeSeeder(seeder, context, services));
+                //
+                //     logger.LogInformation("Migrated database associated with context {DbContextName}", typeof(TContext).Name);
+                // }
+                // catch (SqlException ex)
+                // {
+                //     logger.LogError(ex, "An error occurred while migrating the database used on context {DbContextName}", typeof(TContext).Name);
+                // }
                 try
                 {
                     logger.LogInformation("Migrating database associated with context {DbContextName}",
@@ -32,9 +55,6 @@ namespace Ordering.API.Extensions
                                     $"Retry {retryCount} of {context.PolicyKey} at {context.OperationKey}, due to: {exception}.");
                             });
 
-                    //if the sql server container is not created on run docker compose this
-                    //migration can't fail for network related exception. The retry options for DbContext only 
-                    //apply to transient exceptions                    
                     retry.Execute(() => InvokeSeeder(seeder, context, services));
 
                     logger.LogInformation("Migrated database associated with context {DbContextName}",
@@ -56,8 +76,9 @@ namespace Ordering.API.Extensions
             where TContext : DbContext
         {
             context.Database.Migrate();
-            // seeder(context, services);
+            // seeder?(context, services);
             seeder?.Invoke(context, services);
+
         }
     }
 }

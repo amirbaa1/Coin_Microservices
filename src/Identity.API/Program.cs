@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System;
 using System.Text;
+using Identity.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +34,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<I
     .AddDefaultTokenProviders(); // ?? AddIdentity ?? or AddIdentityApiEndpoints for Error 404 GetAPI
 //------------------------------------------//
 
+// ----------------- JWT -------------------//
 builder.Services.AddAuthentication(op =>
 {
     op.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -53,7 +54,7 @@ builder.Services.AddAuthentication(op =>
         ClockSkew = TimeSpan.Zero,
     };
 });
-
+//--------------------------------------//
 //builder.Services.AddIdentityServer().
 //    AddInMemoryClients(Config.Clients).
 //    AddInMemoryApiScopes(Config.ApiScopes).
@@ -85,6 +86,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+app.MigrateDatabase<IdentityAppdbContext>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -92,6 +94,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseIdentityServer();
 
 app.UseHttpsRedirection();

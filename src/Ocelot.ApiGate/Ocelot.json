@@ -43,7 +43,7 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/coin/categories", // not work !!
+      "DownstreamPathTemplate": "/coin/categories", // WTF !!
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {

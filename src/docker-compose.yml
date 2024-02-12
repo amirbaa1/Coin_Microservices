@@ -19,11 +19,8 @@ services:
   orderdb:
      image: mcr.microsoft.com/mssql/server:latest
 
-
   identitydb:
      image: mcr.microsoft.com/mssql/server:latest
-     ports:
-      - "1434:1433"
   ###############################     
   coin.api:
     image: coin.api

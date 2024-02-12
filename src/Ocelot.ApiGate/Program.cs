@@ -12,16 +12,16 @@ builder.Configuration.SetBasePath(builder.Environment.ContentRootPath)
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
-        options.Authority = "https://localhost:7015"; //  Identity.API
+        // options.Authority = "https://localhost:7015"; //  Identity.API
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateAudience = true,
+            ValidateAudience = false,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey =
-           new SymmetricSecurityKey(
-               Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("TokenAuthAPI:JWTOption:Secret")!)),
+                new SymmetricSecurityKey(
+                    Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("TokenAuthAPI:JWTOption:Secret")!)),
             ValidateLifetime = true,
-            ValidateIssuer = true,
+            ValidateIssuer = false,
             ValidIssuer = "coin_api",
             ValidAudience = "coin_client",
             ClockSkew = TimeSpan.Zero,

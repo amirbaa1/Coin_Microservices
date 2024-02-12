@@ -34,29 +34,25 @@ builder.Services.AddStackExchangeRedisCache(op =>
 
 builder.Services.AddMassTransit(config =>
 {
-    config.UsingRabbitMq((ctx, cfg) =>
-    {
-        cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
-    });
+    config.UsingRabbitMq((ctx, cfg) => { cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]); });
 });
 //builder.Services.AddMassTransitHostedService(typeof(Program);
-
 //--------------------------------------------//
 
 //------------ identity ---------------//
 builder.Services.AddAuthentication("Bearer")
     .AddJwtBearer("Bearer", options =>
     {
-        options.Authority = "https://localhost:7015"; //  Identity.API
+        // options.Authority = "https://localhost:7015"; //  Identity.API
         options.TokenValidationParameters = new TokenValidationParameters
         {
-            ValidateAudience = true,
+            ValidateAudience = false,
             ValidateIssuerSigningKey = true,
             IssuerSigningKey =
-           new SymmetricSecurityKey(
-               Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("TokenAuthAPI:JWTOption:Secret")!)),
+                new SymmetricSecurityKey(
+                    Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("TokenAuthAPI:JWTOption:Secret")!)),
             ValidateLifetime = true,
-            ValidateIssuer = true,
+            ValidateIssuer = false,
             ValidIssuer = "coin_api",
             ValidAudience = "coin_client",
             ClockSkew = TimeSpan.Zero,
@@ -75,23 +71,21 @@ builder.Services.AddSwaggerGen(op =>
         Scheme = "Bearer"
     });
     op.AddSecurityRequirement(new OpenApiSecurityRequirement
-{
     {
-        new OpenApiSecurityScheme
         {
-            Name = "Bearer",
-            In = ParameterLocation.Header,
-            Reference = new OpenApiReference
+            new OpenApiSecurityScheme
             {
-                Id = "Bearer",
-                Type = ReferenceType.SecurityScheme
-            }
+                Name = "Bearer",
+                In = ParameterLocation.Header,
+                Reference = new OpenApiReference
+                {
+                    Id = "Bearer",
+                    Type = ReferenceType.SecurityScheme
+                }
+            },
+            new List<string>()
         },
-        new List<string>()
-    },
-
-
-});
+    });
     op.SwaggerDoc("v1", new OpenApiInfo { Title = "Basket API", Version = "v1" });
 });
 
@@ -100,8 +94,8 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAll", builder =>
     {
         builder.AllowAnyOrigin()
-               .AllowAnyMethod()
-               .AllowAnyHeader();
+            .AllowAnyMethod()
+            .AllowAnyHeader();
     });
 });
 var app = builder.Build();
@@ -112,11 +106,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket API V1");
-});
+app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket API V1"); });
 
 
 app.UseHttpsRedirection();
