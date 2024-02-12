@@ -2,18 +2,83 @@
 @model WebApp.Pages.Account.Register
 
 @{
-    Layout = null;
 }
 
-<!DOCTYPE html>
+<h3>User Registration</h3>
+<br />
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="All"></div>
+        <div class="mb-3 row">
+            <div class="col-2">
+                <label asp-for="RegisterModel.Email"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="RegisterModel.Email" class="form-control" />
+                <span class="text-danger" asp-validation-for="RegisterModel.Email"></span>
+            </div>
+        </div>
+        @* <div class="mb-3 row">
+        <div class="col-2">
+        <label asp-for="RegisterModel.UserName"></label>
+        </div>
+        <div class="col-5">
+        <input type="text" asp-for="RegisterModel.UserName" class="form-control" />
+        <span class="text-danger" asp-validation-for="RegisterModel.UserName"></span>
+        </div>
+        </div> *@
+        <div class="mb-3 row">
+            <div class="col-2">
+                <label asp-for="RegisterModel.Password"></label>
+            </div>
+            <div class="col-5">
+                <input type="password" asp-for="RegisterModel.Password" class="form-control" />
+                <span class="text-danger" asp-validation-for="RegisterModel.Password"></span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-2">
+                <label asp-for="RegisterModel.Name"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="RegisterModel.Name" class="form-control" />
+                <span class="text-danger" asp-validation-for="RegisterModel.Name"></span>
+            </div>
+        </div>
+        <div class="mb-3 row">
+            <div class="col-2">
+                <label asp-for="RegisterModel.PhoneNumber"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="RegisterModel.PhoneNumber" class="form-control" />
+                <span class="text-danger" asp-validation-for="RegisterModel.PhoneNumber"></span>
+            </div>
+        </div>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+        @*  <div class="mb-3 row">
+        <div class="col-2">
+        <label asp-for="RegisterModel.Position"></label>
+        </div>
+        <div class="col-5">
+        <input type="text" asp-for="RegisterModel.Position" class="form-control" />
+        <span class="text-danger" asp-validation-for="RegisterModel.Position"></span>
+        </div>
+        </div> *@
+        @* <div class="mb-3 row">
+        <div class="col-2">
+        <label asp-for="RegisterModel.Department"></label>
+        </div>
+        <div class="col-5">
+        <input type="text" asp-for="RegisterModel.Department" class="form-control" />
+        <span class="text-danger" asp-validation-for="RegisterModel.Department"></span>
+        </div>
+        </div> *@
+        <div class="mb-3 row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="Register" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
 </div>
-</body>
-</html>

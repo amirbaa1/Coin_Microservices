@@ -48,8 +48,15 @@ public class AuthService : IAuthService
             var result = await _signInManager.PasswordSignInAsync(loginModel.UserName,
                 loginModel.Password,
                 isPersistent: true,
-                lockoutOnFailure: false);
+                lockoutOnFailure: true);
+            //_logger.LogInformation($"---> {loginModel.}");
+            if (!result.Succeeded)
+            {
+                // Get error details
+                var errors = result.ToString();
+                _logger.LogError($"Login failed with errors: {errors}");
 
+            }
             return result;
         }
         catch (Exception ex)
@@ -57,5 +64,10 @@ public class AuthService : IAuthService
             _logger.LogError($"Error login in code :{ex.Message}");
             throw;
         }
+    }
+
+    public async Task SginOut()
+    {
+        await _signInManager.SignOutAsync();
     }
 }

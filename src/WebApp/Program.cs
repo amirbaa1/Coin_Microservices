@@ -46,6 +46,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(op =>
 builder.Services.ConfigureApplicationCookie(op =>
 {
     op.LoginPath = "/account/login";
+    op.LogoutPath = "/account/logout";
     // op.AccessDeniedPath="/Account/AccessDenied"
 });
 //-------------------------------------//

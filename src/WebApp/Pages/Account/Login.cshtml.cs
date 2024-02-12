@@ -13,8 +13,8 @@ public class Login : PageModel
     private readonly ILogger<Login> _logger;
     private readonly SignInManager<AppUser> _signInManager;
 
-    [BindProperty] public LoginModel LoginModel { get; set; } = new LoginModel();
-    [BindProperty] public IEnumerable<AuthenticationScheme> ExternalLoginProviders { get; set; }
+    [BindProperty] public LoginModel LoginModel { get; set; }
+    //[BindProperty] public IEnumerable<AuthenticationScheme> ExternalLoginProviders { get; set; }
 
     public Login(IAuthService authService, ILogger<Login> logger, SignInManager<AppUser> signInManager)
     {
@@ -25,17 +25,28 @@ public class Login : PageModel
 
     public async void OnGetAsync()
     {
-        ExternalLoginProviders = await _signInManager.GetExternalAuthenticationSchemesAsync();
+        //ExternalLoginProviders = await _signInManager.GetExternalAuthenticationSchemesAsync();
     }
 
     public async Task<IActionResult> OnPost()
     {
-        var loginResult =await _authService.LoginAsync(LoginModel);
+        var loginResult = await _authService.LoginAsync(LoginModel);
         if (loginResult.Succeeded)
         {
             return RedirectToPage("/Index");
         }
+        else
+        {
+            if (loginResult.IsLockedOut)
+            {
+                ModelState.AddModelError("Login", "You are lockout");
+            }
+            else
+            {
 
+                ModelState.AddModelError("Login", "Failed Login");
+            }
+        }
         return Page();
     }
 }

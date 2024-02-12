@@ -21,6 +21,7 @@ services:
 
   identitydb:
      image: mcr.microsoft.com/mssql/server:latest
+
   ###############################     
   coin.api:
     image: coin.api

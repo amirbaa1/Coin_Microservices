@@ -9,4 +9,5 @@ public interface IAuthService
 {
     Task<IdentityResult> RegisterAsync(AppUser appUser, string password, Claim claim);
     Task<SignInResult> LoginAsync(LoginModel loginModel);
+    Task SginOut();
 }
