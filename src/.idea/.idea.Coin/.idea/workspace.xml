@@ -27,17 +27,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce2b7334-3c7a-4ebe-8472-c47653985fa0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Identity.API/Data/IdentitydbSeed.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Identity.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Identity.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Identity.API.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/Extensions/HostExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/Extensions/HostExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Controllers/AccountController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Data/DatadbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Extensions/HostExtensions.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Login.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Login.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Register.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Register.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_AccountPartial.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Services/Account/IAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.override.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
@@ -63,6 +67,9 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adaaa9f9bd514acb807cc59fac37248f196b0/be/86fd10c5/IdentityDbContext`1.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -78,6 +85,7 @@
     ".NET Launch Settings Profile.Basket.API: https.executor": "Run",
     ".NET Launch Settings Profile.Identity.API: https.executor": "Run",
     ".NET Launch Settings Profile.Ordering.API: https.executor": "Run",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -101,7 +109,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Ordering.API: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
     <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -413,7 +421,7 @@
       <workItem from="1707657452000" duration="248000" />
       <workItem from="1707659330058" duration="695000" />
       <workItem from="1707673346886" duration="3677000" />
-      <workItem from="1707722646200" duration="8911000" />
+      <workItem from="1707722646200" duration="17264000" />
     </task>
     <servers />
   </component>
