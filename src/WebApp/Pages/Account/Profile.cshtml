@@ -25,19 +25,25 @@
     {
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th>UserName</th>
-                <th>TotalPrice</th>
-            </tr>
+                <tr>
+                    <th>UserName</th>
+                    <th>Name Coin</th>
+                    <th>Price Coin</th>
+                    <th>Amount</th>
+                    <th>TotalPrice</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.orderModel)
-            {
-                <tr>
-                    <td>@item.UserName</td>
-                    <td>@item.TotalPrice</td>
-                </tr>
-            }
+                @foreach (var item in Model.orderModel)
+                {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td>@item.CoinName</td>
+                        <td>@item.PriceCoin</td>
+                        <td>@item.Amount</td>
+                        <td>@item.TotalPrice</td>
+                    </tr>
+                }
             </tbody>
         </table>
     }

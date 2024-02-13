@@ -31,7 +31,7 @@ builder.Services.AddDbContext<DatadbContext>(op =>
 });
 //-----------------------------------------//
 
-// -------------- cocke------------------//
+// -------------- cookie! :)) ------------------//
 builder.Services.AddIdentity<AppUser, IdentityRole>(op =>
     {
         op.Password.RequiredLength = 8;
@@ -51,8 +51,9 @@ builder.Services.ConfigureApplicationCookie(op =>
 {
     op.LoginPath = "/account/login";
     op.LogoutPath = "/account/logout";
-
     // op.AccessDeniedPath="/Account/AccessDenied"
+
+    op.ExpireTimeSpan = TimeSpan.FromMinutes(15);
 });
 //-------------------------------------//
 

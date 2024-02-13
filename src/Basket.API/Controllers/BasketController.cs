@@ -48,8 +48,15 @@ namespace Basket.API.Controllers
             {
                 return BadRequest();
             }
+
             var eventMessage = _mapper.Map<BasketCheckOutEvent>(checkOut);
+
+            eventMessage.CoinId = basket.CoinCarts.CoinId;
+            eventMessage.CoinName = basket.CoinCarts.CoinName;
+            eventMessage.Amount = basket.CoinCarts.Amount;
+            eventMessage.PriceCoin = basket.CoinCarts.PriceCoin;
             eventMessage.TotalPrice = basket.TotalPrice;
+
             await _publishEndpoint.Publish<BasketCheckOutEvent>(eventMessage);
 
             await _basketService.DeleteBasket(basket.UserName);

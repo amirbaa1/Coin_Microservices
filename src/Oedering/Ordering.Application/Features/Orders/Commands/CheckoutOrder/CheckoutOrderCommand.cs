@@ -10,6 +10,10 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
     public class CheckoutOrderCommand:IRequest<int>
     {
         public string UserName { get; set; }
+        public string CoinName { get; set; }
+        public int CoinId { get; set; }
+        public decimal PriceCoin { get; set; }
+        public decimal Amount { get; set; }
         public decimal TotalPrice { get; set; }
 
         // BillingAddress

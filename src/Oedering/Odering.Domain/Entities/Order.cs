@@ -10,6 +10,10 @@ namespace Ordering.Domain.Entities
     public class Order:EntityBase
     {
         public string UserName { get; set; }
+        public string CoinName { get; set; }
+        public int CoinId { get; set; }
+        public decimal PriceCoin { get; set; }
+        public decimal Amount { get; set; }
         public decimal TotalPrice { get; set; }
 
         // BillingAddress

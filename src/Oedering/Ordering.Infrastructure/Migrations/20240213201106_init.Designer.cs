@@ -12,7 +12,7 @@ using Ordering.Infrastructure.Persistence;
 namespace Ordering.Infrastructure.Migrations
 {
     [DbContext(typeof(OrderContext))]
-    [Migration("20240206121333_init")]
+    [Migration("20240213201106_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -37,6 +37,9 @@ namespace Ordering.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("CVV")
                         .HasColumnType("nvarchar(max)");
 
@@ -44,6 +47,13 @@ namespace Ordering.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CardNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CoinId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CoinName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
@@ -80,6 +90,9 @@ namespace Ordering.Infrastructure.Migrations
 
                     b.Property<int?>("PaymentMethod")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("PriceCoin")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("State")
                         .HasColumnType("nvarchar(max)");
