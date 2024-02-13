@@ -20,7 +20,7 @@ namespace WebApp.Pages.Account
         public async Task<IActionResult> OnPost()
         {
             // await HttpContext.SignOutAsync("MyCooki");
-            await _authService.SginOut();
+            await _authService.SignOut();
             return RedirectToPage("/index");
         }
     }

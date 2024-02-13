@@ -10,7 +10,8 @@ namespace Ordering.API.Controllers
 {
     [Route("/api/[Controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
+    [AllowAnonymous]
     public class OrderController : ControllerBase
     {
         private readonly IMediator _mediatR;

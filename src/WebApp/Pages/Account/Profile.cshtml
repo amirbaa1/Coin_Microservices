@@ -1,19 +1,48 @@
 @page
+@using WebApp.Model.OrderModel
 @model WebApp.Pages.Account.Profile
 
 @{
-    Layout = null;
 }
 
-<!DOCTYPE html>
+<h1>Profile</h1>
 
-<html>
-<head>
-    <title></title>
-</head>
-<body>
 <div>
-    
+    <dl>
+        <dt>User ID:</dt>
+        <dd>@Model.UserDto.ID</dd>
+
+        <dt>Username:</dt>
+        <dd>@Model.UserDto.Email</dd>
+
+        <dt>Email:</dt>
+        <dd>@Model.UserDto.Email</dd>
+
+    </dl>
 </div>
-</body>
-</html>
+<div>
+    @if (Model.orderModel != null)
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+            <tr>
+                <th>UserName</th>
+                <th>TotalPrice</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.orderModel)
+            {
+                <tr>
+                    <td>@item.UserName</td>
+                    <td>@item.TotalPrice</td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <p>No Orders</p>
+    }
+</div>

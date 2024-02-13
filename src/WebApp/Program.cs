@@ -10,23 +10,27 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
+// builder.Services.AddMvc()
 // ----------- services ----------------//
 builder.Services.AddHttpClient<ICoinService, CoinServeice>(client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]);
+    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
+});
+builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
 });
 builder.Services.AddScoped<IAuthService, AuthService>();
-// builder.Services.AddIdentity<AppUser, IdentityRole>()
-//     .AddEntityFrameworkStores<DatadbContext>()
-//     .AddDefaultTokenProviders();
+// builder.Services.AddLogging();
 //-------------------------------------//
+
 // ---------------Data --------------------//
 builder.Services.AddDbContext<DatadbContext>(op =>
 {
     op.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
 });
 //-----------------------------------------//
+
 // -------------- cocke------------------//
 builder.Services.AddIdentity<AppUser, IdentityRole>(op =>
     {
@@ -37,8 +41,8 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(op =>
         op.Lockout.MaxFailedAccessAttempts = 5;
         op.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
 
-        op.User.RequireUniqueEmail = true;
-        op.SignIn.RequireConfirmedEmail = true;
+        op.User.RequireUniqueEmail = false;
+        op.SignIn.RequireConfirmedEmail = false;
     })
     .AddEntityFrameworkStores<DatadbContext>()
     .AddDefaultTokenProviders();
@@ -47,6 +51,7 @@ builder.Services.ConfigureApplicationCookie(op =>
 {
     op.LoginPath = "/account/login";
     op.LogoutPath = "/account/logout";
+
     // op.AccessDeniedPath="/Account/AccessDenied"
 });
 //-------------------------------------//

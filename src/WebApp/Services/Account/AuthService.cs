@@ -1,7 +1,5 @@
 using System.Security.Claims;
-using IWebApp.Model.AccountModel;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using WebApp.Model.AccountModel;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
@@ -45,18 +43,20 @@ public class AuthService : IAuthService
     {
         try
         {
-            var result = await _signInManager.PasswordSignInAsync(loginModel.UserName,
-                loginModel.Password,
-                isPersistent: true,
-                lockoutOnFailure: true);
-            //_logger.LogInformation($"---> {loginModel.}");
+            // var result = await _signInManager.PasswordSignInAsync(loginModel.UserName,
+            //     loginModel.Password,
+            //     isPersistent: true,
+            //     lockoutOnFailure: true);
+            var result = await _signInManager.PasswordSignInAsync(loginModel.UserName, loginModel.Password,
+                false, lockoutOnFailure: false);
+            _logger.LogInformation($"---> {result}");
             if (!result.Succeeded)
             {
                 // Get error details
                 var errors = result.ToString();
                 _logger.LogError($"Login failed with errors: {errors}");
-
             }
+
             return result;
         }
         catch (Exception ex)
@@ -66,7 +66,7 @@ public class AuthService : IAuthService
         }
     }
 
-    public async Task SginOut()
+    public async Task SignOut()
     {
         await _signInManager.SignOutAsync();
     }
