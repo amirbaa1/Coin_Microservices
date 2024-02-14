@@ -16,6 +16,7 @@ namespace Basket.API.Controllers
         private readonly IBasketService _basketService;
         private readonly IMapper _mapper;
         private readonly IPublishEndpoint _publishEndpoint;
+
         public BasketController(IBasketService basketService, IMapper mapper, IPublishEndpoint publishEndpoint)
         {
             _basketService = basketService;
@@ -29,22 +30,25 @@ namespace Basket.API.Controllers
             var basket = await _basketService.GetBasket(userName);
             return Ok(basket ?? new CoinCart(userName));
         }
+
         [HttpPost]
         public async Task<IActionResult> UpdateBasket([FromBody] CoinCart coinCart)
         {
             return Ok(await _basketService.UpdateBasket(coinCart));
         }
+
         [HttpDelete("{userName}")]
         public async Task<IActionResult> DeleteBasket(string userName)
         {
             await _basketService?.DeleteBasket(userName);
-        return Ok();
+            return Ok();
         }
+
         [HttpPost("BasketCheckOut")]
-        public async Task<ActionResult> CheckOut([FromBody]CheckOut checkOut)
+        public async Task<ActionResult> CheckOut([FromBody] CheckOut checkOut)
         {
             var basket = await _basketService.GetBasket(checkOut.UserName);
-            if(basket == null)
+            if (basket == null)
             {
                 return BadRequest();
             }
@@ -56,12 +60,12 @@ namespace Basket.API.Controllers
             eventMessage.Amount = basket.CoinCarts.Amount;
             eventMessage.PriceCoin = basket.CoinCarts.PriceCoin;
             eventMessage.TotalPrice = basket.TotalPrice;
+            eventMessage.DateTime = DateTime.Now;
 
             await _publishEndpoint.Publish<BasketCheckOutEvent>(eventMessage);
 
             await _basketService.DeleteBasket(basket.UserName);
             return Accepted();
-
         }
     }
 }

@@ -17,7 +17,8 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
         private readonly IEmailService _emailService;
         private readonly ILogger<CheckoutOrderCommandHandler> _logger;
 
-        public CheckoutOrderCommandHandler(IOrderRepository orderRepository, IMapper mapper, IEmailService emailService, ILogger<CheckoutOrderCommandHandler> logger)
+        public CheckoutOrderCommandHandler(IOrderRepository orderRepository, IMapper mapper, IEmailService emailService,
+            ILogger<CheckoutOrderCommandHandler> logger)
         {
             _orderRepository = orderRepository;
             _mapper = mapper;
@@ -30,27 +31,37 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             var OrderEntity = _mapper.Map<Order>(request);
             var newOrder = await _orderRepository.AddAsync(OrderEntity);
 
-            _logger.LogInformation($"order {newOrder.Id} is successfully create.");
+            _logger.LogInformation($"order Id {newOrder.Id} is successfully create.");
             await SendMail(newOrder);
             return newOrder.Id;
         }
+
         private async Task SendMail(Order order)
         {
             var email = new Email()
             {
-                To = "amir.2002.ba@gmail.com",
+                To = order.EmailAddress,
+                From = "amir.2002.ba@gmail.com",
                 Body = "Order was Create",
                 Subject = "Order Create",
             };
             try
             {
-                await _emailService.sendEmail(email);
+                bool emailSent = await _emailService.sendEmail(email);
+                if (emailSent)
+                {
+                    await _emailService.sendEmail(email);
+                    _logger.LogInformation($"Email sent successfully for order {order.EmailAddress}.");
+                }
+                else
+                {
+                    _logger.LogError($"Failed Email sent for order {order.EmailAddress}.");
+                }
             }
             catch (Exception ex)
             {
                 _logger.LogError($"order {order.Id} error with the mail service :{ex.Message}");
             }
-
         }
     }
 }

@@ -8,6 +8,7 @@ public class OrderModel
     public decimal PriceCoin { get; set; }
     public decimal Amount { get; set; }
     public decimal TotalPrice { get; set; }
+    public DateTime? DateTime { get; set; }
 
     // BillingAddress
     public string FirstName { get; set; }

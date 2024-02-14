@@ -36,9 +36,6 @@ namespace Ordering.Infrastructure.Persistence
                     FirstName = "sw",
                     LastName="m",
                     EmailAddress="s@m.com",
-                    AddressLine = "NYC",
-                    Country="USA",
-                    State = "DefaultState",
                     TotalPrice = 360,
                 },
                 new Order
@@ -48,9 +45,6 @@ namespace Ordering.Infrastructure.Persistence
                     FirstName = "amir",
                     LastName = "ba",
                     EmailAddress="amir.2002.ba@gmail.com",
-                    AddressLine="Jant",
-                    Country = "Iran",
-                    State = "DefaultState",
                     TotalPrice = 200,
                 }
             };

@@ -1,26 +1,46 @@
 version: '3.4'
 
 services:
-
-#  portainer:
-#    image: portainer/portainer
-
-
+  
+  #  portainer:
+  #    image: portainer/portainer
+  
+  #  applicationapi:  applicationapi:
+  ##    image: applicationapi:latest
+  ##    environment:
+  ##      TZ: Asia/Tehran
+  ##    build:
+  ##      context: .
+  ##      dockerfile: src/Api/ApplicationApi/Dockerfile
+  ##    volumes:
+  ##      - /etc/timezone:/etc/timezone:ro
+  ##      - /etc/timezone:/etc/localtime:ro
+  #    image: applicationapi:latest
+  #    environment:
+  #      TZ: Asia/Tehran
+  #    build:
+  #      context: .
+  #      dockerfile: src/Api/ApplicationApi/Dockerfile
+  #    volumes:
+  #      - /etc/timezone:/etc/timezone:ro
+  #      - /etc/timezone:/etc/localtime:ro
+  
   rabbitmq:
     image: rabbitmq:3-management-alpine
 
 
   basketdb:
-     image: redis
-     ports:
+    image: redis
+    ports:
       - "6379:6379"
-    
-
+  
+  
   orderdb:
-     image: mcr.microsoft.com/mssql/server:latest
-
+    image: mcr.microsoft.com/mssql/server:latest
+  
+  
   identitydb:
-     image: mcr.microsoft.com/mssql/server:latest
+    image: mcr.microsoft.com/mssql/server:latest
 
   ###############################     
   coin.api:
@@ -44,6 +64,8 @@ services:
 
   ordering.api:
     image: ${DOCKER_REGISTRY-}orderingapi
+    environment:
+      TZ: Asia/Tehran
     build:
       context: .
       dockerfile: Oedering/Ordering.API/Dockerfile
@@ -51,9 +73,11 @@ services:
 
   identity.api:
     image: ${DOCKER_REGISTRY-}identityapi
+    environment:
+      TZ: Asia/Tehran
     build:
       context: .
       dockerfile: Identity.API/Dockerfile
 
 volumes:
-    portainer_data:
+  portainer_data:

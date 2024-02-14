@@ -12,9 +12,12 @@ services:
 #      - /var/run/docker.sock:/var/run/docker.sock
 #      - portainer_data:/data
  
+ 
   rabbitmq:
     container_name: rabbitmq
     restart: always
+    environment:
+      - "TZ: Asia/Tehran"
     ports:
        - "5672:5672"
        - "15672:15672" 

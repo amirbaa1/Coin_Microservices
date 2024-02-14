@@ -28,21 +28,27 @@
   <component name="ChangeListManager">
     <list default="true" id="ce2b7334-3c7a-4ebe-8472-c47653985fa0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/Controllers/OrderController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/Controllers/OrderController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Model/CheckOut.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Model/CheckOut.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EventBus.Messages/Events/BasketCheckOutEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EventBus.Messages/Events/BasketCheckOutEvent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Odering.Domain/Entities/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Odering.Domain/Entities/Order.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommandHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/UpdateOrder/UpdadeOrderCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/UpdateOrder/UpdadeOrderCommand.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Queries/GetOrderList/OrderVm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Queries/GetOrderList/OrderVm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Mail/EmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Mail/EmailService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Migrations/20240213201106_init.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Migrations/20240213201106_init.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Migrations/OrderContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Persistence/OrderContextSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Persistence/OrderContextSeed.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Model/OrderModel/OrderModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/OrderModel/OrderModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/LogOut.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/LogOut.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Login.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Login.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_AccountPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_AccountPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/Account/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/Account/IAuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/IOrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/IOrderService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/OrderService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/OrderService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.override.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,20 +58,20 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "assignee": "amirbaa1",
-      "author": "amirbaa1"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;assignee&quot;: &quot;amirbaa1&quot;,
+      &quot;author&quot;: &quot;amirbaa1&quot;
     }
   ],
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "amirbaa1",
-    "author": "amirbaa1"
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;amirbaa1&quot;,
+    &quot;author&quot;: &quot;amirbaa1&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -88,36 +94,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Basket.API: https.executor": "Run",
-    ".NET Launch Settings Profile.Identity.API: https.executor": "Run",
-    ".NET Launch Settings Profile.Ordering.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Ordering.API: https.executor": "Run",
-    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Basket.API: https.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Identity.API: https.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Ordering.API: http.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Ordering.API: https.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.WebApp: https.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "sqlserver.localdb",
-      "sqlserver"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;sqlserver.localdb&quot;,
+      &quot;sqlserver&quot;
     ],
-    "rider.external.source.directories": [
-      "/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
-      "/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
-      "/Users/amirba/.local/share/Symbols/src"
+    &quot;rider.external.source.directories&quot;: [
+      &quot;/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
+      &quot;/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
+      &quot;/Users/amirba/.local/share/Symbols/src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
     <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
@@ -431,7 +437,8 @@
       <workItem from="1707659330058" duration="695000" />
       <workItem from="1707673346886" duration="3677000" />
       <workItem from="1707722646200" duration="17449000" />
-      <workItem from="1707809309860" duration="14759000" />
+      <workItem from="1707809309860" duration="14876000" />
+      <workItem from="1707895703671" duration="14880000" />
     </task>
     <servers />
   </component>

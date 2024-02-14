@@ -15,7 +15,7 @@ namespace Ordering.Infrastructure.Mail
         private readonly ILogger<EmailService> _logger;
         public EmailService(IOptions<EmailSetting> options, ILogger<EmailService> logger)
         {
-            options = options;
+            _options = options;
             _logger = logger;
         }
 
@@ -24,7 +24,7 @@ namespace Ordering.Infrastructure.Mail
             try
             {
                 var message = new MailMessage(email.From, email.To, email.Subject, email.Body);
-
+                _logger.LogInformation($"Email message : {message.ToString()}");
                 using (var emailClient = new SmtpClient(_options.Value.Host, _options.Value.Port))
                 {
                     emailClient.Credentials = new NetworkCredential(_options.Value.UserNam, _options.Value.Password);
