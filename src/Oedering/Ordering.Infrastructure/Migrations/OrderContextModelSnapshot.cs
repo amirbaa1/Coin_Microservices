@@ -30,8 +30,8 @@ namespace Ordering.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("Amount")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("Amount")
+                        .HasColumnType("float");
 
                     b.Property<string>("CardName")
                         .HasColumnType("nvarchar(max)");
@@ -77,12 +77,12 @@ namespace Ordering.Infrastructure.Migrations
                     b.Property<DateTime?>("LasteModeifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("PriceCoin")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<double>("PriceCoin")
+                        .HasColumnType("float");
 
-                    b.Property<decimal>("TotalPrice")
+                    b.Property<double>("TotalPrice")
                         .HasPrecision(18, 2)
-                        .HasColumnType("decimal(18,2)");
+                        .HasColumnType("float(18)");
 
                     b.Property<string>("UserName")
                         .IsRequired()

@@ -9,11 +9,11 @@
             UserName = username;
         }
 
-        public decimal TotalPrice
+        public double TotalPrice
         {
             get
             {
-                decimal total = 0;
+                double total = 0;
                 total = CoinCarts.PriceCoin * CoinCarts.Amount;
                 return total;
             }

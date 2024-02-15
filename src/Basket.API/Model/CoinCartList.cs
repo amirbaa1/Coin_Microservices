@@ -4,8 +4,8 @@
     {
         public string CoinName { get; set; }
         public int CoinId { get; set; }
-        public decimal PriceCoin { get; set; }
-        public decimal Amount { get; set; }
+        public double PriceCoin { get; set; }
+        public double Amount { get; set; }
 
     }
 }
