@@ -9,6 +9,8 @@ using Ordering.API.EventBusConsumer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.OpenApi.Models;
+using Microsoft.Extensions.Configuration;
+using Ordering.Application.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,11 +22,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 //----------------------
-builder.Services.AddApplicationServices();
+builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddInfrastructureService(builder.Configuration);
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddScoped<BasketCheckoutConsumer>();
+builder.Services.Configure<EmailSetting>(x => builder.Configuration.GetSection("EmailSettings"));
+
 //---------------------
 
 
@@ -106,7 +110,7 @@ builder.Services.AddSwaggerGen(op =>
 //-----------------------------------------------//
 
 var app = builder.Build();
-
+//----------------------migrations db -----------------//
 //app.MigrateDatabase<Program>();
 // app.MigrateDatabase<OrderContext>((context, services) =>
 // {
@@ -116,6 +120,8 @@ var app = builder.Build();
 //         .Wait();
 // });
 app.MigrateDatabase<OrderContext>();
+// --------------------------------------------------//
+
 //Configure the HTTP request pipeline.
 
 if (app.Environment.IsDevelopment())

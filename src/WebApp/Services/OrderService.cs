@@ -15,7 +15,7 @@ public class OrderService : IOrderService
     {
         var response = await _httpClient.GetAsync($"/order/{username}");
 
-        var read = await response.Content.ReadAsStringAsync(); // error 401
+        var read = await response.Content.ReadAsStringAsync(); 
 
         if (response.IsSuccessStatusCode)
         {

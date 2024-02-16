@@ -8,9 +8,14 @@ namespace Ordering.Application.Model
 {
     public class EmailSetting
     {
-        public string Host { get; set; }
-        public int Port { get; set; }
-        public string UserNam { get; set; }
-        public string Password { get; set; }
+        //stmp email
+        //public string HOST { get; set; }
+        //public int PORT { get; set; }
+        //public string User { get; set; }
+        //public string Password { get; set; }
+        // sandGrid
+        public string ApiKey { get; set; } = "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";
+        public string FromAddress { get; set; } = "amir.2002.ba@gmail.com";
+        public string FromName { get; set; } = "Amira";
     }
 }

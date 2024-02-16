@@ -20,6 +20,7 @@ builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
 });
+//builder.Services.AddHttpClient()
 builder.Services.AddScoped<IAuthService, AuthService>();
 // builder.Services.AddLogging();
 //-------------------------------------//

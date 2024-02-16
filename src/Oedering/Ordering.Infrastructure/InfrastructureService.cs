@@ -15,10 +15,11 @@ namespace Ordering.Infrastructure
         public static IServiceCollection AddInfrastructureService(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<OrderContext>(o => o.UseSqlServer(configuration.GetConnectionString("OrderingConnectionString")));
-            services.AddScoped(typeof(IAsyncRepository<>),typeof(RepositoryBase<>));
+            services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IOrderRepository, OrderRepository>();
 
-            services.Configure<EmailSetting>(x => configuration.GetSection("EmailSettings"));
+            services.Configure<EmailSetting>(x => configuration.GetConnectionString("SandGrid"));
+
             services.AddTransient<IEmailService, EmailService>();
 
             return services;
