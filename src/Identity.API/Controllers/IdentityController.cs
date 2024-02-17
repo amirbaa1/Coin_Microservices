@@ -1,5 +1,6 @@
 ﻿using Identity.API.Model;
 using Identity.API.Services;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Identity.API.Controllers
@@ -10,12 +11,15 @@ namespace Identity.API.Controllers
     {
         private readonly IAuthService _authService;
         private readonly ResponseDto _responseDto;
+        private readonly UserManager<AppUser> _userManager;
 
-        public IdentityController(IAuthService authService, ResponseDto responseDto)
+        public IdentityController(IAuthService authService, ResponseDto responseDto, UserManager<AppUser> userManager)
         {
             _authService = authService;
             _responseDto = responseDto;
+            _userManager = userManager;
         }
+
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromBody] RegisterModel register)
         {
@@ -30,6 +34,7 @@ namespace Identity.API.Controllers
             _responseDto.Result = user;
             return Ok(_responseDto);
         }
+
         [HttpPost("Login")]
         public async Task<IActionResult> Login([FromBody] LoginModel login)
         {
@@ -43,6 +48,34 @@ namespace Identity.API.Controllers
 
             _responseDto.Result = user;
             return Ok(_responseDto);
+        }
+
+        [HttpPut("ChangePassword")]
+        public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordModel changePasswordModel)
+        {
+            var user = await _userManager.FindByEmailAsync(changePasswordModel.UserName);
+            if (user == null)
+            {
+                return NotFound("Not Found UserName");
+            }
+
+            // Ensure that the current password is correct before changing it
+            var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user, changePasswordModel.Password);
+            if (!isCurrentPasswordValid)
+            {
+                // Handle the case where the current password is not valid
+                return BadRequest();
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user, changePasswordModel.Password,
+                changePasswordModel.NewPassword);
+
+            if (result.Succeeded)
+            {
+                return Ok("Change Password.");
+            }
+
+            return BadRequest();
         }
     }
 }

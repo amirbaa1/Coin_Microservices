@@ -11,7 +11,9 @@ namespace Identity.API.Services
         private readonly UserManager<AppUser> _userManager;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly ILogger<AuthService> _logger;
-        public AuthService(IdentityAppdbContext context, UserManager<AppUser> userManager, IJwtTokenGenerator jwtTokenGenerator, ILogger<AuthService> logger)
+
+        public AuthService(IdentityAppdbContext context, UserManager<AppUser> userManager,
+            IJwtTokenGenerator jwtTokenGenerator, ILogger<AuthService> logger)
         {
             _context = context;
             _userManager = userManager;
@@ -31,6 +33,7 @@ namespace Identity.API.Services
                     Token = ""
                 };
             }
+
             var CreateToken = _jwtTokenGenerator.GeneratorToken(user);
             UserDto userDto = new UserDto
             {
@@ -44,6 +47,38 @@ namespace Identity.API.Services
                 UserDto = userDto,
                 Token = CreateToken,
             };
+        }
+
+        public async Task<ChangePasswordModel> ChangePassword(ChangePasswordModel changePasswordModel)
+        {
+            var user = await _userManager.FindByEmailAsync(changePasswordModel.UserName);
+            if (user == null)
+            {
+                return null;
+            }
+
+            // Ensure that the current password is correct before changing it
+            var isCurrentPasswordValid = await _userManager.CheckPasswordAsync(user, changePasswordModel.Password);
+            if (!isCurrentPasswordValid)
+            {
+                // Handle the case where the current password is not valid
+                return null;
+            }
+
+            var result = await _userManager.ChangePasswordAsync(user, changePasswordModel.Password,
+                changePasswordModel.NewPassword);
+
+            if (result.Succeeded)
+            {
+                return new ChangePasswordModel
+                {
+                    UserName = changePasswordModel.UserName,
+                    Password = changePasswordModel.NewPassword, // Updated to new password
+                    NewPassword = null, // Reset to null as it's no longer applicable
+                };
+            }
+
+            return null;
         }
 
         public async Task<string> Register(RegisterModel register)

@@ -27,7 +27,7 @@ public class AuthService : IAuthService
             if (result.Succeeded)
             {
                 await _userManager.AddClaimAsync(appUser, claim);
-                await _signInManager.SignInAsync(appUser, isPersistent: false);
+                // await _signInManager.SignInAsync(appUser, isPersistent: false); // kod be kod login mashavad.
             }
 
             return result;
@@ -48,7 +48,7 @@ public class AuthService : IAuthService
             //     isPersistent: true,
             //     lockoutOnFailure: true);
             var result = await _signInManager.PasswordSignInAsync(loginModel.UserName, loginModel.Password,
-                false, lockoutOnFailure: false);
+                false, lockoutOnFailure: true);
             _logger.LogInformation($"---> {result}");
             if (!result.Succeeded)
             {

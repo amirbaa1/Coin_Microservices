@@ -31,7 +31,7 @@ namespace Ordering.Infrastructure.Mail
                 {
                     emailClient.Credentials = new NetworkCredential(_EmailSettings.User, _EmailSettings.Password);
                     await emailClient.SendMailAsync(message);
-                    _logger.LogInformation($"sand Email : {email.To}");
+                    // _logger.LogInformation($"sand Email : {email.To}");
                 };
                 return true;
             }

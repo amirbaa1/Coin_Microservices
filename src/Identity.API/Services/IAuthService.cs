@@ -8,5 +8,6 @@ namespace Identity.API.Services
         Task<string> Register(RegisterModel register);
         Task<LoginResponseDto> Login(LoginModel login);
         //Task<bool> AssignRole(string email, string roleName);
+        Task<ChangePasswordModel> ChangePassword(ChangePasswordModel changePasswordModel);
     }
 }

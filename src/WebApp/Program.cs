@@ -5,6 +5,7 @@ using WebApp.Extensions;
 using WebApp.Model.AccountModel;
 using WebApp.Services;
 using WebApp.Services.Account;
+using WebApp.Services.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,6 +24,7 @@ builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
 //builder.Services.AddHttpClient()
 builder.Services.AddScoped<IAuthService, AuthService>();
 // builder.Services.AddLogging();
+builder.Services.AddScoped<IEmailService, EmailService>();
 //-------------------------------------//
 
 // ---------------Data --------------------//
@@ -43,7 +45,7 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(op =>
         op.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
 
         op.User.RequireUniqueEmail = false;
-        op.SignIn.RequireConfirmedEmail = false;
+        op.SignIn.RequireConfirmedEmail = true;
     })
     .AddEntityFrameworkStores<DatadbContext>()
     .AddDefaultTokenProviders();
