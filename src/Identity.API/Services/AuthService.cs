@@ -1,5 +1,7 @@
 ﻿using Identity.API.Data;
 using Identity.API.Model;
+using Identity.API.Model.Mail;
+using Identity.API.Services.Mail;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,14 +13,16 @@ namespace Identity.API.Services
         private readonly UserManager<AppUser> _userManager;
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly ILogger<AuthService> _logger;
+        private readonly IEmailService _emailService;
 
         public AuthService(IdentityAppdbContext context, UserManager<AppUser> userManager,
-            IJwtTokenGenerator jwtTokenGenerator, ILogger<AuthService> logger)
+            IJwtTokenGenerator jwtTokenGenerator, ILogger<AuthService> logger, IEmailService emailService)
         {
             _context = context;
             _userManager = userManager;
             _jwtTokenGenerator = jwtTokenGenerator;
             _logger = logger;
+            _emailService = emailService;
         }
 
         public async Task<LoginResponseDto> Login(LoginModel login)
@@ -106,6 +110,14 @@ namespace Identity.API.Services
                         Email = UserToReturn.Email,
                         PhoneNumber = UserToReturn.PhoneNumber
                     };
+                    Email email = new Email
+                    {
+                        To = UserToReturn.Email,
+                        Body = $"TOken",
+                        From = "amir.2002.ba@gmail.com",
+                        Subject = "Token API Active."
+                    };
+                    await _emailService.SendEmail(email);
                     return "Create Register";
                 }
                 else

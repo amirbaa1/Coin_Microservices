@@ -77,5 +77,11 @@ namespace Identity.API.Controllers
 
             return BadRequest();
         }
+        
+        [HttpPost("ActivateEmail")]
+        public async Task<IActionResult> ConfirmEmail()
+        {
+            return Ok();
+        }
     }
 }
