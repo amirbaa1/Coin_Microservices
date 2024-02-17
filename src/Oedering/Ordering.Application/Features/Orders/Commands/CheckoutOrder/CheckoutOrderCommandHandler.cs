@@ -32,7 +32,7 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             var newOrder = await _orderRepository.AddAsync(OrderEntity);
 
             _logger.LogInformation($"order Id {newOrder.Id} is successfully create.");
-            await SendMail(newOrder);
+            // await SendMail(newOrder);
             return newOrder.Id;
         }
 
@@ -41,7 +41,8 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
             var email = new Email()
             {
                 To = order.EmailAddress,
-                Body = "Order was Create",
+                Body =
+                    $"Order was Create ,name: {order.CoinName},price Coin :{order.PriceCoin},amount {order.Amount},Total Price : {order.TotalPrice}",
                 Subject = "Order Create",
             };
             try

@@ -28,27 +28,11 @@
   <component name="ChangeListManager">
     <list default="true" id="ce2b7334-3c7a-4ebe-8472-c47653985fa0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/Model/CheckOut.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Model/CheckOut.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EventBus.Messages/Events/BasketCheckOutEvent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/EventBus.Messages/Events/BasketCheckOutEvent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Odering.Domain/Entities/Order.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Odering.Domain/Entities/Order.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommandHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/CheckoutOrder/CheckoutOrderCommandHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/UpdateOrder/UpdadeOrderCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Commands/UpdateOrder/UpdadeOrderCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Queries/GetOrderList/OrderVm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Features/Orders/Queries/GetOrderList/OrderVm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Model/Email.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Model/Email.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Application/Model/EmailSetting.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Application/Model/EmailSetting.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Mail/EmailService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Mail/EmailService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Migrations/20240213201106_init.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Migrations/20240213201106_init.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Migrations/OrderContextModelSnapshot.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Persistence/OrderContextSeed.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Persistence/OrderContextSeed.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/OrderModel/OrderModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/OrderModel/OrderModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.override.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.override.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,8 +65,8 @@
     </option>
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///Users/amirba/Documents/Asp-net/mic2/Coin_Microservices/src/WebApp/Program.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adaaa9f9bd514acb807cc59fac37248f196b0/be/86fd10c5/IdentityDbContext`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/67362d87a4952aedbf5984cdac008e40a8ee0f717955e1b10401c4396a5da/EmailAddress.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -97,6 +81,7 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;.NET Launch Settings Profile.Basket.API: https.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.Coin.API: https.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.Identity.API: https.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.Ordering.API: http.executor&quot;: &quot;Run&quot;,
     &quot;.NET Launch Settings Profile.Ordering.API: https.executor&quot;: &quot;Run&quot;,
@@ -124,7 +109,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Ordering.API: https">
     <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -438,7 +423,8 @@
       <workItem from="1707673346886" duration="3677000" />
       <workItem from="1707722646200" duration="17449000" />
       <workItem from="1707809309860" duration="14876000" />
-      <workItem from="1707895703671" duration="14880000" />
+      <workItem from="1707895703671" duration="16239000" />
+      <workItem from="1708155047524" duration="2697000" />
     </task>
     <servers />
   </component>
@@ -475,6 +461,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Mail/EmailService.cs</url>
+          <line>24</line>
+          <properties documentPath="$PROJECT_DIR$/Oedering/Ordering.Infrastructure/Mail/EmailService.cs" initialLine="24" containingFunctionPresentation="Method 'sendEmail'">
+            <startOffsets>
+              <option value="697" />
+            </startOffsets>
+            <endOffsets>
+              <option value="698" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
