@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Identity.API.Extensions;
+using Identity.API.Services.Mail;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,12 +26,16 @@ builder.Services.AddScoped<IJwtTokenGenerator, JwtTokenGenerator>();
 
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ResponseDto>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 // ------------------------------------//
 
 // ---------------------Data ---------------//
-builder.Services.AddDbContext<IdentityAppdbContext>(x => x.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]));
+builder.Services.AddDbContext<IdentityAppdbContext>(x =>
+    x.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]));
 
-builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<IdentityAppdbContext>()
+builder.Services.AddIdentity<AppUser, IdentityRole>(
+        op => { op.SignIn.RequireConfirmedEmail = true; })
+    .AddEntityFrameworkStores<IdentityAppdbContext>()
     .AddDefaultTokenProviders(); // ?? AddIdentity ?? or AddIdentityApiEndpoints for Error 404 GetAPI
 //------------------------------------------//
 
@@ -65,11 +70,13 @@ builder.Services.AddAuthentication(op =>
 builder.Services.AddIdentityServer()
     .AddConfigurationStore(options =>
     {
-        options.ConfigureDbContext = b => b.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+        options.ConfigureDbContext = b =>
+            b.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
     })
     .AddOperationalStore(options =>
     {
-        options.ConfigureDbContext = bu => bu.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+        options.ConfigureDbContext = bu =>
+            bu.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
 
 
         options.EnableTokenCleanup = true;
@@ -78,7 +85,6 @@ builder.Services.AddIdentityServer()
     .AddInMemoryApiResources(Config.ApiResources)
     .AddInMemoryApiScopes(Config.ApiScopes)
     .AddAspNetIdentity<AppUser>();
-
 
 
 builder.Services.AddControllersWithViews();
@@ -104,5 +110,3 @@ app.UseAuthorization();
 
 app.MapControllers();
 app.Run();
-
-

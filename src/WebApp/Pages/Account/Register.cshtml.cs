@@ -1,11 +1,8 @@
-using System.Runtime.InteropServices.JavaScript;
 using System.Security.Claims;
 using IWebApp.Model.AccountModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using NuGet.Common;
 using WebApp.Model.AccountModel;
 using WebApp.Model.Mail;
 using WebApp.Services.Account;

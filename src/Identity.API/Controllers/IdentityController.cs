@@ -1,5 +1,7 @@
 ﻿using Identity.API.Model;
+using Identity.API.Model.Mail;
 using Identity.API.Services;
+using Identity.API.Services.Mail;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,12 +14,17 @@ namespace Identity.API.Controllers
         private readonly IAuthService _authService;
         private readonly ResponseDto _responseDto;
         private readonly UserManager<AppUser> _userManager;
+        private readonly ILogger<IdentityController> _logger;
+        private readonly IEmailService _emailService;
 
-        public IdentityController(IAuthService authService, ResponseDto responseDto, UserManager<AppUser> userManager)
+        public IdentityController(IAuthService authService, ResponseDto responseDto, UserManager<AppUser> userManager,
+            ILogger<IdentityController> logger, IEmailService emailService)
         {
             _authService = authService;
             _responseDto = responseDto;
             _userManager = userManager;
+            _logger = logger;
+            _emailService = emailService;
         }
 
         [HttpPost("Register")]
@@ -30,6 +37,7 @@ namespace Identity.API.Controllers
                 _responseDto.Message = user;
                 return BadRequest(_responseDto);
             }
+
 
             _responseDto.Result = user;
             return Ok(_responseDto);
@@ -77,11 +85,31 @@ namespace Identity.API.Controllers
 
             return BadRequest();
         }
-        
-        [HttpPost("ActivateEmail")]
-        public async Task<IActionResult> ConfirmEmail()
+
+        [HttpPost("ConfirmEmail")]
+        public async Task<IActionResult> ConfirmEmail(ConfirmEmail confirmEmail)
         {
-            return Ok();
+            var user = await _userManager.FindByEmailAsync(confirmEmail.Email);
+
+            if (user == null)
+            {
+                return NotFound("NotFound Email.");
+            }
+
+            _logger.LogInformation($"userID : {user.Id}");
+
+
+            var result = await _userManager.ConfirmEmailAsync(user, confirmEmail.Token);
+            _logger.LogInformation($"Token :{confirmEmail.Token}");
+            _logger.LogInformation($"Result : {result}");
+
+            if (!result.Succeeded)
+            {
+                return BadRequest("No active Email.");
+            }
+
+            // تایید ایمیل با موفقیت انجام شده است
+            return Ok($"Email confirmed successfully, {user}");
         }
     }
 }

@@ -38,7 +38,7 @@ namespace Identity.API.Services
                 };
             }
 
-            var CreateToken = _jwtTokenGenerator.GeneratorToken(user);
+            var createToken = _jwtTokenGenerator.GeneratorToken(user);
             UserDto userDto = new UserDto
             {
                 ID = user.Id,
@@ -49,7 +49,7 @@ namespace Identity.API.Services
             return new LoginResponseDto()
             {
                 UserDto = userDto,
-                Token = CreateToken,
+                Token = createToken,
             };
         }
 
@@ -87,7 +87,7 @@ namespace Identity.API.Services
 
         public async Task<string> Register(RegisterModel register)
         {
-            AppUser appUser = new AppUser
+            var appUser = new AppUser
             {
                 Name = register.Name,
                 UserName = register.Email,
@@ -95,29 +95,35 @@ namespace Identity.API.Services
                 PhoneNumber = register.PhoneNumber,
                 NormalizedEmail = register.Email.ToUpper(),
             };
+            
             try
             {
                 var result = await _userManager.CreateAsync(appUser, register.Password);
                 //_logger.LogInformation($"result : {result}");
                 if (result.Succeeded)
                 {
-                    var UserToReturn = _context.users.FirstOrDefault(x => x.UserName == register.Email);
-                    //_logger.LogInformation($"UserToReturn : {UserToReturn}");
-                    UserDto user = new UserDto
+                    var user = new UserDto
                     {
-                        ID = UserToReturn.Id,
-                        Name = UserToReturn.Name,
-                        Email = UserToReturn.Email,
-                        PhoneNumber = UserToReturn.PhoneNumber
+                        ID = appUser.Id,
+                        Name = appUser.Name,
+                        Email = appUser.Email,
+                        PhoneNumber = appUser.PhoneNumber
                     };
-                    Email email = new Email
+                    
+                    var createConfirmationTokenAsync = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
+                    
+                    var text = $"userId={appUser.Id}      Token={createConfirmationTokenAsync}";
+                    
+                    var email = new Email
                     {
-                        To = UserToReturn.Email,
-                        Body = $"TOken",
+                        To = user.Email,
+                        Body = text,
                         From = "amir.2002.ba@gmail.com",
-                        Subject = "Token API Active."
+                        Subject = "Active Email in API."
                     };
+                    
                     await _emailService.SendEmail(email);
+                    
                     return "Create Register";
                 }
                 else
@@ -128,9 +134,9 @@ namespace Identity.API.Services
             catch (Exception ex)
             {
                 _logger.LogError($"Error in code :{ex.Message}");
-            }
 
-            return "error";
+                return ex.Message;
+            }
         }
     }
 }
