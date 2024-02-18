@@ -1,5 +1,4 @@
 ﻿using Identity.API.Model;
-using Identity.API.Model.Mail;
 using Identity.API.Services;
 using Identity.API.Services.Mail;
 using Microsoft.AspNetCore.Identity;
@@ -37,7 +36,6 @@ namespace Identity.API.Controllers
                 _responseDto.Message = user;
                 return BadRequest(_responseDto);
             }
-
 
             _responseDto.Result = user;
             return Ok(_responseDto);
@@ -110,6 +108,29 @@ namespace Identity.API.Controllers
 
             // تایید ایمیل با موفقیت انجام شده است
             return Ok($"Email confirmed successfully, {user}");
+        }
+
+        [HttpPost("ForgetPassword")]
+        public async Task<IActionResult> ForgetPassword(string email)
+        {
+            var user = await _authService.SendPasswordResetToken(email);
+            if (user == null)
+            {
+                return NotFound("Not Found Email.");
+            }
+
+            return Ok($"send Token Change Password in {email}");
+        }
+        [HttpPost("RestPassword")]
+        public async Task<IActionResult> RestPassword(RestPassword restPassword)
+        {
+            var user = await _authService.RestPassword(restPassword);
+            if (user == null)
+            {
+                return BadRequest(user);
+            }
+
+            return Ok(user);
         }
     }
 }

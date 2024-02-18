@@ -85,6 +85,54 @@ namespace Identity.API.Services
             return null;
         }
 
+        public async Task<bool> SendPasswordResetToken(string emailUser)
+        {
+            var user = await _userManager.FindByEmailAsync(emailUser);
+            if (user == null)
+            {
+                return false;
+            }
+
+            var createToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var text = $"Token={createToken}";
+            var email = new Email
+            {
+                Body = text,
+                From = "amir.2002.ba@gmail.com",
+                To = emailUser
+            };
+            await _emailService.SendEmail(email);
+            return true;
+        }
+
+        public async Task<IdentityResult> RestPassword(RestPassword restPassword)
+        {
+            var user = await _userManager.FindByEmailAsync(restPassword.Email);
+            if (user == null)
+            {
+                return IdentityResult.Failed(new IdentityError { Description = "کاربر یافت نشد." });
+            }
+
+            if (restPassword.NewPassword != restPassword.ConfirmPassword)
+            {
+                return IdentityResult.Failed(new IdentityError()
+                {
+                    Description = "پسورد با هم برابر نیست."
+                });
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, restPassword.Token, restPassword.NewPassword);
+            if (result.Succeeded)
+            {
+                return IdentityResult.Success;
+            }
+
+            return IdentityResult.Failed(new IdentityError()
+            {
+                Description = "مشکل داره."
+            });
+        }
+
         public async Task<string> Register(RegisterModel register)
         {
             var appUser = new AppUser
@@ -95,7 +143,7 @@ namespace Identity.API.Services
                 PhoneNumber = register.PhoneNumber,
                 NormalizedEmail = register.Email.ToUpper(),
             };
-            
+
             try
             {
                 var result = await _userManager.CreateAsync(appUser, register.Password);
@@ -109,11 +157,11 @@ namespace Identity.API.Services
                         Email = appUser.Email,
                         PhoneNumber = appUser.PhoneNumber
                     };
-                    
+
                     var createConfirmationTokenAsync = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
-                    
+
                     var text = $"userId={appUser.Id}      Token={createConfirmationTokenAsync}";
-                    
+
                     var email = new Email
                     {
                         To = user.Email,
@@ -121,9 +169,9 @@ namespace Identity.API.Services
                         From = "amir.2002.ba@gmail.com",
                         Subject = "Active Email in API."
                     };
-                    
+
                     await _emailService.SendEmail(email);
-                    
+
                     return "Create Register";
                 }
                 else

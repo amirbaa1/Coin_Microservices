@@ -27,12 +27,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce2b7334-3c7a-4ebe-8472-c47653985fa0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Identity.API/Model/ConfirmEmail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Identity.API/Model/RestPassword.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Identity.API/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Controllers/IdentityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Identity.API/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Services/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Register.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Identity.API/Services/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Services/IAuthService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +86,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.Basket.API: https.executor": "Run",
     ".NET Launch Settings Profile.Coin.API: https.executor": "Run",
-    ".NET Launch Settings Profile.Identity.API: https.executor": "Debug",
+    ".NET Launch Settings Profile.Identity.API: https.executor": "Run",
     ".NET Launch Settings Profile.Ordering.API: http.executor": "Run",
     ".NET Launch Settings Profile.Ordering.API: https.executor": "Run",
     ".NET Launch Settings Profile.WebApp: https.executor": "Run",
@@ -431,7 +430,7 @@
       <workItem from="1707895703671" duration="16239000" />
       <workItem from="1708155047524" duration="14553000" />
       <workItem from="1708241963941" duration="1479000" />
-      <workItem from="1708245013816" duration="10581000" />
+      <workItem from="1708245013816" duration="14382000" />
     </task>
     <servers />
   </component>
