@@ -1,4 +1,5 @@
-﻿using Identity.API.Data;
+﻿using System.Security.Claims;
+using Identity.API.Data;
 using Identity.API.Model;
 using Identity.API.Model.Mail;
 using Identity.API.Services.Mail;
@@ -73,6 +74,9 @@ namespace Identity.API.Services
                 }
 
                 await _userManager.AddToRoleAsync(user, roleName);
+                
+                var claim = new Claim("Role", roleName);
+                
                 user.Role = roleName;
                 var result = await _userManager.UpdateAsync(user);
                 if (!result.Succeeded)
