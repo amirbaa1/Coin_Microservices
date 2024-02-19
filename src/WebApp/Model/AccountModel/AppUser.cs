@@ -2,8 +2,9 @@
 
 namespace WebApp.Model.AccountModel
 {
-    public class AppUser :IdentityUser
+    public class AppUser : IdentityUser
     {
         public string Name { get; set; }
+        public string Role { get; set; }
     }
 }

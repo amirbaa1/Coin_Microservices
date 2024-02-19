@@ -42,6 +42,8 @@ public class Profile : PageModel
         appuser = new AppUser
         {
             EmailConfirmed = userP.EmailConfirmed,
+            Name = userP.Name,
+            Role = userP.Role,
         };
 
         orderModel = await _orderService.GetOrder(userP.UserName);

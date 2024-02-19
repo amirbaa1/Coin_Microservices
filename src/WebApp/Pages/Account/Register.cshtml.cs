@@ -1,9 +1,8 @@
 using System.Security.Claims;
-using IWebApp.Model.AccountModel;
+using WebApp.Model.AccountModel;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebApp.Model.AccountModel;
 using WebApp.Model.Mail;
 using WebApp.Services.Account;
 using WebApp.Services.Mail;
@@ -41,13 +40,14 @@ public class Register : PageModel
         }
 
         var claimName = new Claim("Name", RegisterModel.Name);
-        AppUser appUser = new AppUser()
+        var appUser = new AppUser()
         {
             Name = RegisterModel.Name,
             Email = RegisterModel.Email,
             UserName = RegisterModel.Email,
             PhoneNumber = RegisterModel.PhoneNumber,
             NormalizedEmail = RegisterModel.Email.ToUpper(),
+            Role = RegisterModel.Role,
         };
         _logger.LogInformation($"User : {appUser}");
         try

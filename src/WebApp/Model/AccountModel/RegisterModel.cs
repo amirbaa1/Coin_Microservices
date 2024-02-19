@@ -1,4 +1,4 @@
-﻿namespace IWebApp.Model.AccountModel
+﻿namespace WebApp.Model.AccountModel
 {
     public class RegisterModel
     {
@@ -6,6 +6,6 @@
         public string Name { get; set; }
         public string PhoneNumber { get; set; }
         public string Password { get; set; }
-        public string? Role { get; set; }
+        public string Role { get; set; } = "V1";
     }
 }

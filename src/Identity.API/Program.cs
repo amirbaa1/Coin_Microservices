@@ -38,6 +38,12 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(
     .AddEntityFrameworkStores<IdentityAppdbContext>()
     .AddDefaultTokenProviders();
 // ?? AddIdentity ?? or AddIdentityApiEndpoints for Error 404 GetAPI
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("Admin", policy =>
+        policy.RequireRole("Admin"));
+});
 //------------------------------------------//
 
 // ----------------- JWT -------------------//

@@ -6,7 +6,10 @@
 }
 
 <h1>Profile</h1>
-
+@if (User.IsInRole("Admin"))
+{
+    <a asp-page="/account/admin/panel">Panel</a>
+}
 <div>
     <dl>
         <dt>User ID:</dt>
@@ -14,12 +17,18 @@
 
         <dt>Username:</dt>
         <dd>@Model.UserDto.Email</dd>
+        
+        <dt>Name: </dt>
+        <dd>@Model.appuser.Name</dd>
 
         <dt>Email:</dt>
         <dd>@Model.UserDto.Email</dd>
 
         <dt>Status Email Confirmed: </dt>
         <dd>@Model.appuser.EmailConfirmed</dd>
+
+        <dt>Status Role: </dt>
+        <dd>@Model.appuser.Role</dd>
     </dl>
 </div>
 <div>
@@ -50,7 +59,7 @@
                     <td>@item.CardName</td>
                     <td>@item.CardNumber</td>
                     <td>@item.DateTime?.ToString("M/d/yyyy HH:mm:ss")</td>
-                    </tr>
+                </tr>
             }
             </tbody>
         </table>

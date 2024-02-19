@@ -27,15 +27,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce2b7334-3c7a-4ebe-8472-c47653985fa0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Identity.API/Model/AssignRole.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/AccessDenied.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/AccessDenied.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/panel.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/panel.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Controllers/IdentityController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Migrations/IdentityAppdbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Migrations/IdentityAppdbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Model/AppUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Model/AppUser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Model/RegisterModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Model/RegisterModel.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Identity.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Services/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Identity.API/Services/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Services/IAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Identity.API/Services/JwtTokenGenerator.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Services/JwtTokenGenerator.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Model/AccountModel/AppUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/AccountModel/AppUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Model/AccountModel/RegisterModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/AccountModel/RegisterModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Model/AccountModel/UserDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/AccountModel/UserDto.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Register.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Register.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_AccountPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_AccountPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +124,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Identity.API: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
     <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -435,7 +442,7 @@
       <workItem from="1708155047524" duration="14553000" />
       <workItem from="1708241963941" duration="1479000" />
       <workItem from="1708245013816" duration="15043000" />
-      <workItem from="1708327623933" duration="6592000" />
+      <workItem from="1708327623933" duration="13670000" />
     </task>
     <servers />
   </component>

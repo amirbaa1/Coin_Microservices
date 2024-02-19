@@ -18,28 +18,28 @@ namespace Identity.API.Services
 
         public string GeneratorToken(AppUser appUser)
         {
-            var TokenHandler = new JwtSecurityTokenHandler();
+            var tokenHandler = new JwtSecurityTokenHandler();
             var key = Encoding.ASCII.GetBytes(_jwtOption.Secret);
 
             var claim = new List<Claim>
             {
                 new Claim(JwtRegisteredClaimNames.Name, appUser.Name),
-                new Claim(JwtRegisteredClaimNames.Name,appUser.UserName),
-                new Claim(JwtRegisteredClaimNames.Email,appUser.Email),
+                new Claim(JwtRegisteredClaimNames.Name, appUser.UserName),
+                new Claim(JwtRegisteredClaimNames.Email, appUser.Email),
                 new Claim(JwtRegisteredClaimNames.Sub, appUser.Id),
-
             };
 
-            var TokenDescription = new SecurityTokenDescriptor
+            var tokenDescription = new SecurityTokenDescriptor
             {
                 Audience = _jwtOption.Audience,
                 Issuer = _jwtOption.Issuer,
                 Subject = new ClaimsIdentity(claim),
                 Expires = DateTime.Now.AddMinutes(10),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
+                SigningCredentials =
+                    new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
             };
-            var Token = TokenHandler.CreateToken(TokenDescription);
-            return TokenHandler.WriteToken(Token);
+            var token = tokenHandler.CreateToken(tokenDescription);
+            return tokenHandler.WriteToken(token);
         }
     }
 }

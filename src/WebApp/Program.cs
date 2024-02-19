@@ -54,9 +54,15 @@ builder.Services.ConfigureApplicationCookie(op =>
 {
     op.LoginPath = "/account/login";
     op.LogoutPath = "/account/logout";
-    // op.AccessDeniedPath="/Account/AccessDenied"
+    op.AccessDeniedPath = "/Account/AccessDenied";
 
     op.ExpireTimeSpan = TimeSpan.FromMinutes(15);
+});
+
+builder.Services.AddAuthorization(opt =>
+{
+    opt.AddPolicy("Admin", policy =>
+        policy.RequireRole("Admin"));
 });
 //-------------------------------------//
 
