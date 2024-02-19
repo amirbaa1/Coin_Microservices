@@ -14,15 +14,18 @@ namespace Identity.API.Services
         private readonly IJwtTokenGenerator _jwtTokenGenerator;
         private readonly ILogger<AuthService> _logger;
         private readonly IEmailService _emailService;
+        private readonly RoleManager<IdentityRole> _roleManager;
 
         public AuthService(IdentityAppdbContext context, UserManager<AppUser> userManager,
-            IJwtTokenGenerator jwtTokenGenerator, ILogger<AuthService> logger, IEmailService emailService)
+            IJwtTokenGenerator jwtTokenGenerator, ILogger<AuthService> logger, IEmailService emailService,
+            RoleManager<IdentityRole> roleManager)
         {
             _context = context;
             _userManager = userManager;
             _jwtTokenGenerator = jwtTokenGenerator;
             _logger = logger;
             _emailService = emailService;
+            _roleManager = roleManager;
         }
 
         public async Task<LoginResponseDto> Login(LoginModel login)
@@ -39,18 +42,46 @@ namespace Identity.API.Services
             }
 
             var createToken = _jwtTokenGenerator.GeneratorToken(user);
-            UserDto userDto = new UserDto
+            var userDto = new UserDto
             {
                 ID = user.Id,
                 Name = user.Name,
                 Email = user.Email,
-                PhoneNumber = user.PhoneNumber
+                PhoneNumber = user.PhoneNumber,
+                Role = user.Role,
             };
             return new LoginResponseDto()
             {
                 UserDto = userDto,
                 Token = createToken,
             };
+        }
+
+        public async Task<bool> AssignRole(string email, string roleName)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return false;
+            }
+            
+            else
+            {
+                if (!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
+                {
+                    await _roleManager.CreateAsync(new IdentityRole(roleName));
+                }
+
+                await _userManager.AddToRoleAsync(user, roleName);
+                user.Role = roleName;
+                var result = await _userManager.UpdateAsync(user);
+                if (!result.Succeeded)
+                {
+                    return false;
+                }
+
+                return true;
+            }
         }
 
         public async Task<ChangePasswordModel> ChangePassword(ChangePasswordModel changePasswordModel)
@@ -142,6 +173,7 @@ namespace Identity.API.Services
                 Email = register.Email,
                 PhoneNumber = register.PhoneNumber,
                 NormalizedEmail = register.Email.ToUpper(),
+                Role = string.IsNullOrEmpty(register.Role) ? "V1" : register.Role,
             };
 
             try
@@ -155,7 +187,7 @@ namespace Identity.API.Services
                         ID = appUser.Id,
                         Name = appUser.Name,
                         Email = appUser.Email,
-                        PhoneNumber = appUser.PhoneNumber
+                        PhoneNumber = appUser.PhoneNumber,
                     };
 
                     var createConfirmationTokenAsync = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
@@ -170,7 +202,7 @@ namespace Identity.API.Services
                         Subject = "Active Email in API."
                     };
 
-                    await _emailService.SendEmail(email);
+                    // await _emailService.SendEmail(email);
 
                     return "Create Register";
                 }

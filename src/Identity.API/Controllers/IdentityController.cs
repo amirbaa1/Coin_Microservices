@@ -121,6 +121,7 @@ namespace Identity.API.Controllers
 
             return Ok($"send Token Change Password in {email}");
         }
+
         [HttpPost("RestPassword")]
         public async Task<IActionResult> RestPassword(RestPassword restPassword)
         {
@@ -131,6 +132,18 @@ namespace Identity.API.Controllers
             }
 
             return Ok(user);
+        }
+
+        [HttpPost("AssignRole")]
+        public async Task<IActionResult> AssignRole([FromBody] AssignRole assignRole)
+        {
+            var addRole = await _authService.AssignRole(assignRole.Email, assignRole.NameRole);
+            if (addRole == null)
+            {
+                return BadRequest(addRole);
+            }
+
+            return Ok(addRole);
         }
     }
 }

@@ -27,9 +27,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce2b7334-3c7a-4ebe-8472-c47653985fa0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Identity.API/Model/RestPassword.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Identity.API/Model/AssignRole.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Identity.API/Controllers/IdentityController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Controllers/IdentityController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Identity.API/Migrations/IdentityAppdbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Migrations/IdentityAppdbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Identity.API/Model/AppUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Model/AppUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Identity.API/Model/RegisterModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Model/RegisterModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Identity.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Identity.API/Services/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Services/AuthService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Identity.API/Services/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Identity.API/Services/IAuthService.cs" afterDir="false" />
     </list>
@@ -430,7 +434,8 @@
       <workItem from="1707895703671" duration="16239000" />
       <workItem from="1708155047524" duration="14553000" />
       <workItem from="1708241963941" duration="1479000" />
-      <workItem from="1708245013816" duration="14382000" />
+      <workItem from="1708245013816" duration="15043000" />
+      <workItem from="1708327623933" duration="6592000" />
     </task>
     <servers />
   </component>
@@ -480,6 +485,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Identity.API/Services/AuthService.cs</url>
+          <line>60</line>
+          <properties documentPath="$PROJECT_DIR$/Identity.API/Services/AuthService.cs" initialLine="60" containingFunctionPresentation="Method 'AssignRole'">
+            <startOffsets>
+              <option value="2191" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2192" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

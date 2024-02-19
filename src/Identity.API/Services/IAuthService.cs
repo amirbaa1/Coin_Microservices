@@ -10,7 +10,7 @@ namespace Identity.API.Services
 
         Task<LoginResponseDto> Login(LoginModel login);
 
-        //Task<bool> AssignRole(string email, string roleName);
+        Task<bool> AssignRole(string email, string roleName);
         Task<ChangePasswordModel> ChangePassword(ChangePasswordModel changePasswordModel);
         Task<bool> SendPasswordResetToken(string email);
         Task<IdentityResult> RestPassword(RestPassword restPassword);

@@ -36,7 +36,8 @@ builder.Services.AddDbContext<IdentityAppdbContext>(x =>
 builder.Services.AddIdentity<AppUser, IdentityRole>(
         op => { op.SignIn.RequireConfirmedEmail = true; })
     .AddEntityFrameworkStores<IdentityAppdbContext>()
-    .AddDefaultTokenProviders(); // ?? AddIdentity ?? or AddIdentityApiEndpoints for Error 404 GetAPI
+    .AddDefaultTokenProviders();
+// ?? AddIdentity ?? or AddIdentityApiEndpoints for Error 404 GetAPI
 //------------------------------------------//
 
 // ----------------- JWT -------------------//
