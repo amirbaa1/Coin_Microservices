@@ -8,12 +8,12 @@ using WebApp.Services.Account;
 namespace WebApp.Pages.Account.Admin;
 
 [Authorize(Policy = "Admin")]
-public class panel : PageModel
+public class Panel : PageModel
 {
     private readonly DatadbContext _context;
     public List<AppUser> AppUsers { get; set; } = new List<AppUser>();
 
-    public panel(DatadbContext context)
+    public Panel(DatadbContext context)
     {
         _context = context;
     }

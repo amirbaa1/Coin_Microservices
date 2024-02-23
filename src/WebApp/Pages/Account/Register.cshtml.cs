@@ -39,7 +39,7 @@ public class Register : PageModel
             return Page();
         }
 
-        var claimName = new Claim("Name", RegisterModel.Name);
+        var claimRole= new Claim("RoleAccount", RegisterModel.Role);
         var appUser = new AppUser()
         {
             Name = RegisterModel.Name,
@@ -52,7 +52,7 @@ public class Register : PageModel
         _logger.LogInformation($"User : {appUser}");
         try
         {
-            var result = await _authService.RegisterAsync(appUser, RegisterModel.Password, claimName);
+            var result = await _authService.RegisterAsync(appUser, RegisterModel.Password, claimRole);
             if (result.Succeeded)
             {
                 var confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);

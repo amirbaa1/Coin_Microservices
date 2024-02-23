@@ -1,8 +1,18 @@
-@page
+﻿@page
 @model WebApp.Pages.Account.RegisterConfirmation
 
 @{
 }
 <p>
     @Model.Message
+
+    @if (Model.Message == "Failed to validate email.")
+    {
+        <p>
+            ایمیل تأیید نشده است. یک ایمیل جدید حاوی لینک فعال‌سازی ارسال می‌شود.
+        </p>
+        <form method="post">
+            <button type="submit">ارسال مجدد ایمیل تأیید</button>
+    </form>
+    }
 </p>

@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
@@ -62,8 +63,10 @@ builder.Services.ConfigureApplicationCookie(op =>
 builder.Services.AddAuthorization(opt =>
 {
     opt.AddPolicy("Admin", policy =>
-        policy.RequireRole("Admin"));
+        //policy.RequireRole("V1"));
+        policy.RequireClaim("RoleAccount", "Admin"));
 });
+
 //-------------------------------------//
 
 var app = builder.Build();

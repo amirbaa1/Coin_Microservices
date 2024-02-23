@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using WebApp.Model.AccountModel;
@@ -28,12 +28,29 @@ public class RegisterConfirmation : PageModel
             var result = await _userManager.ConfirmEmailAsync(user, token);
             if (result.Succeeded)
             {
-                Message = "Email address is successfully confirmed, you can now try to login.";
+                Message = "ادرس ایمیل شما تایید شد لطفا دوباره وارد شوید.";
                 return Page();
             }
         }
 
         Message = "Failed to validate email.";
         return Page();
+    }
+    public async Task<IActionResult> OnPost(string userId)
+    {
+        var userEmail = await _userManager.FindByIdAsync(userId);
+        var confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(userEmail);
+        var confirmationLink = Url.PageLink(pageName: "/Account/RegisterConfirmation",
+                   values: new { userId = userEmail.Id, token = confirmationToken }) ?? "";
+
+        var email = new Email()
+        {
+            To = userEmail.Email!,
+            Body = $"confirmEmail : {confirmationLink}",
+            Subject = "Confirm Email CoinMarket",
+        };
+        await _emailService.SendEmail(email);
+        return RedirectToPage("/account/login");
+
     }
 }

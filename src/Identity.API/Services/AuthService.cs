@@ -60,31 +60,80 @@ namespace Identity.API.Services
 
         public async Task<bool> AssignRole(string email, string roleName)
         {
+            // Create Role with IdentityRole
+
+            //    var user = await _userManager.FindByEmailAsync(email);
+            //    if (user == null)
+            //    {
+            //        return false;
+            //    }
+
+            //    else
+            //    {
+            //        if (!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
+            //        {
+            //            await _roleManager.CreateAsync(new IdentityRole(roleName));
+            //        }
+
+            //        await _userManager.AddToRoleAsync(user, roleName);
+
+            //        var claim = new Claim("Role", roleName);
+
+            //        user.Role = roleName;
+            //        var result = await _userManager.UpdateAsync(user);
+            //        if (!result.Succeeded)
+            //        {
+            //            return false;
+            //        }
+
+            //        return true;
+            //    }
+
+
+            // Create Role with Claim
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
                 return false;
             }
-            
+            if (!string.IsNullOrEmpty(user.Role)) // if user have role
+            {
+                var oldClaimRole = (await _userManager.GetClaimsAsync(user)).FirstOrDefault(c => c.Type == "RoleAccount");
+                if (oldClaimRole != null)
+                {
+                    var Remove = await _userManager.RemoveClaimAsync(user, oldClaimRole);
+                    if (!Remove.Succeeded)
+                    {
+                        return false;
+                    }
+
+                }
+                var newClaim = new Claim("RoleAccount", roleName);
+
+                user.Role = roleName;
+                await _userManager.UpdateAsync(user);
+
+                var resultUpdate = await _userManager.AddClaimAsync(user, newClaim);
+
+                if (resultUpdate.Succeeded)
+                {
+                    return true;
+                }
+                return false;
+            }
             else
             {
-                if (!_roleManager.RoleExistsAsync(roleName).GetAwaiter().GetResult())
-                {
-                    await _roleManager.CreateAsync(new IdentityRole(roleName));
-                }
+                var claim = new Claim("RoleAccount", roleName);
+                var result = await _userManager.AddClaimAsync(user, claim);
 
-                await _userManager.AddToRoleAsync(user, roleName);
-                
-                var claim = new Claim("Role", roleName);
-                
                 user.Role = roleName;
-                var result = await _userManager.UpdateAsync(user);
-                if (!result.Succeeded)
-                {
-                    return false;
-                }
+                await _userManager.UpdateAsync(user);
 
-                return true;
+                if (result.Succeeded)
+                {
+                    return true;
+                }
+                return false;
             }
         }
 
