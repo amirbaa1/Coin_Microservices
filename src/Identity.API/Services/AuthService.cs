@@ -92,6 +92,7 @@ namespace Identity.API.Services
 
             // Create Role with Claim
             var user = await _userManager.FindByEmailAsync(email);
+            
             if (user == null)
             {
                 return false;
@@ -117,6 +118,7 @@ namespace Identity.API.Services
 
                 if (resultUpdate.Succeeded)
                 {
+                    //var userRole = await _roleManager
                     return true;
                 }
                 return false;

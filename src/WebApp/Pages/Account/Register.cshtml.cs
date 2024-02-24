@@ -25,7 +25,7 @@ public class Register : PageModel
         _emailService = emailService;
     }
 
-    [BindProperty] public RegisterModel RegisterModel { get; set; } = new RegisterModel();
+    [BindProperty] public RegisterModel registerModel { get; set; } = new RegisterModel();
 
     public void OnGet()
     {
@@ -39,23 +39,29 @@ public class Register : PageModel
             return Page();
         }
 
-        var claimRole= new Claim("RoleAccount", RegisterModel.Role);
         var appUser = new AppUser()
         {
-            Name = RegisterModel.Name,
-            Email = RegisterModel.Email,
-            UserName = RegisterModel.Email,
-            PhoneNumber = RegisterModel.PhoneNumber,
-            NormalizedEmail = RegisterModel.Email.ToUpper(),
-            Role = RegisterModel.Role,
+            Name = registerModel.Name,
+            Email = registerModel.Email,
+            UserName = registerModel.Email,
+            PhoneNumber = registerModel.PhoneNumber,
+            NormalizedEmail = registerModel.Email.ToUpper(),
+            Role = registerModel.Role,
         };
-        _logger.LogInformation($"User : {appUser}");
+
+        //create role 
+
+        var claimRole = new Claim("AccountRole", "V1");
+
+        //_logger.LogInformation($"User : {appUser}");
         try
         {
-            var result = await _authService.RegisterAsync(appUser, RegisterModel.Password, claimRole);
+            var result = await _authService.RegisterAsync(appUser, registerModel.Password, claimRole);
+
             if (result.Succeeded)
             {
                 var confirmationToken = await _userManager.GenerateEmailConfirmationTokenAsync(appUser);
+
                 // return Redirect(Url.PageLink(pageName: "/account/RegisterConfirmation",
                 //     values: new { userId = appUser.Id, token = confirmationToken }) ?? "");
 
@@ -71,7 +77,7 @@ public class Register : PageModel
                     Body = $"confirmEmail : {confirmationLink}",
                     Subject = "Confirm Email CoinMarket",
                 };
-                await _emailService.SendEmail(email);
+                //await _emailService.SendEmail(email);
 
                 return RedirectToPage("/Account/Login");
                 // return RedirectToPage("/Index");
