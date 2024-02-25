@@ -23,4 +23,8 @@ public class Panel : PageModel
     {
         AppUsers = await _context.Users.ToListAsync();
     }
+    public void OnPost(string userId)
+    {
+
+    }
 }
