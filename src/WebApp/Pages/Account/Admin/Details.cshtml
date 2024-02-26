@@ -6,34 +6,50 @@
     ViewData["Title"] = "User Details";
 }
 
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["error"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
+else
+{
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        @TempData["success"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+}
 <h1>User Details</h1>
 
-@if (Model.appUser != null)
+@if (Model.EditAdmins != null)
 {
     <dl>
         <dt>User ID:</dt>
-        <dd>@Model.appUser.Id</dd>
+        <dd>@Model.EditAdmins.Id</dd>
 
         <dt>Username:</dt>
-        <dd>@Model.appUser.Email</dd>
+        <dd>@Model.EditAdmins.Email</dd>
 
-        <dt>Name: </dt>
-        <dd>@Model.appUser.Name</dd>
+        @* <dt>Name: </dt> *@
+        @* <dd>@Model.EditAdmins.Name</dd> *@
 
         <dt>Email:</dt>
-        <dd>@Model.appUser.Email</dd>
+        <dd>@Model.EditAdmins.Email</dd>
 
         <dt>Status Email Confirmed: </dt>
-        <dd>@Model.appUser.EmailConfirmed</dd>
+        <dd>@(Model.EditAdmins != null ? Model.EditAdmins.EmailActive : "N/A")</dd>
+
         <form method="post">
-        <dt>Status Role: </dt>
-        <dd>@Model.appUser.Role</dd>
+            <dt>Status Role: </dt>
+            <dd>@(Model.EditAdmins != null ? Model.EditAdmins.Role : "N/A")</dd>
 
-        <input asp-for="appUser.Role" class="form-control">
+            <input asp-for="appUser.Role" class="form-control">
 
+                    <input type="hidden" asp-for="@Model.EditAdmins.Id" />
 
-        <a asp-page="/account/admin/panel" class="btn btn-dark ml-2">Back</a>
-        <button class="btn btn-success" type="submit">Update</button>
+            <a asp-page="/account/admin/panel" class="btn btn-dark ml-2">Back</a>
+            <button class="btn btn-success" type="submit">Update</button>
 
         </form>
     </dl>

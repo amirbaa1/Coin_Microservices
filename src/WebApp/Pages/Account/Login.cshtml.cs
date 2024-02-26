@@ -26,8 +26,10 @@ public class Login : PageModel
 
     public async void OnGetAsync()
     {
-        //ExternalLoginProviders = await _signInManager.GetExternalAuthenticationSchemesAsync();
-    }
+        if (TempData.TryGetValue("changePass", out var changePassMessage))
+        {
+            ViewData["ChangePasswordMessage"] = changePassMessage.ToString();
+        }    }
 
     public async Task<IActionResult> OnPost()
     {

@@ -10,4 +10,5 @@ public interface IAuthService
 
     Task<SignInResult> LoginAsync(LoginModel loginModel);
     Task SignOut();
+    Task<string> SendPasswordResetToken(string emailUser);
 }

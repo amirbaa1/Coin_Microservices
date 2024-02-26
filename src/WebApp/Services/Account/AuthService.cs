@@ -1,6 +1,8 @@
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using WebApp.Model.AccountModel;
+using WebApp.Model.Mail;
 using WebApp.Services.Mail;
 using SignInResult = Microsoft.AspNetCore.Identity.SignInResult;
 
@@ -30,7 +32,7 @@ public class AuthService : IAuthService
             if (result.Succeeded)
             {
                 await _userManager.AddClaimAsync(appUser, claim);
-                
+
 
                 // await _signInManager.SignInAsync(appUser, isPersistent: false); // kod be kod login mashavad.
             }
@@ -76,4 +78,16 @@ public class AuthService : IAuthService
         await _signInManager.SignOutAsync();
     }
 
+    public async Task<string> SendPasswordResetToken(string emailUser)
+    {
+        var user = await _userManager.FindByEmailAsync(emailUser);
+        if (user == null)
+        {
+            throw new ("User not found");
+            
+        }
+        var createToken = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+        return createToken;
+    }
 }

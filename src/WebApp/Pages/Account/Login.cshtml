@@ -7,6 +7,12 @@
 
 <h3>User Login</h3>
 <br/>
+<div>
+    @if (ViewData["ChangePasswordMessage"] != null)
+    {
+        <p>@ViewData["ChangePasswordMessage"]</p>
+    }
+</div>
 <div class="container border" style="padding:20px">
     <form method="post">
         <div class="text-danger" asp-validation-summary="All"></div>
@@ -44,6 +50,9 @@
             </div>
             <div class="col-5">
                 <a class="btn btn-link" href="/Account/Register">Sign Up</a>
+            </div>
+            <div class="col-5">
+                <a class="btn btn-link" href="/Account/ForgetPassword">Forget Pass</a>
             </div>
         </div>
         <br/>
