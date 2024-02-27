@@ -9,26 +9,41 @@ namespace WebApp.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly ICoinService _coinService;
+
         public IndexModel(ILogger<IndexModel> logger, ICoinService coinService)
         {
             _logger = logger;
             _coinService = coinService;
         }
+
         public CoinMarketResponse coinList { get; set; }
-        [BindProperty(SupportsGet = true)]
-        public string Symbol { get; set; }
+        [BindProperty(SupportsGet = true)] public string Symbol { get; set; }
         public CoinSearchResponse coinSearchResponse { get; set; }
+        [BindProperty] public CoinDetResponse CoinDetResponse { get; set; }
+
         public async Task<IActionResult> OnGetAsync()
         {
             coinList = await _coinService.GetCoinMarket();
             return Page();
         }
+
         public async Task<IActionResult> OnPostCoinSearchAsync(string symbol)
         {
             if (!string.IsNullOrEmpty(Symbol))
             {
                 coinSearchResponse = await _coinService.GetCoinBySymbol(Symbol);
             }
+
+            return Page();
+        }
+
+        public async Task<IActionResult> OnPostCoinName(string coinName)
+        {
+            if (!string.IsNullOrEmpty(coinName))
+            {
+                CoinDetResponse = await _coinService.GetCoinBySymbolDet(coinName);
+            }
+
             return Page();
         }
     }

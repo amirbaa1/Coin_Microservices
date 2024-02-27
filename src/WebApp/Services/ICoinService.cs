@@ -7,5 +7,6 @@ namespace WebApp.Services
         Task<CoinMarketResponse> GetCoinMarket();
         Task<CoinSearchResponse> GetCoinBySymbol(string symbol);
         Task<CoinCategoryResponse> GetCoinCate();
+        Task<CoinDetResponse> GetCoinBySymbolDet(string symbol);
     }
 }

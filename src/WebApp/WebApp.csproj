@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Coin.API\Coin.API.csproj" />
+<!--    <ProjectReference Include="..\Coin.API\Coin.API.csproj" />-->
   </ItemGroup>
 
 </Project>

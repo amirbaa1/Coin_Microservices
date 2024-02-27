@@ -40,6 +40,20 @@ namespace WebApp.Services
             }
         }
 
+        public async Task<CoinDetResponse> GetCoinBySymbolDet(string symbol)
+        {
+            var response = await _httpClient.GetAsync($"/coin/{symbol}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<CoinDetResponse>(content)!;
+            }
+            else
+            {
+                throw new Exception("Something went wrong when calling api.!");
+            }
+        }
+
         public async Task<CoinMarketResponse> GetCoinMarket()
         {
             var response = await _httpClient.GetAsync("/coin/all");

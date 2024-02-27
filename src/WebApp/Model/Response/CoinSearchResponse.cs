@@ -1,5 +1,5 @@
-using Coin.API.Model.CoinModel;
 using Newtonsoft.Json;
+using WebApp.Model.CoinModel;
 
 namespace WebApp.Model.Response;
 

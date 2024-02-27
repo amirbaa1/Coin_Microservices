@@ -10,7 +10,7 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" asp-for="Symbol">
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
-    
+
     @if (Model.coinList != null && Model.coinList.Data != null)
     {
         <p>@Model.coinList.CoinStatus.TimesTamp</p>
@@ -22,6 +22,7 @@
                 <th scope="col">Price USD</th>
                 <th scope="col">percent_change_1h</th>
                 <th scope="col">percent_change_24h</th>
+                <th scope="col">Details</th>
             </tr>
             </thead>
             <tbody>
@@ -39,6 +40,10 @@
                     <td scope="row">@string.Format("{0:N2}$", item.Quote?["USD"]?.Price)</td>
                     <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
                     <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
+                    <td>
+                        <a asp-page="/coin/coindet" asp-route-coinName="@item.Symbol">More</a>
+                    </td>
+
                 </tr>
             }
 
@@ -55,6 +60,7 @@
                 <th scope="col">Price USD</th>
                 <th scope="col">percent_change_1h</th>
                 <th scope="col">percent_change_24h</th>
+                <th scope="col">Details</th>
             </tr>
             </thead>
             <tbody>
@@ -71,6 +77,9 @@
                     <td scope="row">@string.Format("{0:N2}$", item.Quote?["USD"]?.Price)</td>
                     <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
                     <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
+                    <td>
+                        <a asp-page="/coin/coindet" asp-route-coinName="@item.Symbol">More</a>
+                    </td>
                 </tr>
             }
             </tbody>

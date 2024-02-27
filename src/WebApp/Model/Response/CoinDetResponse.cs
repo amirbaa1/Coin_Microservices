@@ -3,9 +3,10 @@ using WebApp.Model.CoinModel;
 
 namespace WebApp.Model.Response;
 
-public class CoinMarketResponse
+public class CoinDetResponse
 {
-    public List<CoinInfo> Data { get; set; }
+    [JsonProperty("Data")]
+    public Dictionary<string, List<CoinSearch>> CoinSearches { get; set; }
     [JsonProperty("status")]
     public CoinStatus CoinStatus { get; set; }
 }

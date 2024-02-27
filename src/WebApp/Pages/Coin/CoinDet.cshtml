@@ -1,0 +1,27 @@
+@page
+@model WebApp.Pages.Coin.CoinDet
+
+@{
+}
+
+
+<div>
+    <h1>Coin Details</h1>
+    @if (Model.coinDetResponse != null)
+    {
+        <p>@Model.coinDetResponse.CoinSearches.First().Value.First().last_updated</p>
+        var coin = @Model.coinDetResponse.CoinSearches.First().Value.First();
+        <p>Name: @coin.Name</p>
+        <p>Slug: @coin.slug</p>
+
+        <p>volume 24h: @string.Format("{0:N2}", coin.Quote["USD"].volume_24h)</p>
+        <p>Price: @string.Format("{0:N2}$", coin.Quote?["USD"]?.Price)</p>
+        <p>Percent change 1h: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_1h)</p>
+        <p>percent chenge 24h: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_24h)</p>
+        <p>percent chenge 7D: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_7d)</p>
+    }
+    else
+    {
+        <p>No data available</p>
+    }
+</div>
