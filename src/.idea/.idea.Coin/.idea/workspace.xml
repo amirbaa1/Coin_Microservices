@@ -26,17 +26,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="096b7f29-d47f-48da-aeeb-aab4766c4e8b" name="Changes" comment="">
+    <list default="true" id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/shelf/Uncommitted_changes_before_Update_at_2_26_24,_11_02 AM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/shelf/Uncommitted_changes_before_Update_at_2_26_24,_11_02 AM_[Changes]1/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/shelf/Uncommitted_changes_before_Update_at_2_26_24__11_02AM__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coin.API/Model/CoinModel/CoinUsdQuote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Coin.API/Model/CoinModel/CoinUsdQuote.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinUsdQuote.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinUsdQuote.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coin.API/Controllers/CoinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Coin.API/Controllers/CoinController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfo.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfoCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfoCategory.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponse.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponseListCoin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponseListCoin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/Response/CoinMarketResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Response/CoinMarketResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/Response/CoinSearchResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Response/CoinSearchResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/CoinServeice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/CoinServeice.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Services/CoinServeice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/CoinService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Services/ICoinService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/ICoinService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
     </list>
@@ -49,28 +56,23 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/156b638a6a114f71b9b972b6c7f0347837400/78/ba5a0b19/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/724c06f1a4ca42c6ac647bd66d3023e81e4800/6a/9ff267d5/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/adaaa9f9bd514acb807cc59fac37248f196b0/be/86fd10c5/IdentityDbContext`1.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb4b45160bbc4a19ab4fbca6c1ce04e76d400/26/0f43ac9e/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb4b45160bbc4a19ab4fbca6c1ce04e76d400/df/816eb75d/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1033d469a77c9df07c1732b038ae9e21e898a02886f28be41d59cddd3c831dd/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/67362d87a4952aedbf5984cdac008e40a8ee0f717955e1b10401c4396a5da/EmailAddress.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
-  <component name="ProjectId" id="2cwOiChmHN1T1by78GdgW85WZlK" />
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2cwpBywT37WtnJwIOHzwc0CSTFD" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.Coin.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Identity.API: http.executor": "Run",
-    ".NET Launch Settings Profile.WebApp: http.executor": "Run",
+    ".NET Launch Settings Profile.Coin.API: https.executor": "Debug",
+    ".NET Launch Settings Profile.Ocelot.ApiGate: https.executor": "Run",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -89,8 +91,38 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: http">
-    <configuration name="Coin.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
+    <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Basket.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Coin.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Coin.API/Coin.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
@@ -105,7 +137,52 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="Identity.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+    <configuration name="Coin.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Coin.API/Coin.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="IdentityServer: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/IdentityServer/IdentityServer.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="IdentityServer: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/IdentityServer/IdentityServer.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Identity.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Identity.API/Identity.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
@@ -120,7 +197,82 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="WebApp: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile" temporary="true">
+    <configuration name="Identity.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Identity.API/Identity.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Ocelot.ApiGate: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.ApiGate.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Ocelot.ApiGate: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.ApiGate.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Ordering.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Oedering/Ordering.API/Ordering.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Ordering.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Oedering/Ordering.API/Ordering.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="WebApp: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebApp/WebApp.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
@@ -135,23 +287,120 @@
         <option name="Build" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue=".NET Launch Settings Profile.WebApp: http" />
-        <item itemvalue=".NET Launch Settings Profile.Coin.API: http" />
-        <item itemvalue=".NET Launch Settings Profile.Identity.API: http" />
-      </list>
-    </recent_temporary>
+    <configuration name="WebApp: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/WebApp/WebApp.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Basket.API/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="basket.api" />
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="publishAllPorts" value="true" />
+          <option name="sourceFilePath" value="Basket.API/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Coin.API/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="coin.api" />
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="publishAllPorts" value="true" />
+          <option name="sourceFilePath" value="Coin.API/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Identity.API/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="identity.api" />
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="publishAllPorts" value="true" />
+          <option name="sourceFilePath" value="Identity.API/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Ocelot.ApiGate/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="ocelot.apigate" />
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="publishAllPorts" value="true" />
+          <option name="sourceFilePath" value="Ocelot.ApiGate/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="true" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Ordering.API/Dockerfile" type="docker-deploy" factoryName="dockerfile" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="containerName" value="ordering.api" />
+          <option name="contextFolderPath" value="$PROJECT_DIR$" />
+          <option name="publishAllPorts" value="true" />
+          <option name="sourceFilePath" value="Oedering/Ordering.API/Dockerfile" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="true" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="secondarySourceFiles">
+            <list>
+              <option value="$PROJECT_DIR$/docker-compose.override.yml" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yml" />
+        </settings>
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="096b7f29-d47f-48da-aeeb-aab4766c4e8b" name="Changes" comment="" />
-      <created>1709019300780</created>
+      <changelist id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="" />
+      <created>1709032365057</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709019300780</updated>
-      <workItem from="1709019303188" duration="7419000" />
+      <updated>1709032365057</updated>
+      <workItem from="1709032368991" duration="7687000" />
+      <workItem from="1709105880296" duration="9149000" />
     </task>
     <servers />
   </component>
@@ -165,44 +414,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml</url>
-          <line>24</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml" initialLine="24" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
+          <url>file://$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml.cs</url>
+          <line>26</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml.cs" initialLine="26" containingFunctionPresentation="Method 'OnPost'">
             <startOffsets>
-              <option value="-1" />
+              <option value="676" />
             </startOffsets>
             <endOffsets>
-              <option value="-1" />
+              <option value="677" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="7" />
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Account/ChangePassword.cshtml.cs</url>
-          <line>38</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Account/ChangePassword.cshtml.cs" initialLine="40" containingFunctionPresentation="Method 'OnPostAsync'">
+          <url>file://$PROJECT_DIR$/Coin.API/Services/CoinMarket.cs</url>
+          <line>135</line>
+          <properties documentPath="$PROJECT_DIR$/Coin.API/Services/CoinMarket.cs" initialLine="135" containingFunctionPresentation="Method 'GetByIdCategory'">
             <startOffsets>
-              <option value="1091" />
+              <option value="3992" />
             </startOffsets>
             <endOffsets>
-              <option value="1092" />
+              <option value="3993" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml.cs</url>
-          <line>21</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml.cs" initialLine="20" containingFunctionPresentation="Method 'OnGet'">
-            <startOffsets>
-              <option value="573" />
-            </startOffsets>
-            <endOffsets>
-              <option value="574" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

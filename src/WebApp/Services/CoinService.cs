@@ -3,11 +3,11 @@ using Newtonsoft.Json;
 
 namespace WebApp.Services
 {
-    public class CoinServeice : ICoinService
+    public class CoinService : ICoinService
     {
         private readonly HttpClient _httpClient;
 
-        public CoinServeice(HttpClient httpClient)
+        public CoinService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }
@@ -47,6 +47,34 @@ namespace WebApp.Services
             {
                 var content = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<CoinDetResponse>(content)!;
+            }
+            else
+            {
+                throw new Exception("Something went wrong when calling api.!");
+            }
+        }
+
+        public async Task<CoinCategoryResponse> GetCateCoin()
+        {
+            var response = await _httpClient.GetAsync("/Coin/Categories");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<CoinCategoryResponse>(content)!;
+            }
+            else
+            {
+                throw new Exception("Something went wrong when calling api.!");
+            }
+        }
+
+        public async Task<CoinCategoryResponseListCoin> GetListCoinCateById(string id)
+        {
+            var response = await _httpClient.GetAsync($"/Coin/Categories/{id}");
+            if (response.IsSuccessStatusCode)
+            {
+                var content = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<CoinCategoryResponseListCoin>(content)!;
             }
             else
             {

@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 // builder.Services.AddMvc()
 // ----------- services ----------------//
-builder.Services.AddHttpClient<ICoinService, CoinServeice>(client =>
+builder.Services.AddHttpClient<ICoinService, CoinService>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
 });

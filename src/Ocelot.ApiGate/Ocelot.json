@@ -29,7 +29,7 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/coin/coin/{symbol}",
+      "DownstreamPathTemplate": "/coin/{symbol}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -43,7 +43,8 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/coin/categories", // WTF !!
+      "DownstreamPathTemplate": "/Coin/Categories",
+      // WTF !!
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -51,7 +52,7 @@
           "Port": "80"
         }
       ],
-      "UpstreamPathTemplate": "/coin/categories",
+      "UpstreamPathTemplate": "/coin/Categories",
       "UpstreamHttpMethod": [
         "GET"
       ]
@@ -205,7 +206,12 @@
     "BaseUrl": "https//localhost:7070"
   }
 }
+
+
 /////////////////////
+
+
+
 //{
 //  "Routes": [
 //    {
@@ -237,7 +243,7 @@
 //      ]
 //    },
 //    {
-//      "DownstreamPathTemplate": "/coin/coin/{symbol}",
+//      "DownstreamPathTemplate": "/coin/{symbol}",
 //      "DownstreamScheme": "https",
 //      "DownstreamHostAndPorts": [
 //        {
@@ -251,7 +257,7 @@
 //      ]
 //    },
 //    {
-//      "DownstreamPathTemplate": "/coin/categories", // not work !!
+//      "DownstreamPathTemplate": "/Coin/Categories", // WTF !!
 //      "DownstreamScheme": "https",
 //      "DownstreamHostAndPorts": [
 //        {
@@ -259,7 +265,7 @@
 //          "Port": "7001"
 //        }
 //      ],
-//      "UpstreamPathTemplate": "/coin/categories",
+//      "UpstreamPathTemplate": "/coin/Categories",
 //      "UpstreamHttpMethod": [
 //        "GET"
 //      ]

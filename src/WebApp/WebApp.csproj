@@ -21,8 +21,4 @@
     <PackageReference Include="Polly" Version="8.2.1" />
   </ItemGroup>
 
-  <ItemGroup>
-<!--    <ProjectReference Include="..\Coin.API\Coin.API.csproj" />-->
-  </ItemGroup>
-
 </Project>

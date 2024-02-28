@@ -1,0 +1,55 @@
+@page
+@model WebApp.Pages.Coin.category.CoinId
+
+@{
+}
+
+@if (TempData["error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["error"]
+    </div>
+}
+
+<p>Category : @Model.cateListById?.coinCate?.name</p>
+<div class="container overflow-hidden text-center">
+    <div class="row gx-5">
+        @if (Model != null && Model.cateListById is not null && Model.cateListById.coinCate is not null && Model.cateListById.coinCate.coin is not null)
+        {
+            @foreach (var item in Model?.cateListById?.coinCate?.coin)
+            {
+                <div class="col-6">
+                    <p class="p-3">
+
+                        <div class="card mb-3" style="width: 14rem;">
+                            <div class="card-body">
+                                <div class="col">
+                                    <div class="p-3">
+                                        <p>Name : @item?.Name</p>
+                                        <p>Rank : @item?.cmc_rank</p>
+                                        @if (item?.CoinPlatform?.name != null)
+                                        {
+                                            <p>Coin platform: @item.CoinPlatform.name</p>
+                                            <p> ----- ----- ----</p>
+                                            @* <p>symbol: @item.CoinPlatform.symbol</p> *@
+                                        }
+                                        else
+                                        {
+                                            <p>platform coin is null</p>
+                                            <p> ----- ----- ----</p>
+                                        }
+                                        <p>Price : @string.Format("{0:N2}$", item?.Quote["USD"]?.Price)</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </p>
+                </div>
+            }
+        }
+        else
+        {
+            <p>Not Found Coin in Category</p>
+        }
+    </div>
+</div>

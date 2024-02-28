@@ -43,7 +43,7 @@ public class CoinController : Controller
         return Ok(coininfo);
     }
 
-    [HttpGet("coin/{symbol}")]
+    [HttpGet("{symbol}")]
     public async Task<IActionResult> GetBySymbol(string symbol)
     {
         CoinSearchResponse coinSymbol = await _coinMarket.GetBySymbol(symbol);
@@ -55,17 +55,17 @@ public class CoinController : Controller
         return Ok(coinSymbol);
     }
 
-    [HttpGet("{name}")]
-    public async Task<IActionResult> GetByName(string name)
-    {
-        CoinSearchResponse coinName = await _coinMarket.GetByName(name);
-        if (coinName == null)
-        {
-            return NotFound();
-        }
-
-        return Ok(coinName);
-    }
+    // [HttpGet("{name}")]
+    // public async Task<IActionResult> GetByName(string name)
+    // {
+    //     CoinSearchResponse coinName = await _coinMarket.GetByName(name);
+    //     if (coinName == null)
+    //     {
+    //         return NotFound();
+    //     }
+    //
+    //     return Ok(coinName);
+    // }
 
     [HttpGet("Categories")]
     public async Task<IActionResult> GetAllCategory()
