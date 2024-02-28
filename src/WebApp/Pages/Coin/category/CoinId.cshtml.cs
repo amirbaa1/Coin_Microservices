@@ -17,6 +17,7 @@ public class CoinId : PageModel
     }
 
     [BindProperty] public CoinCategoryResponseListCoin cateListById { get; set; }
+    [BindProperty] public CoinDetResponse coinDetResponse { get; set; }
 
     public async Task<IActionResult> OnGetAsync(string id)
     {
@@ -25,8 +26,8 @@ public class CoinId : PageModel
             if (!string.IsNullOrEmpty(id))
             {
                 cateListById = await _coinService.GetListCoinCateById(id);
-                _logger.LogInformation($"status:{cateListById?.Status?.TimesTamp}");
-                _logger.LogInformation($"coin : {cateListById?.coinCate?.coin?.First()?.Name}");
+                // _logger.LogInformation($"status:{cateListById?.Status?.TimesTamp}");
+                // _logger.LogInformation($"coin : {cateListById?.coinCate?.coin?.First()?.Name}");
                 if (cateListById == null)
                 {
                     TempData["error"] = "Error fetching coin category data.";
@@ -40,5 +41,16 @@ public class CoinId : PageModel
             TempData["error"] = "Something went wrong while fetching coin data.";
             return Page();
         }
+    }
+
+    public async Task<IActionResult> OnPostSymbol(string coinSymbol)
+    {
+        coinDetResponse = await _coinService.GetCoinBySymbolDet(coinSymbol);
+        if (coinDetResponse == null)
+        {
+            return NotFound();
+        }
+
+        return Page();
     }
 }

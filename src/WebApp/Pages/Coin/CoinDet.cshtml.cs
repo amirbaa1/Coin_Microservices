@@ -18,9 +18,9 @@ public class CoinDet : PageModel
     [BindProperty]
     public CoinDetResponse coinDetResponse { get; set; }
 
-    public async Task<IActionResult> OnGet(string coinName)
+    public async Task<IActionResult> OnGet(string coinSymbol)
     {
-        coinDetResponse = await _CoinService.GetCoinBySymbolDet(coinName);
+        coinDetResponse = await _CoinService.GetCoinBySymbolDet(coinSymbol);
         if (coinDetResponse == null)
         {
             return NotFound();

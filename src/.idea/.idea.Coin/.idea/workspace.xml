@@ -27,25 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/shelf/Uncommitted_changes_before_Update_at_2_26_24,_11_02 AM_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/shelf/Uncommitted_changes_before_Update_at_2_26_24,_11_02 AM_[Changes]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/shelf/Uncommitted_changes_before_Update_at_2_26_24__11_02AM__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Coin.API/Controllers/CoinController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Coin.API/Controllers/CoinController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfoCategory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/CoinModel/CoinInfoCategory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponseListCoin.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Response/CoinCategoryResponseListCoin.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/CoinServeice.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/CoinService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/ICoinService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/ICoinService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -400,7 +384,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709032365057</updated>
       <workItem from="1709032368991" duration="7687000" />
-      <workItem from="1709105880296" duration="9149000" />
+      <workItem from="1709105880296" duration="9680000" />
     </task>
     <servers />
   </component>

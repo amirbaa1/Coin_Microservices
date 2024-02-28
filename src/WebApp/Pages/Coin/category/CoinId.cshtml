@@ -26,6 +26,7 @@
                                 <div class="col">
                                     <div class="p-3">
                                         <p>Name : @item?.Name</p>
+                                        <p>Symbol : @item.Symbol</p>
                                         <p>Rank : @item?.cmc_rank</p>
                                         @if (item?.CoinPlatform?.name != null)
                                         {
@@ -39,6 +40,8 @@
                                             <p> ----- ----- ----</p>
                                         }
                                         <p>Price : @string.Format("{0:N2}$", item?.Quote["USD"]?.Price)</p>
+
+                                        <a class="btn-dark btn" asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">more</a>
                                     </div>
                                 </div>
                             </div>
