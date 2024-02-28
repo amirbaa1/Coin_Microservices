@@ -27,9 +27,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/category/CoinId.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Services/Account/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/Account/IAuthService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -384,7 +386,7 @@
       <option name="presentableId" value="Default" />
       <updated>1709032365057</updated>
       <workItem from="1709032368991" duration="7687000" />
-      <workItem from="1709105880296" duration="9680000" />
+      <workItem from="1709105880296" duration="13943000" />
     </task>
     <servers />
   </component>

@@ -19,29 +19,26 @@ namespace WebApp.Pages.Account.Admin
             _authService = authService;
         }
 
-        public async Task OnGet(string userId)
+        public async Task<IActionResult> OnGet(string userId)
         {
-            //     if (userId == null)
-            //     {
-            //         return NotFound();
-            //     }
-            //     appUser = await _userManager.FindByIdAsync(userId);
-            //
-            //     if (appUser == null)
-            //     {
-            //         return NotFound();
-            //     }
-            //
-            //     return Page();
-            // var result = await _authService.GetIdUserEditAdmin(userId);
-            // if (result != null && result.Any())
-            // {
-            //     EditAdmins = result.First();
-            // }
-            // else
-            // {
-            //     EditAdmins = null;
-            // }
+            if (!string.IsNullOrEmpty(userId))
+            {
+                EditAdmins = await _authService.GetByIdAccount(userId);
+            }
+
+            return Page();
+        }
+
+
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                await _authService.UpdateByIdRoleAccount(EditAdmins.Id, EditAdmins.Role);
+                return RedirectToPage("/account/admin/panel");
+            }
+
+            return Page();
         }
 
         // public IActionResult OnPost()

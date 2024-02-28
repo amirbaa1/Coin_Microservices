@@ -83,11 +83,113 @@ public class AuthService : IAuthService
         var user = await _userManager.FindByEmailAsync(emailUser);
         if (user == null)
         {
-            throw new ("User not found");
-            
+            throw new("User not found");
         }
+
         var createToken = await _userManager.GeneratePasswordResetTokenAsync(user);
 
         return createToken;
+    }
+
+    public async Task<EditAdmin> GetByIdAccount(string id)
+    {
+        var user = await _userManager.FindByIdAsync(id);
+        if (user == null)
+        {
+            throw new("User not found");
+        }
+
+        var userAcc = new EditAdmin
+        {
+            UserName = user.UserName,
+            Email = user.Email,
+            EmailActive = user.EmailConfirmed,
+            Id = user.Id,
+            Role = user.Role
+        };
+
+        return userAcc;
+    }
+
+    public async Task<EditAdmin> UpdateByIdRoleAccount(string id, string newRole)
+    {
+        if (!string.IsNullOrEmpty(id))
+        {
+            var accountUser = await _userManager.FindByIdAsync(id);
+            if (accountUser == null)
+            {
+                return null;
+            }
+
+            var changeRole = await AssignRole(id, newRole);
+            if (changeRole != false)
+            {
+                var editAdmin = new EditAdmin
+                {
+                    Id = accountUser.Id,
+                    Role = accountUser.Role,
+                    Email = accountUser.Email,
+                    EmailActive = accountUser.EmailConfirmed,
+                    UserName = accountUser.UserName
+                };
+
+                return editAdmin;
+            }
+        }
+
+        return null;
+    }
+
+    public async Task<bool> AssignRole(string id, string roleName)
+    {
+        // var user = await _userManager.FindByEmailAsync(email);
+        var user = await _userManager.FindByIdAsync(id);
+        if (user == null)
+        {
+            return false;
+        }
+
+        if (!string.IsNullOrEmpty(user.Role)) // if user have role
+        {
+            var oldClaimRole = (await _userManager.GetClaimsAsync(user)).FirstOrDefault(c => c.Type == "RoleAccount");
+            if (oldClaimRole != null)
+            {
+                var Remove = await _userManager.RemoveClaimAsync(user, oldClaimRole);
+                if (!Remove.Succeeded)
+                {
+                    return false;
+                }
+            }
+
+            var newClaim = new Claim("RoleAccount", roleName);
+
+            user.Role = roleName;
+            await _userManager.UpdateAsync(user);
+
+            var resultUpdate = await _userManager.AddClaimAsync(user, newClaim);
+
+            if (resultUpdate.Succeeded)
+            {
+                //var userRole = await _roleManager
+                return true;
+            }
+
+            return false;
+        }
+        else
+        {
+            var claim = new Claim("RoleAccount", roleName);
+            var result = await _userManager.AddClaimAsync(user, claim);
+
+            user.Role = roleName;
+            await _userManager.UpdateAsync(user);
+
+            if (result.Succeeded)
+            {
+                return true;
+            }
+
+            return false;
+        }
     }
 }

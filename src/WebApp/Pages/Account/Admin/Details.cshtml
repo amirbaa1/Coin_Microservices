@@ -8,18 +8,17 @@
 
 @if (TempData["error"] != null)
 {
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <div class="alert alert-danger">
         @TempData["error"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
 }
-else
-{
-    <div class="alert alert-danger alert-dismissible fade show" role="alert">
-        @TempData["success"]
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-}
+@* else *@
+@* { *@
+@*     <div class="alert alert-danger alert-dismissible fade show" role="alert"> *@
+@*         @TempData["success"] *@
+@*         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> *@
+@*     </div> *@
+@* } *@
 <h1>User Details</h1>
 
 @if (Model.EditAdmins != null)
@@ -43,14 +42,14 @@ else
         <form method="post">
             <dt>Status Role: </dt>
             <dd>@(Model.EditAdmins != null ? Model.EditAdmins.Role : "N/A")</dd>
-
+        
             <input asp-for="appUser.Role" class="form-control">
-
+        
                     <input type="hidden" asp-for="@Model.EditAdmins.Id" />
-
+        
             <a asp-page="/account/admin/panel" class="btn btn-dark ml-2">Back</a>
             <button class="btn btn-success" type="submit">Update</button>
-
+        
         </form>
     </dl>
 }

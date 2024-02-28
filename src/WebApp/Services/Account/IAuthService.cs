@@ -11,4 +11,7 @@ public interface IAuthService
     Task<SignInResult> LoginAsync(LoginModel loginModel);
     Task SignOut();
     Task<string> SendPasswordResetToken(string emailUser);
+    Task<EditAdmin> GetByIdAccount(string id);
+    Task<EditAdmin> UpdateByIdRoleAccount(string id,string roleName);
+    Task<bool> AssignRole(string id, string roleName);
 }
