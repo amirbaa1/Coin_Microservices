@@ -2,26 +2,79 @@
 @model WebApp.Pages.Coin.CoinDet
 
 @{
+    var coin = @Model.coinDetResponse.CoinSearches.First().Value.First();
+    string symbolString = string.Format("BINANCE:{0}USDT", coin.Symbol);
 }
 
 
-<div>
-    <h1>Coin Details</h1>
-    @if (Model.coinDetResponse != null)
-    {
-        <p>@Model.coinDetResponse.CoinSearches.First().Value.First().last_updated</p>
-        var coin = @Model.coinDetResponse.CoinSearches.First().Value.First();
-        <p>Name: @coin.Name</p>
-        <p>Slug: @coin.slug</p>
+<h1>Coin Details</h1>
+<div class="container px-4 text-center">
+    <div class="row gx-5">
+        <div class="col">
+            @if (Model.coinDetResponse != null)
+            {
 
-        <p>volume 24h: @string.Format("{0:N2}", coin.Quote["USD"].volume_24h)</p>
-        <p>Price: @string.Format("{0:N2}$", coin.Quote?["USD"]?.Price)</p>
-        <p>Percent change 1h: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_1h)</p>
-        <p>percent chenge 24h: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_24h)</p>
-        <p>percent chenge 7D: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_7d)</p>
-    }
-    else
-    {
-        <p>No data available</p>
-    }
+                <p>@Model.coinDetResponse.CoinSearches.First().Value.First().last_updated</p>
+
+                @* var coin = @Model.coinDetResponse.CoinSearches.First().Value.First(); *@
+                <p>Name: @coin.Name</p>
+                <p>Slug: @coin.slug</p>
+
+                <p>volume 24h: @string.Format("{0:N2}", coin.Quote["USD"].volume_24h)</p>
+                @* <p>Price: @string.Format("{0:N2}$", coin.Quote?["USD"]?.Price)</p> *@
+                <p scope="row">
+                    price :
+                    @if (coin.Quote?["USD"]?.percent_change_24h > 0)
+                    {
+                        @string.Format("{0:N2}$", coin.Quote?["USD"]?.Price)
+
+                        <i class="bi bi-caret-up-fill text-success"></i>
+                    }
+                    else
+                    {
+                        @string.Format("{0:N2}$", coin.Quote?["USD"]?.Price)
+
+                        <i class="bi bi-caret-down-fill text-danger"></i>
+
+                    }
+                </p>
+                <p>Percent change 1h: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_1h)</p>
+                <p>percent chenge 24h: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_24h)</p>
+                <p>percent chenge 7D: @string.Format("{0:N2}%", coin.Quote["USD"].percent_change_7d)</p>
+            }
+            else
+            {
+                <p>No data available</p>
+            }
+
+
+        </div>
+
+        <div class="col">
+
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                      {
+                      "width": "980",
+                      "height": "610",
+                        "symbol": "@symbolString",
+                     "interval": "D",
+                      "timezone": "Etc/UTC",
+                      "theme": "dark",
+                      "style": "1",
+                      "locale": "in",
+                      "enable_publishing": false,
+                      "allow_symbol_change": true,
+                      "calendar": false,
+                      "support_host": "https://www.tradingview.com"
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </div>
+
 </div>

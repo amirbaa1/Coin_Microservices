@@ -13,39 +13,55 @@
 
     @if (Model.coinList != null && Model.coinList.Data != null)
     {
-        <p>@Model.coinList.CoinStatus.TimesTamp</p>
+        <p>London :@Model.coinList.CoinStatus.TimesTamp</p>
+        <p>Tehran :@DateTime.Now</p>
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Coin symbol</th>
-                <th scope="col">Price USD</th>
-                <th scope="col">percent_change_1h</th>
-                <th scope="col">percent_change_24h</th>
-                <th scope="col">Details</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Coin symbol</th>
+                    <th scope="col">Price USD</th>
+                    <th scope="col">percent_change_1h</th>
+                    <th scope="col">percent_change_24h</th>
+                    <th scope="col">Details</th>
+                </tr>
             </thead>
             <tbody>
 
-            @foreach (var item in Model.coinList.Data)
-            {
-                <tr>
-                    <td scope="row">@item.cmc_rank</td>
-                    <td scope="row">
-                        <b>@item.Name</b> @item.Symbol
-                    </td>
-                    @* <td scope="row">@item.rank</td> *@
-                    @*<td scope="row">@item.Quote?["USD"]?.Price</td>
+                @foreach (var item in Model.coinList.Data)
+                {
+                    <tr>
+                        <td scope="row">@item.cmc_rank</td>
+                        <td scope="row">
+                            <b>@item.Name</b> @item.Symbol
+                        </td>
+                        @* <td scope="row">@item.rank</td> *@
+                        @*<td scope="row">@item.Quote?["USD"]?.Price</td>
                 <td scope="row">@item.Quote?["USD"]?.percent_change_1h</td> *@
-                    <td scope="row">@string.Format("{0:N2}$", item.Quote?["USD"]?.Price)</td>
-                    <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
-                    <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
-                    <td>
-                        <a asp-page="/coin/coindet" asp-route-coinName="@item.Symbol">More</a>
-                    </td>
+                        <td scope="row">
+                            @if (item.Quote?["USD"]?.percent_change_24h > 0)
+                            {
+                                @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
 
-                </tr>
-            }
+                                <i class="bi bi-caret-up-fill text-success"></i>
+                            }
+                            else
+                            {
+                                @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
+
+                                <i class="bi bi-caret-down-fill text-danger"></i>
+
+                            }
+                        </td>
+
+                        <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
+                        <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
+                        <td>
+                            <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>
+                        </td>
+
+                    </tr>
+                }
 
             </tbody>
         </table>
@@ -54,34 +70,48 @@
     {
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Coin / symbol</th>
-                <th scope="col">Price USD</th>
-                <th scope="col">percent_change_1h</th>
-                <th scope="col">percent_change_24h</th>
-                <th scope="col">Details</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Coin / symbol</th>
+                    <th scope="col">Price USD</th>
+                    <th scope="col">percent_change_1h</th>
+                    <th scope="col">percent_change_24h</th>
+                    <th scope="col">Details</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.coinSearchResponse.Data.Values.FirstOrDefault())
-            {
-                <tr>
-                    <td scope="row">@item.cmc_rank</td>
-                    <td scope="row">
-                        <b>@item.Name</b> @item.Symbol
-                    </td>
-                    @* <td scope="row">@item.rank</td> *@
-                    @* <td scope="row">@item.Quote?["USD"]?.Price</td>
+                @foreach (var item in Model.coinSearchResponse.Data.Values.FirstOrDefault())
+                {
+                    <tr>
+                        <td scope="row">@item.cmc_rank</td>
+                        <td scope="row">
+                            <b>@item.Name</b> @item.Symbol
+                        </td>
+                        @* <td scope="row">@item.rank</td> *@
+                        @* <td scope="row">@item.Quote?["USD"]?.Price</td>
                 <td scope="row">@item.Quote?["USD"]?.percent_change_1h</td> *@
-                    <td scope="row">@string.Format("{0:N2}$", item.Quote?["USD"]?.Price)</td>
-                    <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
-                    <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
-                    <td>
-                        <a asp-page="/coin/coindet" asp-route-coinName="@item.Symbol">More</a>
-                    </td>
-                </tr>
-            }
+                        <td scope="row">
+                            @if (item.Quote?["USD"]?.percent_change_24h > 0)
+                            {
+                                @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
+
+                                <i class="bi bi-caret-up-fill text-success"></i>
+                            }
+                            else
+                            {
+                                @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
+
+                                <i class="bi bi-caret-down-fill text-danger"></i>
+
+                            }
+                        </td>
+                        <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
+                        <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
+                        <td>
+                            <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     }

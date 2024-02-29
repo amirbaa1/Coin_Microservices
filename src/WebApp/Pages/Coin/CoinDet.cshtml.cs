@@ -25,8 +25,8 @@ public class CoinDet : PageModel
         {
             return NotFound();
         }
-        _logger.LogInformation($"===> name :{coinDetResponse.CoinSearches.First().Value.First().Name}");
-        _logger.LogInformation($"===> times :{coinDetResponse.CoinStatus.TimesTamp}");
+        //_logger.LogInformation($"===> name :{coinDetResponse.CoinSearches.First().Value.First().Name}");
+        //_logger.LogInformation($"===> times :{coinDetResponse.CoinStatus.TimesTamp}");
 
         return Page();
     }

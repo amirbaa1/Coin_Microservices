@@ -29,19 +29,19 @@ namespace WebApp.Pages
 
         public async Task<IActionResult> OnPostCoinSearchAsync(string symbol)
         {
-            if (!string.IsNullOrEmpty(Symbol))
+            if (!string.IsNullOrEmpty(symbol))
             {
-                coinSearchResponse = await _coinService.GetCoinBySymbol(Symbol);
+                coinSearchResponse = await _coinService.GetCoinBySymbol(symbol);
             }
 
             return Page();
         }
 
-        public async Task<IActionResult> OnPostCoinName(string coinName)
+        public async Task<IActionResult> OnPostCoinName(string coinSymbol)
         {
-            if (!string.IsNullOrEmpty(coinName))
+            if (!string.IsNullOrEmpty(coinSymbol))
             {
-                CoinDetResponse = await _coinService.GetCoinBySymbolDet(coinName);
+                CoinDetResponse = await _coinService.GetCoinBySymbolDet(coinSymbol);
             }
 
             return Page();
