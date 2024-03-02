@@ -1,13 +1,13 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using WebApp;
 using WebApp.Data;
 using WebApp.Extensions;
 using WebApp.Model.AccountModel;
 using WebApp.Services;
 using WebApp.Services.Account;
 using WebApp.Services.Mail;
-using WebApp.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -92,7 +92,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.MapHub<CoinHub>("/coinhub");
 
 app.MapRazorPages();
 
@@ -101,5 +100,8 @@ app.UseStaticFiles();
 
 app.UseExceptionHandler("/Error");
 app.UseHsts();
+
+app.MapControllers();
+app.MapHub<CoinHub>("/CoinHub");
 
 app.Run();

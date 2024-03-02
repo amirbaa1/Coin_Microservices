@@ -22,4 +22,8 @@
     <PackageReference Include="Polly" Version="8.2.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="SignalR\" />
+  </ItemGroup>
+
 </Project>

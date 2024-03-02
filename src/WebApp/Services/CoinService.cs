@@ -1,18 +1,18 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using WebApp.Model.Response;
 using Newtonsoft.Json;
-using WebApp.SignalR;
+
 
 namespace WebApp.Services
 {
     public class CoinService : ICoinService
     {
         private readonly HttpClient _httpClient;
-        private readonly IHubContext<CoinHub> _hubContext;
-        public CoinService(HttpClient httpClient, IHubContext<CoinHub> hubContext)
+        //private readonly IHubContext<CoinHub> _hubContext;
+        public CoinService(HttpClient httpClient)
         {
             _httpClient = httpClient;
-            _hubContext = hubContext;
+
         }
 
         public async Task<CoinSearchResponse> GetCoinBySymbol(string symbol)
