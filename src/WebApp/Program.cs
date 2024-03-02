@@ -7,6 +7,7 @@ using WebApp.Model.AccountModel;
 using WebApp.Services;
 using WebApp.Services.Account;
 using WebApp.Services.Mail;
+using WebApp.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,10 @@ builder.Services.AddAuthorization(opt =>
 
 //-------------------------------------//
 
+
+builder.Services.AddSignalR();
+
+
 var app = builder.Build();
 
 app.MigrateDatabase<DatadbContext>();
@@ -77,18 +82,24 @@ app.MigrateDatabase<DatadbContext>();
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
+
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
-
-app.UseHttpsRedirection();
-app.UseStaticFiles();
 
 app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.MapHub<CoinHub>("/coinhub");
+
 app.MapRazorPages();
+
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+
+app.UseExceptionHandler("/Error");
+app.UseHsts();
 
 app.Run();

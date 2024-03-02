@@ -1,15 +1,18 @@
-﻿using WebApp.Model.Response;
+﻿using Microsoft.AspNetCore.SignalR;
+using WebApp.Model.Response;
 using Newtonsoft.Json;
+using WebApp.SignalR;
 
 namespace WebApp.Services
 {
     public class CoinService : ICoinService
     {
         private readonly HttpClient _httpClient;
-
-        public CoinService(HttpClient httpClient)
+        private readonly IHubContext<CoinHub> _hubContext;
+        public CoinService(HttpClient httpClient, IHubContext<CoinHub> hubContext)
         {
             _httpClient = httpClient;
+            _hubContext = hubContext;
         }
 
         public async Task<CoinSearchResponse> GetCoinBySymbol(string symbol)
@@ -88,7 +91,9 @@ namespace WebApp.Services
             if (response.IsSuccessStatusCode)
             {
                 var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<CoinMarketResponse>(content);
+                var result = JsonConvert.DeserializeObject<CoinMarketResponse>(content);
+                // await _hubContext.Clients.All.SendAsync("UpdateCoin", result);
+                return result;
             }
             else
             {

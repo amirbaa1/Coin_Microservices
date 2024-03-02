@@ -9,6 +9,7 @@ namespace WebApp.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly ICoinService _coinService;
+        public bool ErrorOccurred { get; private set; }
 
         public IndexModel(ILogger<IndexModel> logger, ICoinService coinService)
         {
@@ -23,18 +24,36 @@ namespace WebApp.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
-            coinList = await _coinService.GetCoinMarket();
-            return Page();
+            try
+            {
+                coinList = await _coinService.GetCoinMarket();
+                return Page();
+            }
+            catch (Exception ex)
+            {
+                ErrorOccurred = true;
+                return Page();
+            }
         }
 
         public async Task<IActionResult> OnPostCoinSearchAsync(string symbol)
         {
-            if (!string.IsNullOrEmpty(symbol))
+            try
             {
-                coinSearchResponse = await _coinService.GetCoinBySymbol(symbol);
+                if (!string.IsNullOrEmpty(symbol))
+                {
+                    coinSearchResponse = await _coinService.GetCoinBySymbol(symbol);
+                }
+
+                return Page();
             }
 
-            return Page();
+            catch (Exception ex)
+            {
+                ErrorOccurred = true;
+                // throw new Exception("Something went wrong when calling api. " + ex.Message);
+                return Page();
+            }
         }
 
         public async Task<IActionResult> OnPostCoinName(string coinSymbol)

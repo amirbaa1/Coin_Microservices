@@ -27,21 +27,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/js/signalr.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Admin/Details.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/Account/IAuthService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/Account/IAuthService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Services/CoinService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/CoinService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/156b638a6a114f71b9b972b6c7f0347837400/78/ba5a0b19/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/724c06f1a4ca42c6ac647bd66d3023e81e4800/6a/9ff267d5/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -58,7 +74,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.Coin.API: https.executor": "Debug",
     ".NET Launch Settings Profile.Ocelot.ApiGate: https.executor": "Run",
-    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -67,6 +83,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -386,12 +403,24 @@
       <option name="presentableId" value="Default" />
       <updated>1709032365057</updated>
       <workItem from="1709032368991" duration="7687000" />
-      <workItem from="1709105880296" duration="13943000" />
+      <workItem from="1709105880296" duration="14242000" />
+      <workItem from="1709365285912" duration="12647000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -424,6 +453,32 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs</url>
+          <line>114</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" initialLine="114" containingFunctionPresentation="Method 'UpdateByIdRoleAccount'">
+            <startOffsets>
+              <option value="3403" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3404" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs</url>
+          <line>15</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs" initialLine="15" containingFunctionPresentation="Method 'OnConnectedAsync'">
+            <startOffsets>
+              <option value="313" />
+            </startOffsets>
+            <endOffsets>
+              <option value="314" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

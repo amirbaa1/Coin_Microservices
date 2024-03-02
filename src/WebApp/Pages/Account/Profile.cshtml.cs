@@ -16,6 +16,7 @@ public class Profile : PageModel
     [BindProperty] public UserDto UserDto { get; set; }
     [BindProperty] public AppUser appuser { get; set; }
     [BindProperty] public List<OrderModel> orderModel { get; set; }
+    public bool ErrorFlags { get; set; } = false;
 
     public Profile(UserManager<AppUser> userManager, IOrderService orderService, ILogger<Profile> logger)
     {
@@ -26,32 +27,36 @@ public class Profile : PageModel
 
     public async Task<IActionResult> OnGet(string id)
     {
-        var userP = await _userManager.GetUserAsync(User);
-        if (userP == null)
+        try
         {
-            return RedirectToPage("/account/login");
+            var userP = await _userManager.GetUserAsync(User);
+            if (userP == null)
+            {
+                return RedirectToPage("/account/login");
+            }
+
+            UserDto = new UserDto // see in profile
+            {
+                ID = userP.Id.ToString(),
+                Email = userP.Email,
+                PhoneNumber = userP.PhoneNumber,
+                Name = userP.Name,
+            };
+            appuser = new AppUser
+            {
+                EmailConfirmed = userP.EmailConfirmed,
+                Name = userP.Name,
+                Role = userP.Role,
+            };
+
+            orderModel = await _orderService.GetOrder(userP.UserName);
+            // _logger.LogInformation($"order : --->{orderModel}");
+            return Page();
         }
-
-        UserDto = new UserDto // see in profile
+        catch (Exception ex)
         {
-            ID = userP.Id.ToString(),
-            Email = userP.Email,
-            PhoneNumber = userP.PhoneNumber,
-            Name = userP.Name,
-        };
-        appuser = new AppUser
-        {
-            EmailConfirmed = userP.EmailConfirmed,
-            Name = userP.Name,
-            Role = userP.Role,
-        };
-
-        orderModel = await _orderService.GetOrder(userP.UserName);
-        // _logger.LogInformation($"order : --->{orderModel}");
-        return Page();
+            ErrorFlags = true;
+            return Page();
+        }
     }
-
-    // public Task<IActionResult> OnPost()
-    // {
-    // }
 }

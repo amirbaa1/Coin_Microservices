@@ -4,39 +4,41 @@
 
 @{
 }
-
-<h1>Profile</h1>
-@if (User.HasClaim(c => c.Type == "RoleAccount" && c.Value == "Admin"))
-
+@if (Model != null && Model.User.Identity != null && Model.ErrorFlags==false)
 {
-    <a asp-page="/account/admin/panel">Panel</a>
-}
-<div>
-    <dl>
-        <dt>User ID:</dt>
-        <dd>@Model.UserDto.ID</dd>
+    <h1>Profile</h1>
+    @if (User.HasClaim(c => c.Type == "RoleAccount" && c.Value == "Admin"))
 
-        <dt>Username:</dt>
-        <dd>@Model.UserDto.Email</dd>
-
-        <dt>Name: </dt>
-        <dd>@Model.appuser.Name</dd>
-
-        <dt>Email:</dt>
-        <dd>@Model.UserDto.Email</dd>
-
-        <dt>Status Email Confirmed: </dt>
-        <dd>@Model.appuser.EmailConfirmed</dd>
-
-        <dt>Status Role: </dt>
-        <dd>@Model.appuser.Role</dd>
-    </dl>
-</div>
-<div>
-    @if (Model.orderModel != null)
     {
-        <table class="table table-striped table-hover">
-            <thead>
+        <a asp-page="/account/admin/panel">Panel</a>
+    }
+
+    <div>
+        <dl>
+            <dt>User ID:</dt>
+            <dd>@Model.UserDto.ID</dd>
+
+            <dt>Username:</dt>
+            <dd>@Model.UserDto.Email</dd>
+
+            <dt>Name: </dt>
+            <dd>@Model.appuser.Name</dd>
+
+            <dt>Email:</dt>
+            <dd>@Model.UserDto.Email</dd>
+
+            <dt>Status Email Confirmed: </dt>
+            <dd>@Model.appuser.EmailConfirmed</dd>
+
+            <dt>Status Role: </dt>
+            <dd>@Model.appuser.Role</dd>
+        </dl>
+    </div>
+    <div>
+        @if (Model.orderModel != null)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
                 <tr>
                     <th>UserName</th>
                     <th>Name Coin</th>
@@ -47,8 +49,8 @@
                     <th>card Number</th>
                     <th>Time</th>
                 </tr>
-            </thead>
-            <tbody>
+                </thead>
+                <tbody>
                 @foreach (var item in Model.orderModel)
                 {
                     <tr>
@@ -62,11 +64,16 @@
                         <td>@item.DateTime?.ToString("M/d/yyyy HH:mm:ss")</td>
                     </tr>
                 }
-            </tbody>
-        </table>
-    }
-    else
-    {
-        <p>No Orders</p>
-    }
-</div>
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <p>No Orders</p>
+        }
+    </div>
+}
+else
+{
+    <h4>API Identity have problem.</h4>
+}
