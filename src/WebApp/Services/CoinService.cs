@@ -8,7 +8,6 @@ namespace WebApp.Services
     public class CoinService : ICoinService
     {
         private readonly HttpClient _httpClient;
-        //private readonly IHubContext<CoinHub> _hubContext;
         public CoinService(HttpClient httpClient)
         {
             _httpClient = httpClient;
@@ -92,7 +91,6 @@ namespace WebApp.Services
             {
                 var content = await response.Content.ReadAsStringAsync();
                 var result = JsonConvert.DeserializeObject<CoinMarketResponse>(content);
-                // await _hubContext.Clients.All.SendAsync("UpdateCoin", result);
                 return result;
             }
             else

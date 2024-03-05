@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using WebApp;
 using WebApp.Data;
 using WebApp.Extensions;
+using WebApp.Hubs;
 using WebApp.Model.AccountModel;
 using WebApp.Services;
 using WebApp.Services.Account;
@@ -102,6 +101,7 @@ app.UseExceptionHandler("/Error");
 app.UseHsts();
 
 app.MapControllers();
-app.MapHub<CoinHub>("/CoinHub");
+app.MapHub<CoinLiveHub>("/hub/coinlive");
+app.MapHub<CoinLivePriceHub>("/hub/coinmarket");
 
 app.Run();
