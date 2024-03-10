@@ -11,7 +11,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
     </form>
 
-    @if (Model.coinList != null && Model.coinList.Data != null && Model.ErrorOccurred==false)
+    @if (Model.coinList != null && Model.coinList.Data != null && Model.ErrorOccurred == false)
     {
         <p>London :@Model.coinList.CoinStatus.TimesTamp</p>
         <p>Tehran :@DateTime.Now</p>
@@ -76,9 +76,12 @@
                         }
                     </td>
                     <td>
-                        <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>
+                        <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>/
+                        <form method="post" asp-page-handler="cart">
+                            <input type="hidden" name="coinSymbol" value="@item.Symbol"/>
+                            <button type="submit" class="btn btn-success">Buy</button>
+                        </form>
                     </td>
-
                 </tr>
             }
 
@@ -124,14 +127,17 @@
                     <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
                     <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
                     <td>
-                        <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>
+                        <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>/
+                        <form method="post" asp-page-handler="cart">
+                            <a class="btn btn-success">Buy</a>
+                        </form>
                     </td>
                 </tr>
             }
             </tbody>
         </table>
     }
-    @if (Model == null || Model.ErrorOccurred==true )
+    @if (Model == null || Model.ErrorOccurred == true)
     {
         <h3>Not found in API</h3>
     }

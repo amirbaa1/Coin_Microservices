@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.SignalR;
+using Newtonsoft.Json;
 using WebApp.Hubs;
 using WebApp.Model.Response;
 using WebApp.Services;
@@ -8,13 +9,13 @@ using WebApp.Services;
 namespace WebApp.Pages.Coin
 {
     public class coinLiveModel : PageModel
-    {
+    {   
         private readonly ILogger<IndexModel> _logger;
         private readonly ICoinService _coinService;
-        private readonly IHubContext<CoinLiveHub> _hubContext;
+        private readonly IHubContext<CoinLivePriceHub> _hubContext;
         public bool ErrorOccurred { get; private set; }
 
-        public coinLiveModel(ILogger<IndexModel> logger, ICoinService coinService, IHubContext<CoinLiveHub> hubContext)
+        public coinLiveModel(ILogger<IndexModel> logger, ICoinService coinService, IHubContext<CoinLivePriceHub> hubContext)
         {
             _logger = logger;
             _coinService = coinService;
@@ -31,7 +32,13 @@ namespace WebApp.Pages.Coin
             try
             {
                 coinList = await _coinService.GetCoinMarket();
-                //await _hubContext.Clients.All.SendAsync("ReceiveCoinStatus", coinList.CoinStatus.TimesTamp);
+
+                var updatedPrice = coinList.Data.Select(itemCoin =>
+                    new { Symbol = itemCoin.Symbol, Price = itemCoin.Quote?["USD"]?.Price });
+
+                // _logger.LogInformation($" updatedPrice :{JsonConvert.SerializeObject(updatedPrice)}");
+                await _hubContext.Clients.All.SendAsync("UpdateCoinPrice", updatedPrice);
+
                 return Page();
             }
             catch (Exception ex)

@@ -32,13 +32,15 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-page="/coin/category">Category</a>
                     </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/coin/coinlive">Live</a>
-                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-page="/coin/coinlive">Live</a>
+                    </li>
                 </ul>
             </div>
             <div>
-                <a class="btn"><i class="bi bi-sun-fill"></i></a>
+                <a class="btn" id="theme-toggle" onclick="changeTheme()">
+                    <i id="theme-icon" class="bi bi-moon-stars-fill"></i>
+                </a>
             </div>
             <div class="mr-2">
                 <partial name="_AccountPartial"/>
@@ -61,7 +63,8 @@
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>
-<script src="~/js/signalr.js" ></script>
+<script src="~/js/signalr/dist/browser/signalr.js"></script>
+<script src="~/js/modeTheme.js"></script>
 
 @await RenderSectionAsync("Scripts", required: false)
 </body>

@@ -10,7 +10,7 @@ namespace Basket.API.Controllers
 {
     [Route("/[Controller]")]
     [ApiController]
-    [Authorize]
+    // [Authorize]
     public class BasketController : Controller
     {
         private readonly IBasketService _basketService;

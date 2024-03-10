@@ -26,21 +26,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/wwwroot/js/signalr.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Account/Profile.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Coin/CoinDet.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/CoinService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/CoinService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/WebApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/WebApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
-    </list>
+    <list default="true" id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,6 +45,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/156b638a6a114f71b9b972b6c7f0347837400/78/ba5a0b19/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/724c06f1a4ca42c6ac647bd66d3023e81e4800/6a/9ff267d5/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb4b45160bbc4a19ab4fbca6c1ce04e76d400/26/0f43ac9e/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -72,9 +59,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.Coin.API: https.executor": "Debug",
+    ".NET Launch Settings Profile.Basket.API: https.executor": "Run",
+    ".NET Launch Settings Profile.Coin.API: https.executor": "Run",
     ".NET Launch Settings Profile.Ocelot.ApiGate: https.executor": "Run",
-    ".NET Launch Settings Profile.WebApp: https.executor": "Debug",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -94,7 +82,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Ocelot.ApiGate: https">
     <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -297,6 +285,7 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -393,6 +382,28 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue=".NET Launch Settings Profile.Basket.API: http" />
+      <item itemvalue=".NET Launch Settings Profile.Basket.API: https" />
+      <item itemvalue=".NET Launch Settings Profile.Coin.API: http" />
+      <item itemvalue=".NET Launch Settings Profile.Coin.API: https" />
+      <item itemvalue=".NET Launch Settings Profile.Identity.API: http" />
+      <item itemvalue=".NET Launch Settings Profile.Identity.API: https" />
+      <item itemvalue=".NET Launch Settings Profile.IdentityServer: http" />
+      <item itemvalue=".NET Launch Settings Profile.IdentityServer: https" />
+      <item itemvalue=".NET Launch Settings Profile.Ocelot.ApiGate: http" />
+      <item itemvalue=".NET Launch Settings Profile.Ocelot.ApiGate: https" />
+      <item itemvalue=".NET Launch Settings Profile.Ordering.API: http" />
+      <item itemvalue=".NET Launch Settings Profile.Ordering.API: https" />
+      <item itemvalue=".NET Launch Settings Profile.WebApp: http" />
+      <item itemvalue=".NET Launch Settings Profile.WebApp: https" />
+      <item itemvalue="Docker.Basket.API/Dockerfile" />
+      <item itemvalue="Docker.Coin.API/Dockerfile" />
+      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
+      <item itemvalue="Docker.Identity.API/Dockerfile" />
+      <item itemvalue="Docker.Ocelot.ApiGate/Dockerfile" />
+      <item itemvalue="Docker.Ordering.API/Dockerfile" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -404,7 +415,13 @@
       <updated>1709032365057</updated>
       <workItem from="1709032368991" duration="7687000" />
       <workItem from="1709105880296" duration="14242000" />
-      <workItem from="1709365285912" duration="12647000" />
+      <workItem from="1709365285912" duration="13054000" />
+      <workItem from="1709451532834" duration="537000" />
+      <workItem from="1709710977105" duration="201000" />
+      <workItem from="1709711204614" duration="11416000" />
+      <workItem from="1710055749884" duration="11302000" />
+      <workItem from="1710071417186" duration="251000" />
+      <workItem from="1710072041349" duration="3510000" />
     </task>
     <servers />
   </component>
@@ -470,15 +487,48 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs</url>
           <line>15</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs" initialLine="15" containingFunctionPresentation="Method 'OnConnectedAsync'">
+          <properties documentPath="$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs" initialLine="15" containingFunctionPresentation="Method 'OnConnectedAsync'" />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebApp/Pages/Coin/coinLive.cshtml.cs</url>
+          <line>30</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Coin/coinLive.cshtml.cs" initialLine="30" containingFunctionPresentation="Method 'OnGetAsync'">
             <startOffsets>
-              <option value="313" />
+              <option value="1114" />
             </startOffsets>
             <endOffsets>
-              <option value="314" />
+              <option value="1115" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="14" />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml.cs</url>
+          <line>26</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml.cs" initialLine="23" containingFunctionPresentation="Method 'OnGet'">
+            <startOffsets>
+              <option value="780" />
+            </startOffsets>
+            <endOffsets>
+              <option value="781" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml</url>
+          <line>19</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml" initialLine="19" isMultiMethodBreakpoint="true">
+            <option name="multiMethodBreakpoint" value="true" />
+            <startOffsets>
+              <option value="-1" />
+            </startOffsets>
+            <endOffsets>
+              <option value="-1" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

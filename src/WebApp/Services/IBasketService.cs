@@ -6,7 +6,7 @@ namespace WebApp.Services
     {
         Task<BasketModel> GetBasket(string username);
         Task<BasketModel> PostBasket(BasketModel basketModel);
-        Task CheckOutBasket(CheckOut checkOut);
+        Task<BasketModel> CheckOutBasket(CheckOut checkOut);
 
     }
 }

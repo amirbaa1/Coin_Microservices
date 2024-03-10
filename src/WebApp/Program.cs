@@ -4,6 +4,7 @@ using WebApp.Data;
 using WebApp.Extensions;
 using WebApp.Hubs;
 using WebApp.Model.AccountModel;
+using WebApp.Model.Basket;
 using WebApp.Services;
 using WebApp.Services.Account;
 using WebApp.Services.Mail;
@@ -22,6 +23,11 @@ builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
 });
+builder.Services.AddHttpClient<IBasketService, BasketService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
+});
+
 //builder.Services.AddHttpClient()
 builder.Services.AddScoped<IAuthService, AuthService>();
 // builder.Services.AddLogging();
