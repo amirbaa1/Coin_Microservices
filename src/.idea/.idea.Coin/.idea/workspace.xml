@@ -82,7 +82,7 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Ocelot.ApiGate: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Basket.API: https">
     <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -421,7 +421,7 @@
       <workItem from="1709711204614" duration="11416000" />
       <workItem from="1710055749884" duration="11302000" />
       <workItem from="1710071417186" duration="251000" />
-      <workItem from="1710072041349" duration="3510000" />
+      <workItem from="1710072041349" duration="3708000" />
     </task>
     <servers />
   </component>
