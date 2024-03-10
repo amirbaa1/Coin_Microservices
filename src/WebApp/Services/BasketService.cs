@@ -13,7 +13,7 @@ namespace WebApp.Services
             _logger = logger;
         }
 
-        public async Task<BasketModel> CheckOutBasket(CheckOut checkOut)
+        public async Task<CheckOut> CheckOutBasket(CheckOut checkOut)
         {
             var response = await _httpClient.PostAsJsonAsync("/basket/BasketCheckOut", checkOut);
             if (response == null)
@@ -21,10 +21,10 @@ namespace WebApp.Services
                 throw new Exception("Something went wrong when calling api.");
             }
             var read = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<BasketModel>(read);
+            return JsonConvert.DeserializeObject<CheckOut>(read);
         }
 
-        public async Task<BasketModel> GetBasket(string username)
+        public async Task<CoinCart> GetBasket(string username)
         {
             var response = await _httpClient.GetAsync($"/basket/{username}");
             if (response == null)
@@ -32,19 +32,19 @@ namespace WebApp.Services
                 throw new Exception("Something went wrong when calling api.");
             }
             var read = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<BasketModel>(read);
+            return JsonConvert.DeserializeObject<CoinCart>(read);
         }
 
-        public async Task<BasketModel> PostBasket(BasketModel basketModel)
+        public async Task<CoinCart> PostBasket(CoinCart coinCart)
         {
-            _logger.LogInformation($"basketModel : {JsonConvert.SerializeObject(basketModel)}");
-            var response = await _httpClient.PostAsJsonAsync("/basket", basketModel);
+            _logger.LogInformation($"basketModel : {JsonConvert.SerializeObject(coinCart)}");
+            var response = await _httpClient.PostAsJsonAsync("/basket", coinCart);
             if (response == null)
             {
                 throw new Exception("Something went wrong when calling api.");
             }
             var read = await response.Content.ReadAsStringAsync();
-            return JsonConvert.DeserializeObject<BasketModel>(read);
+            return JsonConvert.DeserializeObject<CoinCart>(read);
         }
     }
 }

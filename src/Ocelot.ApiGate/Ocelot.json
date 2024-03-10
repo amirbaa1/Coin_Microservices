@@ -297,9 +297,7 @@
       "UpstreamPathTemplate": "/basket/{username}",
       "UpstreamHttpMethod": [
         "GET"
-      ],
-      "AuthenticationProviderKey": "IdentityApiKey",
-      "AllowedScopes": []
+      ]
     },
     {
       "DownstreamPathTemplate": "/basket",

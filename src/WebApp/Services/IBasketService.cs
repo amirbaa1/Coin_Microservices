@@ -4,9 +4,8 @@ namespace WebApp.Services
 {
     public interface IBasketService
     {
-        Task<BasketModel> GetBasket(string username);
-        Task<BasketModel> PostBasket(BasketModel basketModel);
-        Task<BasketModel> CheckOutBasket(CheckOut checkOut);
-
+        Task<CoinCart> GetBasket(string username);
+        Task<CoinCart> PostBasket(CoinCart coinCart);
+        Task<CheckOut> CheckOutBasket(CheckOut checkOut);
     }
 }

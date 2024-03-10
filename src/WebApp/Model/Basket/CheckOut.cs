@@ -1,4 +1,5 @@
 ﻿namespace WebApp.Model.Basket
+
 {
     public class CheckOut
     {
