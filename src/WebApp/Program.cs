@@ -1,3 +1,4 @@
+using System.Configuration;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApp.Data;
@@ -25,13 +26,15 @@ builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
 });
 builder.Services.AddHttpClient<IBasketService, BasketService>(client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
+    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]);
 });
+
 
 //builder.Services.AddHttpClient()
 builder.Services.AddScoped<IAuthService, AuthService>();
 // builder.Services.AddLogging();
 builder.Services.AddScoped<IEmailService, EmailService>();
+// builder.Services.AddScoped<IBasketService, BasketService>();
 //-------------------------------------//
 
 // ---------------Data --------------------//
@@ -90,7 +93,6 @@ if (!app.Environment.IsDevelopment())
 
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
-
 }
 
 app.UseRouting();
@@ -106,7 +108,10 @@ app.UseStaticFiles();
 
 app.UseExceptionHandler("/Error");
 app.UseHsts();
-
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
 app.MapControllers();
 app.MapHub<CoinLiveHub>("/hub/coinlive");
 app.MapHub<CoinLivePriceHub>("/hub/coinmarket");

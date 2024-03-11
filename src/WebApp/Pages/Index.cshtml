@@ -77,7 +77,7 @@
                     </td>
                     <td>
                         <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>/
-                        <form method="post" asp-page-handler="cart">
+                        <form method="post" asp-page-handler="BasketCoin">
                             <input type="hidden" name="coinSymbol" value="@item.Symbol"/>
                             <button type="submit" class="btn btn-success">Buy</button>
                         </form>

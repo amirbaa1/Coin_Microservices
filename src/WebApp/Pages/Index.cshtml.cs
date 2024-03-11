@@ -5,8 +5,8 @@ using Newtonsoft.Json;
 using WebApp.Model.AccountModel;
 using WebApp.Model.Basket;
 using WebApp.Model.Response;
-using WebApp.Pages.Coin.category;
 using WebApp.Services;
+using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace WebApp.Pages
 {
@@ -14,20 +14,20 @@ namespace WebApp.Pages
     {
         private readonly ILogger<IndexModel> _logger;
         private readonly ICoinService _coinService;
-        private readonly IBasketService _basketService;
         private readonly UserManager<AppUser> _userManager;
-        private readonly IHttpContextAccessor _httpContextAccessor;
-        public bool ErrorOccurred { get; private set; }
+        private readonly IBasketService _basketService;
 
-        public IndexModel(ILogger<IndexModel> logger, ICoinService coinService, IBasketService basketService,
-            UserManager<AppUser> userManager, IHttpContextAccessor httpContextAccessor)
+        public IndexModel(ILogger<IndexModel> logger, ICoinService coinService, UserManager<AppUser> userManager,
+            IBasketService basketService)
         {
             _logger = logger;
             _coinService = coinService;
-            _basketService = basketService;
             _userManager = userManager;
-            _httpContextAccessor = httpContextAccessor;
+            _basketService = basketService;
         }
+
+        public bool ErrorOccurred { get; private set; }
+
 
         public CoinMarketResponse coinList { get; set; }
         [BindProperty(SupportsGet = true)] public string Symbol { get; set; }
@@ -78,40 +78,59 @@ namespace WebApp.Pages
             return Page();
         }
 
-        public async Task<IActionResult> OnPostCart(string coinSymbol)
+        public async Task<IActionResult> OnPostBasketCoin(string coinSymbol)
         {
-            Console.WriteLine($"1 --->OnPostCart called with coinSymbol: {coinSymbol}");
+            // Console.WriteLine($"1 --->OnPostCart called with coinSymbol: {coinSymbol}");
 
             var coin = await _coinService.GetCoinBySymbol(coinSymbol);
             _logger.LogInformation($"2 --->coin response: {JsonConvert.SerializeObject(coin)}");
 
             var user = await _userManager.GetUserAsync(User);
-            if (user == null || !User.Identity.IsAuthenticated)
+            if (user == null)
             {
                 return RedirectToPage("/account/login");
             }
 
-            var basketUser = await _basketService.GetBasket(user.UserName);
-            _logger.LogInformation($"3 --->UserName : {basketUser.UserName}");
+            // var basketUser = await _basketService.GetBasket(user.UserName);
+            // _logger.LogInformation($"3 --->UserName : {basketUser.UserName}");
 
-            basketUser.CoinCarts = new CoinCartList
+            // if (basketUser == null)
+            // {
+            //     basketUser = new CoinCart(user.UserName);
+            // }
+
+            // basketUser.CoinCarts.Add(new CoinCartList
+            //  {
+            //      CoinName = coin.Data[coinSymbol][0].Name,
+            //      CoinId = coin.Data[coinSymbol][0].Id,
+            //      PriceCoin = coin.Data[coinSymbol][0].Quote["USD"].Price,
+            //      Amount = 0,
+            //  });
+            var basketUser = new CoinCart(user.UserName);
+            basketUser.CoinCarts.Add(new CoinCartList
             {
                 CoinName = coin.Data[coinSymbol][0].Name,
                 CoinId = coin.Data[coinSymbol][0].Id,
                 PriceCoin = coin.Data[coinSymbol][0].Quote["USD"].Price,
                 Amount = 0,
-            };
+            });
+
 
             _logger.LogInformation($"4 --->basketUser : {JsonConvert.SerializeObject(basketUser)}");
-            
-            var basketUserJson = JsonConvert.SerializeObject(basketUser);
-            HttpContext.Session.SetString("CartInfo", basketUserJson);
-
-
-            //var basketAdd = await _basketService.PostBasket(basketUser);
-            //_logger.LogInformation($"5 --->basketAdd : {JsonConvert.SerializeObject(basketAdd)}");
-
-            return RedirectToPage("/cart/cartinfo");
+            _logger.LogInformation($"4 --->basketUser2 : {basketUser}");
+            try
+            {
+                var sendPost = await _basketService.PostBasket(basketUser);
+                _logger.LogInformation($"5 --->sendPost in Index : {JsonConvert.SerializeObject(sendPost)}");
+                return RedirectToPage("/Basket/CartInfo");
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError($"Error posting basket: {ex.Message}");
+                // Log or handle the exception accordingly
+                return Page();
+            }
+            return Page();
         }
     }
 }

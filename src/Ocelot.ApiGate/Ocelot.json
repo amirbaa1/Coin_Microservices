@@ -257,7 +257,8 @@
       ]
     },
     {
-      "DownstreamPathTemplate": "/Coin/Categories", // WTF !!
+      "DownstreamPathTemplate": "/Coin/Categories",
+      // WTF !!
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -286,7 +287,7 @@
     },
     /////////////////////////////
     {
-      "DownstreamPathTemplate": "/basket/{username}",
+      "DownstreamPathTemplate": "/Basket/{username}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -296,11 +297,12 @@
       ],
       "UpstreamPathTemplate": "/basket/{username}",
       "UpstreamHttpMethod": [
-        "GET"
+        "GET",
+        "DELETE"
       ]
     },
     {
-      "DownstreamPathTemplate": "/basket",
+      "DownstreamPathTemplate": "/Basket",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
@@ -313,20 +315,20 @@
         "POST"
       ]
     },
-    {
-      "DownstreamPathTemplate": "/basket/{username}",
-      "DownstreamScheme": "https",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "7002"
-        }
-      ],
-      "UpstreamPathTemplate": "/basket/{username}",
-      "UpstreamHttpMethod": [
-        "DELETE"
-      ]
-    },
+//    {
+//      "DownstreamPathTemplate": "/basket/{username}",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": "7002"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/basket/{username}",
+//      "UpstreamHttpMethod": [
+//        "DELETE"
+//      ]
+//    },
     {
       "DownstreamPathTemplate": "/basket/BasketCheckOut",
       "DownstreamScheme": "https",

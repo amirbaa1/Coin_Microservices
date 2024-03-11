@@ -26,97 +26,71 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="" />
+    <list default="true" id="790274a5-49e7-4bd4-96a7-25df5ba2b9fc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image/coin Diagram.drawio (2).pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../image/coinDiagram.drawio.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Model/Basket/CoinCart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Basket/CoinCart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Services/IBasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/IBasketService.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/156b638a6a114f71b9b972b6c7f0347837400/78/ba5a0b19/RazorView.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/724c06f1a4ca42c6ac647bd66d3023e81e4800/6a/9ff267d5/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/eb4b45160bbc4a19ab4fbca6c1ce04e76d400/26/0f43ac9e/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2cwpBywT37WtnJwIOHzwc0CSTFD" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2dXTNfzeXYBkhJErdnNAie7CFCb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.Basket.API: https.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.Coin.API: https.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.Ocelot.ApiGate: https.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Launch Settings Profile.WebApp: https.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.Basket.API: http.executor": "Run",
+    ".NET Launch Settings Profile.Basket.API: https.executor": "Run",
+    ".NET Launch Settings Profile.Coin.API: http.executor": "Run",
+    ".NET Launch Settings Profile.Coin.API: https.executor": "Run",
+    ".NET Launch Settings Profile.Ocelot.ApiGate: https.executor": "Run",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache&quot;,
-      &quot;/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache&quot;,
-      &quot;/Users/amirba/.local/share/Symbols/src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/DecompilerCache",
+      "/Users/amirba/Library/Application Support/JetBrains/Rider2023.3/resharper-host/SourcesCache",
+      "/Users/amirba/.local/share/Symbols/src"
     ]
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
-    <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
-      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="http" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="USE_MONO" value="0" />
-      <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
-      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
-      <option name="SEND_DEBUG_REQUEST" value="1" />
-      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
-      <method v="2">
-        <option name="Build" />
-      </method>
-    </configuration>
     <configuration name="Basket.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="USE_MONO" value="0" />
-      <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
-      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
-      <option name="SEND_DEBUG_REQUEST" value="1" />
-      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
-      <method v="2">
-        <option name="Build" />
-      </method>
-    </configuration>
-    <configuration name="Coin.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Coin.API/Coin.API.csproj" />
-      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="http" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
@@ -285,7 +259,6 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
-      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -355,17 +328,11 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <deployment type="docker-compose.yml" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile">
-        <settings />
-      </deployment>
-      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <deployment type="dockerfile" />
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
@@ -382,63 +349,21 @@
       <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue=".NET Launch Settings Profile.Basket.API: http" />
-      <item itemvalue=".NET Launch Settings Profile.Basket.API: https" />
-      <item itemvalue=".NET Launch Settings Profile.Coin.API: http" />
-      <item itemvalue=".NET Launch Settings Profile.Coin.API: https" />
-      <item itemvalue=".NET Launch Settings Profile.Identity.API: http" />
-      <item itemvalue=".NET Launch Settings Profile.Identity.API: https" />
-      <item itemvalue=".NET Launch Settings Profile.IdentityServer: http" />
-      <item itemvalue=".NET Launch Settings Profile.IdentityServer: https" />
-      <item itemvalue=".NET Launch Settings Profile.Ocelot.ApiGate: http" />
-      <item itemvalue=".NET Launch Settings Profile.Ocelot.ApiGate: https" />
-      <item itemvalue=".NET Launch Settings Profile.Ordering.API: http" />
-      <item itemvalue=".NET Launch Settings Profile.Ordering.API: https" />
-      <item itemvalue=".NET Launch Settings Profile.WebApp: http" />
-      <item itemvalue=".NET Launch Settings Profile.WebApp: https" />
-      <item itemvalue="Docker.Basket.API/Dockerfile" />
-      <item itemvalue="Docker.Coin.API/Dockerfile" />
-      <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
-      <item itemvalue="Docker.Identity.API/Dockerfile" />
-      <item itemvalue="Docker.Ocelot.ApiGate/Dockerfile" />
-      <item itemvalue="Docker.Ordering.API/Dockerfile" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="05e92ed3-f1e2-4ba0-84c6-c014412e7eef" name="Changes" comment="" />
-      <created>1709032365057</created>
+      <changelist id="790274a5-49e7-4bd4-96a7-25df5ba2b9fc" name="Changes" comment="" />
+      <created>1710153386022</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1709032365057</updated>
-      <workItem from="1709032368991" duration="7687000" />
-      <workItem from="1709105880296" duration="14242000" />
-      <workItem from="1709365285912" duration="13054000" />
-      <workItem from="1709451532834" duration="537000" />
-      <workItem from="1709710977105" duration="201000" />
-      <workItem from="1709711204614" duration="11416000" />
-      <workItem from="1710055749884" duration="11302000" />
-      <workItem from="1710071417186" duration="251000" />
-      <workItem from="1710072041349" duration="4233000" />
-      <workItem from="1710142394621" duration="881000" />
+      <updated>1710153386022</updated>
+      <workItem from="1710153389781" duration="9642000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -447,89 +372,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml.cs</url>
-          <line>26</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Coin/Category.cshtml.cs" initialLine="26" containingFunctionPresentation="Method 'OnPost'">
+          <url>file://$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs</url>
+          <line>81</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" initialLine="80" containingFunctionPresentation="Method 'OnPostCart'">
             <startOffsets>
-              <option value="676" />
+              <option value="2556" />
             </startOffsets>
             <endOffsets>
-              <option value="677" />
+              <option value="2557" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="4" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Coin.API/Services/CoinMarket.cs</url>
-          <line>135</line>
-          <properties documentPath="$PROJECT_DIR$/Coin.API/Services/CoinMarket.cs" initialLine="135" containingFunctionPresentation="Method 'GetByIdCategory'">
+          <url>file://$PROJECT_DIR$/WebApp/Services/BasketService.cs</url>
+          <line>53</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" initialLine="51" containingFunctionPresentation="Method 'PostBasket'">
             <startOffsets>
-              <option value="3992" />
+              <option value="1896" />
             </startOffsets>
             <endOffsets>
-              <option value="3993" />
+              <option value="1897" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs</url>
-          <line>114</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Services/Account/AuthService.cs" initialLine="114" containingFunctionPresentation="Method 'UpdateByIdRoleAccount'">
-            <startOffsets>
-              <option value="3403" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3404" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs</url>
-          <line>15</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/SignalR/CoinHub.cs" initialLine="15" containingFunctionPresentation="Method 'OnConnectedAsync'" />
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Coin/coinLive.cshtml.cs</url>
-          <line>30</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Coin/coinLive.cshtml.cs" initialLine="30" containingFunctionPresentation="Method 'OnGetAsync'">
-            <startOffsets>
-              <option value="1114" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1115" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml.cs</url>
-          <line>26</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml.cs" initialLine="23" containingFunctionPresentation="Method 'OnGet'">
-            <startOffsets>
-              <option value="780" />
-            </startOffsets>
-            <endOffsets>
-              <option value="781" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml</url>
-          <line>19</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Cart/cartinfo.cshtml" initialLine="19" isMultiMethodBreakpoint="true">
-            <option name="multiMethodBreakpoint" value="true" />
-            <startOffsets>
-              <option value="-1" />
-            </startOffsets>
-            <endOffsets>
-              <option value="-1" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="17" />
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
