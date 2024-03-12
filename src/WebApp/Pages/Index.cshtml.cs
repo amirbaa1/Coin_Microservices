@@ -36,6 +36,10 @@ namespace WebApp.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
+            if (TempData.ContainsKey("sendToIdnex"))
+            {
+                var message = TempData["sendToIdnex"].ToString();
+            }
             try
             {
                 coinList = await _coinService.GetCoinMarket();

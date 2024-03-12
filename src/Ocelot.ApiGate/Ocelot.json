@@ -315,20 +315,20 @@
         "POST"
       ]
     },
-//    {
-//      "DownstreamPathTemplate": "/basket/{username}",
-//      "DownstreamScheme": "https",
-//      "DownstreamHostAndPorts": [
-//        {
-//          "Host": "localhost",
-//          "Port": "7002"
-//        }
-//      ],
-//      "UpstreamPathTemplate": "/basket/{username}",
-//      "UpstreamHttpMethod": [
-//        "DELETE"
-//      ]
-//    },
+    //    {
+    //      "DownstreamPathTemplate": "/basket/{username}",
+    //      "DownstreamScheme": "https",
+    //      "DownstreamHostAndPorts": [
+    //        {
+    //          "Host": "localhost",
+    //          "Port": "7002"
+    //        }
+    //      ],
+    //      "UpstreamPathTemplate": "/basket/{username}",
+    //      "UpstreamHttpMethod": [
+    //        "DELETE"
+    //      ]
+    //    },
     {
       "DownstreamPathTemplate": "/basket/BasketCheckOut",
       "DownstreamScheme": "https",

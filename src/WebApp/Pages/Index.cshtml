@@ -4,6 +4,11 @@
     ViewData["Title"] = "Home page";
 }
 
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    @TempData["sendToIdnex"]
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+
 <div class="text-center">
     <h1 class="display-4">Coin Market</h1>
     <form class="d-flex" role="search" method="post" asp-page-handler="coinSearch">
@@ -17,73 +22,73 @@
         <p>Tehran :@DateTime.Now</p>
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Coin symbol</th>
-                <th scope="col">Price USD</th>
-                <th scope="col">percent_change_1h</th>
-                <th scope="col">percent_change_24h</th>
-                <th scope="col">Details</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Coin symbol</th>
+                    <th scope="col">Price USD</th>
+                    <th scope="col">percent_change_1h</th>
+                    <th scope="col">percent_change_24h</th>
+                    <th scope="col">Details</th>
+                </tr>
             </thead>
             <tbody>
 
-            @foreach (var item in Model.coinList.Data)
-            {
-                <tr>
-                    <td scope="row">@item.cmc_rank</td>
-                    <td scope="row">
-                        <b>@item.Name</b> @item.Symbol
-                    </td>
-                    @* <td scope="row">@item.rank</td> *@
-                    @*<td scope="row">@item.Quote?["USD"]?.Price</td>
+                @foreach (var item in Model.coinList.Data)
+                {
+                    <tr>
+                        <td scope="row">@item.cmc_rank</td>
+                        <td scope="row">
+                            <b>@item.Name</b> @item.Symbol
+                        </td>
+                        @* <td scope="row">@item.rank</td> *@
+                        @*<td scope="row">@item.Quote?["USD"]?.Price</td>
                 <td scope="row">@item.Quote?["USD"]?.percent_change_1h</td> *@
-                    <td scope="row">
-                        @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
+                        <td scope="row">
+                            @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
 
-                        @if (item.Quote?["USD"]?.percent_change_24h > 0)
-                        {
-                            <i class="bi bi-caret-up-fill text-success"></i>
-                        }
-                        else
-                        {
-                            <i class="bi bi-caret-down-fill text-danger"></i>
-                        }
-                    </td>
+                            @if (item.Quote?["USD"]?.percent_change_24h > 0)
+                            {
+                                <i class="bi bi-caret-up-fill text-success"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-caret-down-fill text-danger"></i>
+                            }
+                        </td>
 
-                    <td scope="row">
-                        @string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)
+                        <td scope="row">
+                            @string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)
 
-                        @if (item.Quote?["USD"]?.percent_change_1h > 0)
-                        {
-                            <i class="bi bi-caret-up-fill text-success"></i>
-                        }
-                        else
-                        {
-                            <i class="bi bi-caret-down-fill text-danger"></i>
-                        }
-                    </td>
-                    <td scope="row">
-                        @string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)
+                            @if (item.Quote?["USD"]?.percent_change_1h > 0)
+                            {
+                                <i class="bi bi-caret-up-fill text-success"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-caret-down-fill text-danger"></i>
+                            }
+                        </td>
+                        <td scope="row">
+                            @string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)
 
-                        @if (item.Quote?["USD"]?.percent_change_24h > 0)
-                        {
-                            <i class="bi bi-caret-up-fill text-success"></i>
-                        }
-                        else
-                        {
-                            <i class="bi bi-caret-down-fill text-danger"></i>
-                        }
-                    </td>
-                    <td>
-                        <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>/
-                        <form method="post" asp-page-handler="BasketCoin">
-                            <input type="hidden" name="coinSymbol" value="@item.Symbol"/>
-                            <button type="submit" class="btn btn-success">Buy</button>
-                        </form>
-                    </td>
-                </tr>
-            }
+                            @if (item.Quote?["USD"]?.percent_change_24h > 0)
+                            {
+                                <i class="bi bi-caret-up-fill text-success"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-caret-down-fill text-danger"></i>
+                            }
+                        </td>
+                        <td>
+                            <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>/
+                            <form method="post" asp-page-handler="BasketCoin">
+                                <input type="hidden" name="coinSymbol" value="@item.Symbol" />
+                                <button type="submit" class="btn btn-success">Buy</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
 
             </tbody>
         </table>
@@ -92,48 +97,48 @@
     {
         <table class="table table-striped table-hover">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Coin / symbol</th>
-                <th scope="col">Price USD</th>
-                <th scope="col">percent_change_1h</th>
-                <th scope="col">percent_change_24h</th>
-                <th scope="col">Details</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Coin / symbol</th>
+                    <th scope="col">Price USD</th>
+                    <th scope="col">percent_change_1h</th>
+                    <th scope="col">percent_change_24h</th>
+                    <th scope="col">Details</th>
+                </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.coinSearchResponse.Data.Values.FirstOrDefault())
-            {
-                <tr>
-                    <td scope="row">@item.cmc_rank</td>
-                    <td scope="row">
-                        <b>@item.Name</b> @item.Symbol
-                    </td>
-                    @* <td scope="row">@item.rank</td> *@
-                    @* <td scope="row">@item.Quote?["USD"]?.Price</td>
+                @foreach (var item in Model.coinSearchResponse.Data.Values.FirstOrDefault())
+                {
+                    <tr>
+                        <td scope="row">@item.cmc_rank</td>
+                        <td scope="row">
+                            <b>@item.Name</b> @item.Symbol
+                        </td>
+                        @* <td scope="row">@item.rank</td> *@
+                        @* <td scope="row">@item.Quote?["USD"]?.Price</td>
                 <td scope="row">@item.Quote?["USD"]?.percent_change_1h</td> *@
-                    <td scope="row">
-                        @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
+                        <td scope="row">
+                            @string.Format("{0:N2}$", item.Quote?["USD"]?.Price)
 
-                        @if (item.Quote?["USD"]?.percent_change_24h > 0)
-                        {
-                            <i class="bi bi-caret-up-fill text-success"></i>
-                        }
-                        else
-                        {
-                            <i class="bi bi-caret-down-fill text-danger"></i>
-                        }
-                    </td>
-                    <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
-                    <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
-                    <td>
-                        <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>/
-                        <form method="post" asp-page-handler="cart">
-                            <a class="btn btn-success">Buy</a>
-                        </form>
-                    </td>
-                </tr>
-            }
+                            @if (item.Quote?["USD"]?.percent_change_24h > 0)
+                            {
+                                <i class="bi bi-caret-up-fill text-success"></i>
+                            }
+                            else
+                            {
+                                <i class="bi bi-caret-down-fill text-danger"></i>
+                            }
+                        </td>
+                        <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_1h)</td>
+                        <td scope="row">@string.Format("{0:N2}%", item.Quote?["USD"]?.percent_change_24h)</td>
+                        <td>
+                            <a asp-page="/coin/coindet" asp-route-coinSymbol="@item.Symbol">More</a>/
+                            <form method="post" asp-page-handler="cart">
+                                <a class="btn btn-success">Buy</a>
+                            </form>
+                        </td>
+                    </tr>
+                }
             </tbody>
         </table>
     }

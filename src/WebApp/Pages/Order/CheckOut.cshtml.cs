@@ -34,24 +34,32 @@ namespace WebApp.Pages.Order
 
 
         }
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             var userGet = await _userManager.GetUserAsync(User);
             var coinUser = await _basketService.GetBasket(userGet.UserName);
 
             check.EmailAddress = _userManager.FindByNameAsync(User.Identity.Name).Result.Email;
+            check.UserName = coinUser.UserName;
+
+            check.FirstName = "Tester";
+            check.LastName = "TesterB";
+
 
             check.CoinId = coinUser.CoinCarts.CoinId;
             check.CoinName = coinUser.CoinCarts.CoinName;
             check.PriceCoin = coinUser.CoinCarts.PriceCoin;
             check.Amount = coinUser.CoinCarts.Amount;
             check.TotalPrice = coinUser.TotalPrice;
-
+            check.DateTime = DateTime.Now;
 
 
             _logger.LogInformation($"CheckOut send:{check}");
 
+            _basketService.CheckOutBasket(check);
+            TempData["sendToIdnex"] = $"buy coin {check.CoinName}";
 
+            return RedirectToPage("Index");
 
         }
     }

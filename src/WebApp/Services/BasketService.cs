@@ -19,6 +19,7 @@ namespace WebApp.Services
 
         public async Task<CheckOut> CheckOutBasket(CheckOut checkOut)
         {
+            _logger.LogInformation($"--- > checkOut in Services : {JsonConvert.SerializeObject(checkOut)}");
             var response = await _httpClient.PostAsJsonAsync("/basket/BasketCheckOut", checkOut);
             if (response == null)
             {
