@@ -34,7 +34,7 @@ namespace Basket.API.Services
             await _distributedCache.SetStringAsync(
                 coin.UserName,
                 JsonConvert.SerializeObject(coin)
-                );
+               );
             return await GetBasket(coin.UserName);
         }
     }

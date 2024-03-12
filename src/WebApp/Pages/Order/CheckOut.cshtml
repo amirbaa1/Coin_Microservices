@@ -1,0 +1,51 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Model.AccountModel
+@model WebApp.Pages.Order.CheckOutModel
+@{
+}
+@inject UserManager<AppUser> UserManager
+
+<form method="post">
+    <div class="text mx-auto" style="width: 50%;">
+        <div class="card">
+            <div class="card-body">
+
+                <p>userName:</p>
+                <p asp-for="@Model.User.Identity.Name">@Model.CoinCartItem.UserName</p>
+                <input type="hidden" name="UserName" asp-for="check.UserName" />
+
+                <p>Name Coin:</p>
+                <p>@Model.CoinCartItem.CoinCarts.CoinName</p>
+                <input type="hidden" name="CoinName" asp-for="check.CoinName" />
+
+                <p>Price:</p>
+                <td id="price" name="CoinCarts" asp-for="check.PriceCoin">@Model.CoinCartItem.CoinCarts.PriceCoin$</td>
+
+                <p>Amount:</p>
+                <p>@Model.CoinCartItem.CoinCarts.Amount</p>
+                <input type="hidden" name="Amount" asp-for="check.Amount" />
+
+                <p>Total Price:</p>
+                <p asp-for="@Model.CoinCartItem.TotalPrice">@Model.CoinCartItem.TotalPrice $$</p>
+                <input type="hidden" name="TotalPrice" asp-for="@Model.CoinCartItem.TotalPrice" />
+
+                <input type="hidden" name="firstName" asp-for="check.FirstName" />
+
+                <input type="hidden" name="lastName" value="tester" asp-for="check.LastName" />
+
+                <input type="hidden" name="EmailAddress" asp-for="check.EmailAddress" />
+                <p>card Name:</p>
+                <input type="text" asp-for="check.CardName" />
+
+                <p>card Number:</p>
+                <input type="text" asp-for="check.CardNumber" />
+
+                <p>expiration:</p>
+                <input type="text" asp-for="check.Expiration" />
+            </div>
+        </div>
+    </div>
+    <button class="btn btn-success" type="submit">Order</button>
+</form>
+

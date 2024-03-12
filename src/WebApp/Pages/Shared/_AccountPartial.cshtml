@@ -4,7 +4,7 @@
     <form method="post" class="form-inline" asp-page="/Account/Logout">
         <a class="btn btn-link" asp-page="/Account/Profile">
             Welcome @User?.Identity?.Name (@User?.Claims.FirstOrDefault(x => x.Type == "RoleAccount")?.Value)
-            <a class="btn btn-link" asp-page="/cart/cartinfo">Cart</a>
+            <a class="btn btn-link" asp-page="/basket/cartinfo">Cart</a>
             <button type="submit" class="ml-2 btn btn-link">Logout</button>
         </a>
     </form>

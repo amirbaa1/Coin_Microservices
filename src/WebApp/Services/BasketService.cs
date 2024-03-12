@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Net.Http;
+using System.Text;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using WebApp.Model.Basket;
@@ -46,33 +47,43 @@ namespace WebApp.Services
             var content = await response.Content.ReadAsStringAsync();
             _logger.LogInformation($"--->readGET : {content}");
 
-            var coinCart = System.Text.Json.JsonSerializer.Deserialize<CoinCart>(content);
+            var coinCart = JsonConvert.DeserializeObject<CoinCart>(content);
+            _logger.LogInformation($"---> Send Json Cart : {coinCart}");
             return coinCart;
         }
 
-        public async Task<CoinCart> PostBasket([FromBody] CoinCart coinCarts)
+        //public async Task<CoinCart> PostBasket([FromBody] CoinCart coinCarts)
+        //{
+        //    _logger.LogInformation($"--- > basketModel in Services : {JsonConvert.SerializeObject(coinCarts)}");
+
+        //    var content = new StringContent(JsonConvert.SerializeObject(coinCarts));
+        //    var response = await _httpClient.PostAsync(new Uri(_httpClient.BaseAddress, "/basket"), content);
+
+        //    if (!response.IsSuccessStatusCode)
+        //    {
+        //        throw new Exception($"Failed to post basket. Status code: {response.StatusCode}");
+        //    }
+
+        //    var read = await response.Content.ReadAsStringAsync();
+        //    _logger.LogInformation($"--- > readPost : {read}");
+        //    return JsonConvert.DeserializeObject<CoinCart>(read);
+        //}
+        public async Task<CoinCart> PostBasket(CoinCart coinCarts)
         {
-            _logger.LogInformation($"--- > basketModel in Services : {JsonConvert.SerializeObject(coinCarts)}");
-            var requestUri = new Uri(_httpClient.BaseAddress, $"/basket");
-            _logger.LogInformation($"--->requestUri: {requestUri}");
-
-            // var response = await _httpClient.PostAsJsonAsync(requestUri, coinCarts);
-           
-            _logger.LogInformation($"Request payload: {JsonConvert.SerializeObject(coinCarts)}");
-            var content = new StringContent(System.Text.Json.JsonSerializer.Serialize(coinCarts), Encoding.UTF8, "application/json");
-            var response = await _httpClient.PostAsync(requestUri, content);
-            _logger.LogInformation($"--->response link : {response}");
-
-            // var response = await _httpClient.PostAsJsonAsync("/basket", coinCarts);
-
-            if (response == null)
             {
-                throw new Exception("Something went wrong when calling api.");
-            }
+                _logger.LogInformation($"basketModel : {JsonConvert.SerializeObject(coinCarts)}");
+                var requestUri = new Uri(_httpClient.BaseAddress, $"/basket");
+                _logger.LogInformation($"requsetUri : {requestUri}");
 
-            var read = await response.Content.ReadAsStringAsync();
-            _logger.LogInformation($"--- > readPost : {JsonConvert.SerializeObject(read)}");
-            return System.Text.Json.JsonSerializer.Deserialize<CoinCart>(read);
+                var response = await _httpClient.PostAsJsonAsync(requestUri, coinCarts);
+                _logger.LogInformation($"----> response : {response}");
+                if (response == null)
+                {
+                    throw new Exception("Something went wrong when calling api.");
+                }
+                var read = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<CoinCart>(read);
+            }
         }
     }
 }

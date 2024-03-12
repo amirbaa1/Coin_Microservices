@@ -11,20 +11,38 @@ public class CartInfo : PageModel
 {
     private readonly UserManager<AppUser> _userManager;
     private readonly IBasketService _basketService;
-
-    public CartInfo(UserManager<AppUser> userManager, IBasketService basketService)
+    private readonly ILogger<CartInfo> _logger;
+    private readonly HttpClient _httpClient;
+    public CartInfo(UserManager<AppUser> userManager, IBasketService basketService, ILogger<CartInfo> logger, HttpClient httpClient)
     {
         _userManager = userManager;
         _basketService = basketService;
+        _logger = logger;
+        _httpClient = httpClient;
     }
+    [BindProperty]
+    public CoinCart CoinCartItem { get; set; }
 
-    public CoinCart? CoinCartItem { get; set; }
-
-    public async Task<IActionResult> OnGet()
+    public async Task OnGet()
     {
         var userGet = await _userManager.GetUserAsync(User);
-        CoinCartItem = await _basketService.GetBasket(userGet.UserName);
+        var getCoinUser = await _basketService.GetBasket(userGet.UserName);
 
-        return Page();
+        _logger.LogInformation($"get Coin for page :{getCoinUser}");
+
+        CoinCartItem = getCoinUser;
+    }
+    public async Task<IActionResult> OnPost()
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        CoinCartItem.UserName = user.UserName;
+        _logger.LogInformation($"--> CoinItem : {CoinCartItem}");
+
+        //var user = await _userManager.GetUserAsync(User);
+        _logger.LogInformation($"--> CoinItem : {CoinCartItem}");
+
+        var basketPost = await _basketService.PostBasket(CoinCartItem);
+        return RedirectToPage("/order/checkout");
     }
 }

@@ -26,7 +26,7 @@ builder.Services.AddHttpClient<IOrderService, OrderService>(client =>
 });
 builder.Services.AddHttpClient<IBasketService, BasketService>(client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]);
+    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
 });
 
 
