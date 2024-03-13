@@ -37,14 +37,14 @@
                     <input type="number" asp-for="CoinCartItem.CoinCarts.Amount" id="amountInput" class="form-control" oninput="updateTotalPrice()" step="any"/>
                 </td>
                 <td id="totalPrice">@Model.CoinCartItem.TotalPrice</td>
-                <form method="post" asp-page-handler="DeleteCartBasket">
-
-                    <td>
-                        <button type="submit">
-                            cancel
-                        </button>
-                    </td>
-                </form>
+                @* <form method="post" asp-page-handler="DeleteCartBasket"> *@
+                @* *@
+                @*     <td> *@
+                @*         <button type="submit"> *@
+                @*             cancel *@
+                @*         </button> *@
+                @*     </td> *@
+                @* </form> *@
             </tr>
 
             @*   <tr>

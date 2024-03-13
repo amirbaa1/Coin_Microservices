@@ -76,6 +76,12 @@ builder.Services.AddAuthorization(opt =>
         policy.RequireClaim("RoleAccount", "Admin"));
 });
 
+builder.Services.AddAuthentication().AddGoogle(googleOpt =>
+{
+    googleOpt.ClientId = builder.Configuration["Authentication:Google:ClientId"];
+    googleOpt.ClientSecret = builder.Configuration["Authentication:Google:ClientSecret"];
+}).AddCookie();
+
 //-------------------------------------//
 
 
@@ -108,10 +114,7 @@ app.UseStaticFiles();
 
 app.UseExceptionHandler("/Error");
 app.UseHsts();
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 app.MapControllers();
 app.MapHub<CoinLiveHub>("/hub/coinlive");
 app.MapHub<CoinLivePriceHub>("/hub/coinmarket");
