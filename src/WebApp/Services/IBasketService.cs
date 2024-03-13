@@ -7,5 +7,6 @@ namespace WebApp.Services
         Task<CoinCart> GetBasket(string username);
         Task<CoinCart> PostBasket(CoinCart coinCart);
         Task<CheckOut> CheckOutBasket(CheckOut checkOut);
+        Task<bool> DeleteBasket(string username);
     }
 }

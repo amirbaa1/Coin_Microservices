@@ -13,16 +13,17 @@ namespace WebApp.Pages.Order
         private readonly ILogger<CheckOutModel> _logger;
         private readonly UserManager<AppUser> _userManager;
 
-        public CheckOutModel(IBasketService basketService, ILogger<CheckOutModel> logger, UserManager<AppUser> userManager)
+        public CheckOutModel(IBasketService basketService, ILogger<CheckOutModel> logger,
+            UserManager<AppUser> userManager)
         {
             _basketService = basketService;
             _logger = logger;
             _userManager = userManager;
         }
-        [BindProperty]
-        public CheckOut check { get; set; }
-        [BindProperty]
-        public CoinCart CoinCartItem { get; set; }
+
+        [BindProperty] public CheckOut check { get; set; }
+        [BindProperty] public CoinCart CoinCartItem { get; set; }
+
         public async Task OnGet()
         {
             var userGet = await _userManager.GetUserAsync(User);
@@ -31,9 +32,8 @@ namespace WebApp.Pages.Order
             //_logger.LogInformation($"get Coin for page :{getCoinUser}");
 
             CoinCartItem = getCoinUser;
-
-
         }
+
         public async Task<IActionResult> OnPost()
         {
             var userGet = await _userManager.GetUserAsync(User);
@@ -54,13 +54,20 @@ namespace WebApp.Pages.Order
             check.DateTime = DateTime.Now;
 
 
-            _logger.LogInformation($"CheckOut send:{check}");
+            // _logger.LogInformation($"CheckOut send:{check}");
 
-            _basketService.CheckOutBasket(check);
-            TempData["sendToIdnex"] = $"buy coin {check.CoinName}";
+            await _basketService.CheckOutBasket(check);
 
-            return RedirectToPage("Index");
+            TempData["sendToIndex"] = $"buy coin ";
 
+            return RedirectToPage("../Index");
+        }
+
+        public async Task<IActionResult> OnPostDeleteCart()
+        {
+            var user = await _userManager.GetUserAsync(User);
+            await _basketService.DeleteBasket(user.UserName);
+            return RedirectToPage("../Index");
         }
     }
 }

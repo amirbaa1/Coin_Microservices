@@ -16,7 +16,7 @@ namespace Basket.API.Services
 
         public async Task DeleteBasket(string userName)
         {
-            await _distributedCache.RefreshAsync(userName);
+            await _distributedCache.RemoveAsync(userName);
         }
 
         public async Task<CoinCart> GetBasket(string userName)
@@ -26,6 +26,7 @@ namespace Basket.API.Services
             {
                 return null;
             }
+
             return JsonConvert.DeserializeObject<CoinCart>(basket);
         }
 
@@ -34,7 +35,7 @@ namespace Basket.API.Services
             await _distributedCache.SetStringAsync(
                 coin.UserName,
                 JsonConvert.SerializeObject(coin)
-               );
+            );
             return await GetBasket(coin.UserName);
         }
     }

@@ -1,12 +1,10 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Newtonsoft.Json;
 using WebApp.Model.AccountModel;
 using WebApp.Model.Basket;
 using WebApp.Model.Response;
 using WebApp.Services;
-using JsonSerializer = System.Text.Json.JsonSerializer;
 
 namespace WebApp.Pages
 {
@@ -36,10 +34,18 @@ namespace WebApp.Pages
 
         public async Task<IActionResult> OnGetAsync()
         {
-            if (TempData.ContainsKey("sendToIdnex"))
+            if (TempData.ContainsKey("sendToIndex"))
             {
-                var message = TempData["sendToIdnex"].ToString();
+                var message = TempData["sendToIndex"];
+                ViewData["Message"] = message;
             }
+
+            if (TempData.ContainsKey("deleteCart"))
+            {
+                var message = TempData["deleteCart"];
+                ViewData["Message"] = message;
+            }
+
             try
             {
                 coinList = await _coinService.GetCoinMarket();
@@ -82,68 +88,6 @@ namespace WebApp.Pages
             return Page();
         }
 
-        //public async Task<IActionResult> OnPostBasketCoin(string coinSymbol)
-        //{
-        //    // Console.WriteLine($"1 --->OnPostCart called with coinSymbol: {coinSymbol}");
-
-        //    var coin = await _coinService.GetCoinBySymbol(coinSymbol);
-        //    _logger.LogInformation($"2 --->coin response: {JsonConvert.SerializeObject(coin)}");
-
-        //    var user = await _userManager.GetUserAsync(User);
-        //    if (user == null)
-        //    {
-        //        return RedirectToPage("/account/login");
-        //    }
-
-        //    // var basketUser = await _basketService.GetBasket(user.UserName);
-        //    // _logger.LogInformation($"3 --->UserName : {basketUser.UserName}");
-
-
-        //    //var basketUser = new CoinCart(user.UserName);
-        //    //basketUser.CoinCarts.Add(new CoinCartList
-        //    //{
-        //    //    CoinName = coin.Data[coinSymbol][0].Name,
-        //    //    CoinId = coin.Data[coinSymbol][0].Id,
-        //    //    PriceCoin = coin.Data[coinSymbol][0].Quote["USD"].Price,
-        //    //    Amount = 0,
-        //    //});
-
-        //    var basketUser = await _basketService.GetBasket(user.UserName);
-        //    _logger.LogInformation($"--->UserName : {basketUser.UserName}");
-        //    //basketUser.CoinCarts.Add(new CoinCartList
-        //    //{
-        //    //    CoinId = coin.Data[coinSymbol][0].Id,
-        //    //    CoinName = coin.Data[coinSymbol][0].Name,
-        //    //    Amount = 2,
-        //    //    PriceCoin = coin.Data[coinSymbol][0].Quote["USD"].Price,
-        //    //});
-
-        //    basketUser.CoinCarts = new CoinCartList
-        //    {
-        //        CoinId = coin.Data[coinSymbol][0].Id,
-        //        CoinName = coin.Data[coinSymbol][0].Name,
-        //        Amount = 0,
-        //        PriceCoin = coin.Data[coinSymbol][0].Quote["USD"].Price,
-        //    };
-
-        //    _logger.LogInformation($"4 --->basketUser : {JsonConvert.SerializeObject(basketUser)}");
-        //    _logger.LogInformation($"4 --->basketUser2 : {basketUser}");
-        //    try
-        //    {
-        //        var jsonContent = System.Text.Json.JsonSerializer.Serialize(basketUser);
-
-        //        var sendPost = await _basketService.PostBasket(basketUser);
-        //        _logger.LogInformation($"5 --->sendPost in Index : {JsonConvert.SerializeObject(sendPost)}");
-        //        return RedirectToPage("/Basket/CartInfo");
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        _logger.LogError($"Error posting basket: {ex.Message}");
-        //        // Log or handle the exception accordingly
-        //        return Page();
-        //    }
-        //    return Page();
-        //}
 
         public async Task<IActionResult> OnPostBasketCoin(string coinSymbol)
         {
@@ -151,7 +95,7 @@ namespace WebApp.Pages
 
             var user = await _userManager.GetUserAsync(User);
             var basketUser = await _basketService.GetBasket(user.UserName);
-            if(basketUser.UserName == null)
+            if (basketUser.UserName == null)
             {
                 basketUser = new CoinCart(user.UserName);
             }
@@ -175,7 +119,6 @@ namespace WebApp.Pages
 
             var basketPost = await _basketService.PostBasket(basketUser);
             return RedirectToPage("/basket/cartinfo");
-
         }
     }
 }

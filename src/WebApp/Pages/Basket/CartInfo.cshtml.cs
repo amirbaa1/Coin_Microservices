@@ -13,15 +13,17 @@ public class CartInfo : PageModel
     private readonly IBasketService _basketService;
     private readonly ILogger<CartInfo> _logger;
     private readonly HttpClient _httpClient;
-    public CartInfo(UserManager<AppUser> userManager, IBasketService basketService, ILogger<CartInfo> logger, HttpClient httpClient)
+
+    public CartInfo(UserManager<AppUser> userManager, IBasketService basketService, ILogger<CartInfo> logger,
+        HttpClient httpClient)
     {
         _userManager = userManager;
         _basketService = basketService;
         _logger = logger;
         _httpClient = httpClient;
     }
-    [BindProperty]
-    public CoinCart CoinCartItem { get; set; }
+
+    [BindProperty] public CoinCart CoinCartItem { get; set; }
 
     public async Task OnGet()
     {
@@ -32,6 +34,7 @@ public class CartInfo : PageModel
 
         CoinCartItem = getCoinUser;
     }
+
     public async Task<IActionResult> OnPost()
     {
         var user = await _userManager.GetUserAsync(User);
@@ -44,5 +47,13 @@ public class CartInfo : PageModel
 
         var basketPost = await _basketService.PostBasket(CoinCartItem);
         return RedirectToPage("/order/checkout");
+    }
+
+    public async Task<IActionResult> OnPostDeleteCartBasket()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        await _basketService.DeleteBasket(user.UserName);
+        TempData["deleteCart"] = "Deleted Order Coin in basket";
+        return RedirectToPage("../Index");
     }
 }

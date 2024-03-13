@@ -27,18 +27,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="790274a5-49e7-4bd4-96a7-25df5ba2b9fc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image/coin Diagram.drawio (2).pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../image/coinDiagram.drawio.pdf" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Model/Basket/CoinCart.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Model/Basket/CoinCart.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Services/BasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Services/BasketService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebApp/Services/IBasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/IBasketService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,10 +52,10 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2dXTNfzeXYBkhJErdnNAie7CFCb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -67,7 +68,8 @@
     ".NET Launch Settings Profile.Coin.API: http.executor": "Run",
     ".NET Launch Settings Profile.Coin.API: https.executor": "Run",
     ".NET Launch Settings Profile.Ocelot.ApiGate: https.executor": "Run",
-    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
+    ".NET Launch Settings Profile.Ordering.API: https.executor": "Run",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -328,11 +330,17 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml" />
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile" />
+      <deployment type="dockerfile">
+        <settings />
+      </deployment>
+      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
@@ -358,12 +366,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1710153386022</updated>
-      <workItem from="1710153389781" duration="9642000" />
+      <workItem from="1710153389781" duration="9977000" />
+      <workItem from="1710314874181" duration="7449000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
@@ -372,30 +392,30 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs</url>
-          <line>81</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" initialLine="80" containingFunctionPresentation="Method 'OnPostCart'">
+          <url>file://$PROJECT_DIR$/WebApp/Services/BasketService.cs</url>
+          <line>33</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" initialLine="33" containingFunctionPresentation="Method 'DeleteBasket'">
             <startOffsets>
-              <option value="2556" />
+              <option value="1129" />
             </startOffsets>
             <endOffsets>
-              <option value="2557" />
+              <option value="1130" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Services/BasketService.cs</url>
-          <line>53</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" initialLine="51" containingFunctionPresentation="Method 'PostBasket'">
+          <url>file://$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs</url>
+          <line>52</line>
+          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" initialLine="52" containingFunctionPresentation="Method 'OnPostDeleteCartBasket'">
             <startOffsets>
-              <option value="1896" />
+              <option value="1653" />
             </startOffsets>
             <endOffsets>
-              <option value="1897" />
+              <option value="1654" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="3" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
