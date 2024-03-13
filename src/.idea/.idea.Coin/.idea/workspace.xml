@@ -28,18 +28,9 @@
   <component name="ChangeListManager">
     <list default="true" id="790274a5-49e7-4bd4-96a7-25df5ba2b9fc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/Services/BasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Services/BasketService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Index.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Pages/Order/CheckOut.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/Services/IBasketService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/Services/IBasketService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebApp/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/WebApp/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +60,7 @@
     ".NET Launch Settings Profile.Coin.API: https.executor": "Run",
     ".NET Launch Settings Profile.Ocelot.ApiGate: https.executor": "Run",
     ".NET Launch Settings Profile.Ordering.API: https.executor": "Run",
-    ".NET Launch Settings Profile.WebApp: https.executor": "Debug",
+    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -367,7 +358,8 @@
       <option name="presentableId" value="Default" />
       <updated>1710153386022</updated>
       <workItem from="1710153389781" duration="9977000" />
-      <workItem from="1710314874181" duration="7449000" />
+      <workItem from="1710314874181" duration="8211000" />
+      <workItem from="1710327247976" duration="4896000" />
     </task>
     <servers />
   </component>
