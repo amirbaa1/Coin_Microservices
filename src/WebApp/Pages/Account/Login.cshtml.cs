@@ -1,6 +1,4 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication.Google;
+//using Microsoft.AspNetCore.Authentication.Google;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -64,24 +62,24 @@ public class Login : PageModel
         return Page();
     }
 
-    public async Task OnPostGoogle()
-    {
-        await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties
-        {
-            RedirectUri = Url.Action("GoogleResponse"),
-        });
-    }
+    //public async Task OnPostGoogle()
+    //{
+    //    await HttpContext.ChallengeAsync(GoogleDefaults.AuthenticationScheme, new AuthenticationProperties
+    //    {
+    //        RedirectUri = Url.Action("GoogleResponse"),
+    //    });
+    //}
 
-    public async Task<IActionResult> GoogleResponse()
-    {
-        var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-        var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
-        {
-            claim.Issuer,
-            claim.OriginalIssuer,
-            claim.Type,
-            claim.Value
-        });
+    //public async Task<IActionResult> GoogleResponse()
+    //{
+    //    var result = await HttpContext.AuthenticateAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+    //    var claims = result.Principal.Identities.FirstOrDefault().Claims.Select(claim => new
+    //    {
+    //        claim.Issuer,
+    //        claim.OriginalIssuer,
+    //        claim.Type,
+    //        claim.Value
+    //    });
         
-    }
+    //}
 }

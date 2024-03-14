@@ -106,9 +106,6 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-
-app.MapRazorPages();
-
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
@@ -118,5 +115,8 @@ app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 app.MapControllers();
 app.MapHub<CoinLiveHub>("/hub/coinlive");
 app.MapHub<CoinLivePriceHub>("/hub/coinmarket");
+
+app.MapRazorPages();
+
 
 app.Run();
