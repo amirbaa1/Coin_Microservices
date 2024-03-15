@@ -67,5 +67,24 @@ namespace Basket.API.Controllers
             await _basketService.DeleteBasket(basket.UserName);
             return Accepted();
         }
+        [HttpPost("Wallet")]
+        public async Task<ActionResult> Wallet([FromBody] Wallet wallets)
+        {
+            var basket = await _basketService.GetBasket(wallets.UserName);
+            if (basket == null)
+            {
+                return BadRequest();
+            }
+            var eventMessageWallet = _mapper.Map<BasketWalletEvent>(wallets);
+
+            eventMessageWallet.CoinName = basket.CoinCarts.CoinName;
+            eventMessageWallet.PriceCoin = basket.CoinCarts.PriceCoin;
+            eventMessageWallet.Amount = basket.CoinCarts.Amount;
+            eventMessageWallet.TotalPrice = basket.TotalPrice;
+
+            await _publishEndpoint.Publish<BasketWalletEvent>(eventMessageWallet);
+
+            return Accepted(eventMessageWallet);
+        }
     }
 }

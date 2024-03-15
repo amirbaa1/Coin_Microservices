@@ -8,7 +8,8 @@ namespace Basket.API.Mapping
     {
         public BasketProfile()
         {
-            CreateMap<CheckOut,BasketCheckOutEvent>().ReverseMap();
+            CreateMap<CheckOut, BasketCheckOutEvent>().ReverseMap();
+            CreateMap<Wallet, BasketWalletEvent>().ReverseMap();
         }
     }
 }
