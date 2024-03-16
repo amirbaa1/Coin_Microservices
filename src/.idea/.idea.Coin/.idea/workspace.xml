@@ -10,14 +10,14 @@
     <projectFile kind="Docker">Identity.API/Identity.API.csproj</projectFile>
     <projectFile profileName="http">Identity.API/Identity.API.csproj</projectFile>
     <projectFile profileName="https">Identity.API/Identity.API.csproj</projectFile>
-    <projectFile profileName="http">IdentityServer/IdentityServer.csproj</projectFile>
-    <projectFile profileName="https">IdentityServer/IdentityServer.csproj</projectFile>
     <projectFile kind="Docker">Ocelot.ApiGate/Ocelot.ApiGate.csproj</projectFile>
     <projectFile profileName="http">Ocelot.ApiGate/Ocelot.ApiGate.csproj</projectFile>
     <projectFile profileName="https">Ocelot.ApiGate/Ocelot.ApiGate.csproj</projectFile>
     <projectFile kind="Docker">Oedering/Ordering.API/Ordering.API.csproj</projectFile>
     <projectFile profileName="http">Oedering/Ordering.API/Ordering.API.csproj</projectFile>
     <projectFile profileName="https">Oedering/Ordering.API/Ordering.API.csproj</projectFile>
+    <projectFile profileName="http">Wallet.API/Wallet.API.csproj</projectFile>
+    <projectFile profileName="https">Wallet.API/Wallet.API.csproj</projectFile>
     <projectFile profileName="http">WebApp/WebApp.csproj</projectFile>
     <projectFile profileName="https">WebApp/WebApp.csproj</projectFile>
     <projectFile kind="DockerCompose">docker-compose.dcproj</projectFile>
@@ -26,11 +26,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="790274a5-49e7-4bd4-96a7-25df5ba2b9fc" name="Changes" comment="">
+    <list default="true" id="65c77ee3-afba-4c06-bc60-bf21fa68c1eb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Basket.API/Model/WalletCoinModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Basket.API/Model/WalletModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Contracts/IAsyncRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Contracts/IWalletRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Features/Wallet/Common/CheckWallet/CheckWalletCoinCommon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Features/Wallet/Common/CheckWallet/CheckWalletCommon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Features/Wallet/Common/CheckWallet/CheckWalletHandler.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Features/Wallet/GetWalletList/GetWalletListQuery.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Features/Wallet/GetWalletList/WalletCoinVm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Features/Wallet/GetWalletList/WalletVm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Application/Mapper/MappingProfile.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Domain/Common/EntityBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Domain/Common/ValueObject.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Domain/Entities/Wallet.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Domain/Entities/WalletCoin.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Infrastructure/Data/IWalletdbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Infrastructure/Data/WalletDbContext.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Infrastructure/Repositories/RepositoryBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Wallet/Wallet.Infrastructure/Repositories/WalletRepository.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Coin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Basket.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" beforeDir="false" afterPath="$PROJECT_DIR$/Ocelot.ApiGate/Ocelot.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Oedering/Ordering.API/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Basket.API.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Basket.API.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Controllers/BasketController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Mapping/BasketProfile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Basket.API/Mapping/BasketProfile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Basket.API/Model/Wallet.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Coin.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Coin.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet.API/Controllers/WalletController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet.API/Controllers/WalletController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet.API/Model/WalletCoinModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet.API/Model/WalletCoinModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet.API/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet.API/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet.API/Services/IWalletService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet.API/Services/IWalletService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Wallet.API/Services/WalletService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Wallet.API/Services/WalletService.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,26 +67,21 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ab5f413c4ba24952fa42e1054d610522c79d5f5f3f8aced8e2614d6ef558/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6c2a6a32e56b4b6ebe9db8b715c05cb33b8000/9a/b9b3ba01/IOrderedQueryable`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/724c06f1a4ca42c6ac647bd66d3023e81e4800/6a/9ff267d5/ActionMethodExecutor.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 2
-}</component>
-  <component name="ProjectId" id="2dXTNfzeXYBkhJErdnNAie7CFCb" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="2dlGcPhOTsXiXcl8ebHQXKTIENe" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Launch Settings Profile.Basket.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Basket.API: https.executor": "Run",
-    ".NET Launch Settings Profile.Coin.API: http.executor": "Run",
-    ".NET Launch Settings Profile.Coin.API: https.executor": "Run",
-    ".NET Launch Settings Profile.Ocelot.ApiGate: https.executor": "Run",
-    ".NET Launch Settings Profile.Ordering.API: https.executor": "Run",
-    ".NET Launch Settings Profile.WebApp: https.executor": "Run",
+    ".NET Launch Settings Profile.Wallet.API: https.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -79,7 +100,22 @@
     ]
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.WebApp: https">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Wallet.API: https">
+    <configuration name="Basket.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="Basket.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Basket.API/Basket.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
@@ -95,23 +131,8 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="Coin.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+    <configuration name="Coin.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Coin.API/Coin.API.csproj" />
-      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
-      <option name="LAUNCH_PROFILE_NAME" value="https" />
-      <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <option name="USE_MONO" value="0" />
-      <option name="RUNTIME_ARGUMENTS" value="" />
-      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
-      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
-      <option name="SEND_DEBUG_REQUEST" value="1" />
-      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
-      <method v="2">
-        <option name="Build" />
-      </method>
-    </configuration>
-    <configuration name="IdentityServer: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/IdentityServer/IdentityServer.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="http" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -125,8 +146,8 @@
         <option name="Build" />
       </method>
     </configuration>
-    <configuration name="IdentityServer: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
-      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/IdentityServer/IdentityServer.csproj" />
+    <configuration name="Coin.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Coin.API/Coin.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -217,6 +238,36 @@
     </configuration>
     <configuration name="Ordering.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Oedering/Ordering.API/Ordering.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Wallet.API: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Wallet.API/Wallet.API.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="Wallet.API: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Wallet.API/Wallet.API.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net7.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -321,17 +372,11 @@
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
-      <deployment type="docker-compose.yml">
-        <settings />
-      </deployment>
-      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <deployment type="docker-compose.yml" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
-      <deployment type="dockerfile">
-        <settings />
-      </deployment>
-      <EXTENSION ID="com.jetbrains.rider.docker.debug" isFastModeEnabled="true" isSslEnabled="false" />
+      <deployment type="dockerfile" />
       <method v="2" />
     </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" server-name="Docker">
@@ -352,14 +397,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="790274a5-49e7-4bd4-96a7-25df5ba2b9fc" name="Changes" comment="" />
-      <created>1710153386022</created>
+      <changelist id="65c77ee3-afba-4c06-bc60-bf21fa68c1eb" name="Changes" comment="" />
+      <created>1710575331120</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1710153386022</updated>
-      <workItem from="1710153389781" duration="9977000" />
-      <workItem from="1710314874181" duration="8211000" />
-      <workItem from="1710327247976" duration="4896000" />
+      <updated>1710575331120</updated>
+      <workItem from="1710575333896" duration="12887000" />
     </task>
     <servers />
   </component>
@@ -383,31 +426,44 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Services/BasketService.cs</url>
-          <line>33</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Services/BasketService.cs" initialLine="33" containingFunctionPresentation="Method 'DeleteBasket'">
+        <line-breakpoint enabled="true" log-message="true" suspend="NONE" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Wallet.API/Program.cs</url>
+          <line>44</line>
+          <properties documentPath="$PROJECT_DIR$/Wallet.API/Program.cs" initialLine="44" containingFunctionPresentation="">
             <startOffsets>
-              <option value="1129" />
+              <option value="1470" />
             </startOffsets>
             <endOffsets>
-              <option value="1130" />
+              <option value="1839" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="9" />
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs</url>
-          <line>52</line>
-          <properties documentPath="$PROJECT_DIR$/WebApp/Pages/Basket/CartInfo.cshtml.cs" initialLine="52" containingFunctionPresentation="Method 'OnPostDeleteCartBasket'">
+          <url>file://$PROJECT_DIR$/Wallet.API/Controllers/WalletController.cs</url>
+          <line>22</line>
+          <properties documentPath="$PROJECT_DIR$/Wallet.API/Controllers/WalletController.cs" initialLine="22" containingFunctionPresentation="Method 'AddWallet'">
             <startOffsets>
-              <option value="1653" />
+              <option value="614" />
             </startOffsets>
             <endOffsets>
-              <option value="1654" />
+              <option value="615" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="12" />
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Wallet.API/Services/WalletService.cs</url>
+          <line>23</line>
+          <properties documentPath="$PROJECT_DIR$/Wallet.API/Services/WalletService.cs" initialLine="23" containingFunctionPresentation="Method 'UpdateWallet'">
+            <startOffsets>
+              <option value="590" />
+            </startOffsets>
+            <endOffsets>
+              <option value="591" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

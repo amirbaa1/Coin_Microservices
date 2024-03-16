@@ -25,12 +25,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<IWalletdbContext, WalletDbContext>();
 builder.Services.AddScoped<IWalletService, WalletService>();
 builder.Services.AddAutoMapper(typeof(Program));
-;
 
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-builder.Services.AddTransient<IRequestHandler<CheckWalletCommand, ObjectId>>();
-builder.Services.AddTransient<IRequestHandler<WalletCommand>>();
-
+// builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
+// builder.Services.AddTransient<IRequestHandler<CheckWalletCommand, ObjectId>>();
+// builder.Services.AddTransient<IRequestHandler<WalletCommand>>();
 
 //--------------------------------------//
 
@@ -44,16 +42,16 @@ builder.Services.AddTransient<IRequestHandler<WalletCommand>>();
 
 
 //----------------------RabbitMQ---------------------//
-builder.Services.AddMassTransit(config =>
-{
-    config.AddConsumer<WalletConsumer>();
-    config.UsingRabbitMq((ctx, cfg) =>
-    {
-        cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
-        cfg.ReceiveEndpoint(EventBusConstants.WalletQueue,
-            c => { c.ConfigureConsumer<WalletConsumer>(ctx); });
-    });
-});
+// builder.Services.AddMassTransit(config =>
+// {
+//     config.AddConsumer<WalletConsumer>();
+//     config.UsingRabbitMq((ctx, cfg) =>
+//     {
+//         cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
+//         cfg.ReceiveEndpoint(EventBusConstants.WalletQueue,
+//             c => { c.ConfigureConsumer<WalletConsumer>(ctx); });
+//     });
+// });
 //--------------------------------------------------//
 
 

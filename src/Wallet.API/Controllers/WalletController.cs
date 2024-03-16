@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using Wallet.API.Handlers.CheckWallet;
+using Wallet.API.Model;
 using Wallet.API.Services;
 
 namespace Wallet.API.Controllers
@@ -11,34 +12,38 @@ namespace Wallet.API.Controllers
     public class WalletController : ControllerBase
     {
         private readonly IWalletService _walletService;
-        private readonly IMediator _mediatR;
 
-        public WalletController(IWalletService walletService, IMediator mediatR)
+        public WalletController(IWalletService walletService)
         {
             _walletService = walletService;
-            _mediatR = mediatR;
         }
 
-        //[HttpPost("{userName}")]
-        //public async Task<IActionResult> GetWalletByUserName(string userName)
-        //{
-        //    //    var result = await _walletService.GetUserNameWallet(userName);
-        //    //    if (result == null)
-        //    //    {
-        //    //        return BadRequest(result);
-        //    //    }
-        //    //    return Ok(result);
-        //    //}
-        //    var qeury = new (userName);
-        //    var order = await _mediatR.Send(qeury);
-
-        //    return Ok(order);
-        //}
         [HttpPost]
-        public async Task<ActionResult<ObjectId>> WalletPost([FromBody] CheckWalletCommand command)
+        public async Task<IActionResult> AddWallet([FromBody] WalletModel walletModels)
         {
-             await _mediatR.Send(command);
-             return Ok();
+            var user = await _walletService.GetUserNameWallet(walletModels.UserName);
+            if (user.Count() == 0)
+            {
+                await _walletService.AddWallet(walletModels);
+                return Ok();
+            }
+            else
+            {
+                await _walletService.UpdateWallet(walletModels);
+                return Ok();
+            }
+        }
+
+        [HttpGet("{userName}")]
+        public async Task<IActionResult> GetByUserNameWallet(string userName)
+        {
+            var userw = await _walletService.GetUserNameWallet(userName);
+            if (userw == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(userw);
         }
     }
 }

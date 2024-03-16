@@ -68,7 +68,7 @@ namespace Basket.API.Controllers
             return Accepted();
         }
         [HttpPost("Wallet")]
-        public async Task<ActionResult> Wallet([FromBody] Wallet wallets)
+        public async Task<ActionResult> Wallet([FromBody] WalletModel wallets)
         {
             var basket = await _basketService.GetBasket(wallets.UserName);
             if (basket == null)
