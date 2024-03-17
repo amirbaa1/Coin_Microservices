@@ -7,5 +7,7 @@ namespace Basket.API.Services
         Task<CoinCart> GetBasket(string userName);
         Task<CoinCart> UpdateBasket(CoinCart coin);
         Task DeleteBasket(string userName);
+        Task<bool> SendBasketWallet(Object walletModel);
+
     }
 }

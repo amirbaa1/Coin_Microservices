@@ -22,6 +22,7 @@
 		<PackageReference Include="MongoDB.Bson" Version="2.24.0" />
 		<PackageReference Include="MongoDB.Driver" Version="2.24.0" />
 		<PackageReference Include="MongoDB.Driver.Core" Version="2.24.0" />
+		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Polly" Version="7.2.4" />
 		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
 		<PackageReference Include="MassTransit" Version="8.1.3" />

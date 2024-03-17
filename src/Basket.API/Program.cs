@@ -14,11 +14,13 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddHttpClient();
 // --------------- add Services -------------------//
 builder.Services.AddScoped<IBasketService, BasketService>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAutoMapper(typeof(BasketProfile));
+builder.Services.AddTransient<IBasketService, BasketService>();
+
 // ----------------------------------------------- //
 
 // --------------- redis --------------------------//

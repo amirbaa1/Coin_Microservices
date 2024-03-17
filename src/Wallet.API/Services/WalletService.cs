@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Newtonsoft.Json;
 using MongoDB.Driver;
-using SharpCompress.Common;
 using Wallet.API.Data;
 using Wallet.API.Model;
 
@@ -9,10 +8,11 @@ namespace Wallet.API.Services
     public class WalletService : IWalletService
     {
         private readonly IWalletdbContext _dbContext;
-
-        public WalletService(IWalletdbContext dbContext)
+        private readonly ILogger<WalletService> _logger;
+        public WalletService(IWalletdbContext dbContext, ILogger<WalletService> logger)
         {
             _dbContext = dbContext;
+            _logger = logger;
         }
 
         public async Task AddWallet(WalletModel wallet)
@@ -22,12 +22,21 @@ namespace Wallet.API.Services
 
         public async Task UpdateWallet(WalletModel wallet)
         {
-            // var chenge = wallet.walletCoins(wallet.walletCoins.First());
-            var existingWallet = await _dbContext.wallets.Find(g => g.Id == wallet.Id).FirstOrDefaultAsync();
+            var userWallet = await _dbContext.wallets.Find(x => x.UserName == wallet.UserName).FirstOrDefaultAsync();
+            //var existingWallet = await _dbContext.wallets.Find(g => g.Id == wallet.Id).FirstOrDefaultAsync();
 
-            existingWallet.AddCoin(wallet.walletCoins.First());
+            if (userWallet != null)
+            {
 
-            await _dbContext.wallets.ReplaceOneAsync(g => g.Id == wallet.Id, existingWallet);
+                userWallet.AddCoin(wallet.walletCoins.First());
+                _logger.LogInformation($"---- >  {JsonConvert.SerializeObject(userWallet)}");
+                await _dbContext.wallets.ReplaceOneAsync(g => g.UserName == wallet.UserName, userWallet);
+
+            }
+            else
+            {
+                throw new Exception("Wallet not found with the specified Id.");
+            }
         }
 
         public async Task<IEnumerable<WalletModel>> GetUserNameWallet(string username)

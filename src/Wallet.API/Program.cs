@@ -1,15 +1,5 @@
-using EventBus.Messages.Common;
-using MassTransit;
-using MediatR;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Bson;
-using System.Reflection;
+
 using Wallet.API.Data;
-using Wallet.API.EventBusConsumer;
-using Wallet.API.Handlers.CheckWallet;
-using Wallet.API.Handlers.UpdateWallet;
 using Wallet.API.Services;
 
 var builder = WebApplication.CreateBuilder(args);

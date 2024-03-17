@@ -75,16 +75,33 @@ namespace Basket.API.Controllers
             {
                 return BadRequest();
             }
-            var eventMessageWallet = _mapper.Map<BasketWalletEvent>(wallets);
 
-            eventMessageWallet.CoinName = basket.CoinCarts.CoinName;
-            eventMessageWallet.PriceCoin = basket.CoinCarts.PriceCoin;
-            eventMessageWallet.Amount = basket.CoinCarts.Amount;
-            eventMessageWallet.TotalPrice = basket.TotalPrice;
+            wallets.UserName = basket.UserName;
+            var walletModel = new WalletModel
+            {
+                UserName = basket.UserName,
+                walletCoins = new List<WalletCoinModel>
+            {
+                new WalletCoinModel
+                {
+                    NameCoin = basket.CoinCarts.CoinName,
+                    Amount = basket.CoinCarts.Amount,
+                    PriceUSD = basket.TotalPrice,
+                    coinPrice = basket.CoinCarts.PriceCoin
+                }
+            }
+            };
 
-            await _publishEndpoint.Publish<BasketWalletEvent>(eventMessageWallet);
+            var send = await _basketService.SendBasketWallet(walletModel);
 
-            return Accepted(eventMessageWallet);
+            if (send != null)
+            {
+                return Accepted(send);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
     }
 }
