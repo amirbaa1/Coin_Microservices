@@ -6,7 +6,8 @@
       "serviceActions": {
         "coin.api": "StartDebugging",
         "basket.api": "StartDebugging",
-        "identity.api": "StartDebugging"
+        "identity.api": "StartDebugging",
+        "wallet.api": "StartDebugging"
       }
     }
   }

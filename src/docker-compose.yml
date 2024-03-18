@@ -5,25 +5,6 @@ services:
   #  portainer:
   #    image: portainer/portainer
   
-  #  applicationapi:  applicationapi:
-  ##    image: applicationapi:latest
-  ##    environment:
-  ##      TZ: Asia/Tehran
-  ##    build:
-  ##      context: .
-  ##      dockerfile: src/Api/ApplicationApi/Dockerfile
-  ##    volumes:
-  ##      - /etc/timezone:/etc/timezone:ro
-  ##      - /etc/timezone:/etc/localtime:ro
-  #    image: applicationapi:latest
-  #    environment:
-  #      TZ: Asia/Tehran
-  #    build:
-  #      context: .
-  #      dockerfile: src/Api/ApplicationApi/Dockerfile
-  #    volumes:
-  #      - /etc/timezone:/etc/timezone:ro
-  #      - /etc/timezone:/etc/localtime:ro
   
   rabbitmq:
     image: rabbitmq:3-management-alpine
@@ -42,6 +23,10 @@ services:
   identitydb:
     image: mcr.microsoft.com/mssql/server:latest
 
+
+  walletdb:
+    image: mongo
+
   ###############################     
   coin.api:
     image: coin.api
@@ -49,11 +34,13 @@ services:
       context: .
       dockerfile: Coin.API/Dockerfile
 
+
   ocelot.Gateways:
     image: ocelot.apigate
     build:
       context: .
       dockerfile: Ocelot.ApiGate/Dockerfile
+
 
   basket.api:
     image: ${DOCKER_REGISTRY-}basketapi
@@ -79,5 +66,14 @@ services:
       context: .
       dockerfile: Identity.API/Dockerfile
 
+  wallet.api:
+    image: ${DOCKER_REGISTRY-}walletapi
+    build:
+      context: .
+      dockerfile: Wallet.API/Dockerfile
+
+
 volumes:
   portainer_data:
+  mongo_data:
+

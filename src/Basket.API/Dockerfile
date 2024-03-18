@@ -10,7 +10,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Basket.API/Basket.API.csproj", "Basket.API/"]
 COPY ["EventBus.Messages/EventBus.Messages.csproj", "EventBus.Messages/"]
-RUN dotnet restore "./Basket.API/./Basket.API.csproj"
+RUN dotnet restore "./Basket.API/Basket.API.csproj"
 COPY . .
 WORKDIR "/src/Basket.API"
 RUN dotnet build "./Basket.API.csproj" -c $BUILD_CONFIGURATION -o /app/build

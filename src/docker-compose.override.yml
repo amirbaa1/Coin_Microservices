@@ -29,6 +29,7 @@ services:
     ports:
       - "6379:6379"
   
+
   orderdb:
     container_name: orderdb
     environment:
@@ -37,6 +38,7 @@ services:
     restart: always
     ports:
       - "1434:1433"
+
 
   identitydb:
     container_name: identitydb
@@ -47,7 +49,18 @@ services:
     ports:
       - "1433:1433"
 
+
+  walletdb:
+    container_name: walletdb
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db 
+   
+
       ###############################
+
 
   coin.api:
     container_name: coin.api
@@ -55,7 +68,8 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
       - "8001:80"
-        
+       
+      
   ocelot.Gateways:
     container_name: ocelot.Gateways
     environment:
@@ -100,3 +114,13 @@ services:
     ports:
       - "8015:80"
 
+
+  wallet.api:
+    container_name: wallet.api
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "WalletStoreDatabase:ConnectionString=mongodb://walletdb:27017"
+    depends_on:
+      - walletdb
+    ports:
+      - "8004:80"

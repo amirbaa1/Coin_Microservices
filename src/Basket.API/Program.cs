@@ -1,7 +1,6 @@
 using Basket.API.Mapping;
 using Basket.API.Services;
 using MassTransit;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -19,7 +18,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddScoped<IBasketService, BasketService>();
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddAutoMapper(typeof(BasketProfile));
-builder.Services.AddTransient<IBasketService, BasketService>();
+//builder.Services.AddTransient<IBasketService, BasketService>();
 
 // ----------------------------------------------- //
 

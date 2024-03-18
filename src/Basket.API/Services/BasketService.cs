@@ -11,11 +11,20 @@ namespace Basket.API.Services
         private readonly IDistributedCache _distributedCache;
         private readonly HttpClient _httpClient;
         private readonly ILogger<BasketService> _logger;
-        public BasketService(IDistributedCache distributedCache, HttpClient httpClient, ILogger<BasketService> logger )
+        
+        
+        // docker
+        //private Uri _currentUrl = new Uri("http://wallet.api/api/Wallet");
+
+        ////local
+        ////private Uri _currentUrl = new Uri("https://7004/api/Wallet");
+
+        public BasketService(IDistributedCache distributedCache, HttpClient httpClient, ILogger<BasketService> logger)
         {
             _distributedCache = distributedCache;
             _httpClient = httpClient;
             _logger = logger;
+            //_currentUrl = new Uri(url);
         }
 
         public async Task DeleteBasket(string userName)
@@ -38,10 +47,10 @@ namespace Basket.API.Services
         {
             try
             {
-                var UrlWallet = new Uri("https://localhost:7004/api/Wallet");
+                var urlw = new Uri("http://wallet.api/api/Wallet");
 
                 _logger.LogInformation($"--- > {JsonConvert.SerializeObject(walletModel)}");
-                var response = await _httpClient.PostAsJsonAsync(UrlWallet, walletModel);
+                var response = await _httpClient.PostAsJsonAsync(urlw, walletModel);
 
                 return response.IsSuccessStatusCode;
             }

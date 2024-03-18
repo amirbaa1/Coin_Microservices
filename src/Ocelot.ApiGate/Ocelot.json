@@ -101,11 +101,11 @@
       "UpstreamPathTemplate": "/basket",
       "UpstreamHttpMethod": [
         "POST"
-      ],
-      "AuthenticationProviderKey": "IdentityApiKey",
-      "AllowedScopes": []
+      ]
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
     },
-//    {
+    //    {
     //      "DownstreamPathTemplate": "/basket/{username}",
     //      "DownstreamScheme": "http",
     //      "DownstreamHostAndPorts": [
@@ -134,8 +134,24 @@
       "UpstreamHttpMethod": [
         "POST"
       ],
-      "AuthenticationProviderKey": "IdentityApiKey",
-      "AllowedScopes": []
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
+    },
+    {
+      "DownstreamPathTemplate": "/basket/wallet",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket/wallet",
+      "UpstreamHttpMethod": [
+        "POST"
+      ],
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
     },
     //////////////////////////////////////
     {
@@ -151,8 +167,8 @@
       "UpstreamHttpMethod": [
         "GET"
       ],
-      "AuthenticationProviderKey": "IdentityApiKey",
-      "AllowedScopes": []
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
     },
     {
       "DownstreamPathTemplate": "/api/Order/OrderCheckout",
@@ -167,8 +183,8 @@
       "UpstreamHttpMethod": [
         "POST"
       ],
-      "AuthenticationProviderKey": "IdentityApiKey",
-      "AllowedScopes": []
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
     },
     {
       "DownstreamPathTemplate": "/api/Order",
@@ -183,8 +199,8 @@
       "UpstreamHttpMethod": [
         "PUT"
       ],
-      "AuthenticationProviderKey": "IdentityApiKey",
-      "AllowedScopes": []
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
     },
     {
       "DownstreamPathTemplate": "/api/Order/{id}",
@@ -199,12 +215,41 @@
       "UpstreamHttpMethod": [
         "DELETE"
       ],
-      "AuthenticationProviderKey": "IdentityApiKey",
-      "AllowedScopes": []
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
+    },
+    ///////////////////////////////
+    {
+      "DownstreamPathTemplate": "/api/wallet",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "wallet.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/wallet",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Wallet/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "wallet.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/wallet/{userName}",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "https//localhost:7070"
+    "BaseUrl": "http//localhost:8010"
   }
 }
 
@@ -344,6 +389,20 @@
 //        "POST"
 //      ]
 //    },
+//    {
+//      "DownstreamPathTemplate": "/basket/wallet",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": "7002"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/basket/wallet",
+//      "UpstreamHttpMethod": [
+//        "POST"
+//      ]
+//    },
 //    //////////////////////////////////////
 //    {
 //      "DownstreamPathTemplate": "/api/Order/{username}",
@@ -401,6 +460,35 @@
 //      "UpstreamPathTemplate": "/order/{id}",
 //      "UpstreamHttpMethod": [
 //        "DELETE"
+//      ]
+//    },
+////////////////////
+//    {
+//      "DownstreamPathTemplate": "/api/wallet",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": "7004"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/wallet",
+//      "UpstreamHttpMethod": [
+//        "POST"
+//      ]
+//    },
+//    {
+//      "DownstreamPathTemplate": "/api/Wallet/{userName}",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": "7004"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/wallet/{userName}",
+//      "UpstreamHttpMethod": [
+//        "GET"
 //      ]
 //    }
 //  ],
