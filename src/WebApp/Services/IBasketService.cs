@@ -1,4 +1,5 @@
-﻿using WebApp.Model.Basket;
+﻿using WebApp.Model;
+using WebApp.Model.Basket;
 
 namespace WebApp.Services
 {
@@ -8,5 +9,6 @@ namespace WebApp.Services
         Task<CoinCart> PostBasket(CoinCart coinCart);
         Task<CheckOut> CheckOutBasket(CheckOut checkOut);
         Task<bool> DeleteBasket(string username);
+        Task<bool> SendWallet(string username);
     }
 }

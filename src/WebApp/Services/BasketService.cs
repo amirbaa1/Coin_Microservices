@@ -1,7 +1,10 @@
 ﻿using System.Net.Http;
 using System.Text;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.Elfie.Serialization;
 using Newtonsoft.Json;
+using WebApp.Model;
 using WebApp.Model.Basket;
 
 namespace WebApp.Services
@@ -84,6 +87,34 @@ namespace WebApp.Services
                 var read = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<CoinCart>(read);
             }
+        }
+
+        public async Task<bool> SendWallet(string username)
+        {
+            try
+            {
+                //_logger.LogInformation($"--- > SendWallet in Services : {JsonConvert.SerializeObject(walletModel)}");
+                var content = new StringContent(string.Empty);
+                var response = await _httpClient.PostAsync($"/basket/wallet/{username}",content);
+
+                _logger.LogInformation($"---> basket send wallet response:{response}");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var read = await response.Content.ReadAsStringAsync();
+                    _logger.LogInformation($"---> wallet :{read}");
+
+                    //return JsonConvert.DeserializeObject<WalletModel>(read);
+                    return response.IsSuccessStatusCode;
+                }
+                return false;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Something went wrong when calling api.");
+            }
+
         }
     }
 }

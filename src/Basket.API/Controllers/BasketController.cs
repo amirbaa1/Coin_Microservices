@@ -67,16 +67,16 @@ namespace Basket.API.Controllers
             await _basketService.DeleteBasket(basket.UserName);
             return Accepted();
         }
-        [HttpPost("Wallet")]
-        public async Task<ActionResult> Wallet([FromBody] WalletModel wallets)
+        [HttpPost("wallet/{username}")]
+        public async Task<ActionResult> Wallet(string username)
         {
-            var basket = await _basketService.GetBasket(wallets.UserName);
+            var basket = await _basketService.GetBasket(username);
             if (basket == null)
             {
                 return BadRequest();
             }
 
-            wallets.UserName = basket.UserName;
+            //wallets.UserName = basket.UserName;
             var walletModel = new WalletModel
             {
                 UserName = basket.UserName,

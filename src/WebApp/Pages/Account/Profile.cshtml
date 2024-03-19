@@ -4,7 +4,7 @@
 
 @{
 }
-@if (Model != null && Model.User.Identity != null && Model.ErrorFlags==false)
+@if (Model != null && Model.User.Identity != null && Model.ErrorFlags == false)
 {
     <h1>Profile</h1>
     @if (User.HasClaim(c => c.Type == "RoleAccount" && c.Value == "Admin"))
@@ -13,57 +13,93 @@
         <a asp-page="/account/admin/panel">Panel</a>
     }
 
-    <div>
-        <dl>
-            <dt>User ID:</dt>
-            <dd>@Model.UserDto.ID</dd>
+    <div style="display: flex;">
+        <!-- سمت چپ -->
+        <div style="flex: 1; padding-right: 10px;">
+            <div>
+                <dl>
+                    <dt>User ID:</dt>
+                    <dd>@Model.UserDto.ID</dd>
 
-            <dt>Username:</dt>
-            <dd>@Model.UserDto.Email</dd>
+                    <dt>Username:</dt>
+                    <dd>@Model.UserDto.Email</dd>
 
-            <dt>Name: </dt>
-            <dd>@Model.appuser.Name</dd>
+                    <dt>Name: </dt>
+                    <dd>@Model.appuser.Name</dd>
 
-            <dt>Email:</dt>
-            <dd>@Model.UserDto.Email</dd>
+                    <dt>Email:</dt>
+                    <dd>@Model.UserDto.Email</dd>
 
-            <dt>Status Email Confirmed: </dt>
-            <dd>@Model.appuser.EmailConfirmed</dd>
+                    <dt>Status Email Confirmed: </dt>
+                    <dd>@Model.appuser.EmailConfirmed</dd>
 
-            <dt>Status Role: </dt>
-            <dd>@Model.appuser.Role</dd>
-        </dl>
+                    <dt>Status Role: </dt>
+                    <dd>@Model.appuser.Role</dd>
+                </dl>
+            </div>
+        </div>
+
+        <!-- سمت راست -->
+
+        <div style="flex: 1; padding-left: 10px;">
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Name Coin</th>
+                        <th>Amount</th>
+                        <th>Price coin</th>
+                        <th>PriceUSD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.wallet)
+                    {
+                        @foreach (var userItemCoin in item.walletCoins)
+                        {
+                            <tr>
+                                <th>@userItemCoin.NameCoin</th>
+                                <th>@userItemCoin.Amount</th>
+                                <th>@string.Format("{0:N2}$", userItemCoin.coinPrice)</th>
+                                 @* <th>@userItemCoin.PriceUSD $</th> *@
+                                <th>@string.Format("{0:N2}$",userItemCoin.PriceUSD)</th>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
     </div>
     <div>
         @if (Model.orderModel != null)
         {
             <table class="table table-striped table-hover">
                 <thead>
-                <tr>
-                    <th>UserName</th>
-                    <th>Name Coin</th>
-                    <th>Price Coin</th>
-                    <th>Amount</th>
-                    <th>TotalPrice</th>
-                    <th>card Name</th>
-                    <th>card Number</th>
-                    <th>Time</th>
-                </tr>
+                    <tr>
+                        <th>UserName</th>
+                        <th>Name Coin</th>
+                        <th>Price Coin</th>
+                        <th>Amount</th>
+                        <th>TotalPrice</th>
+                        <th>card Name</th>
+                        <th>card Number</th>
+                        <th>Time</th>
+                    </tr>
                 </thead>
                 <tbody>
-                @foreach (var item in Model.orderModel)
-                {
-                    <tr>
-                        <td>@item.UserName</td>
-                        <td>@item.CoinName</td>
-                        <td>@item.PriceCoin</td>
-                        <td>@item.Amount</td>
-                        <td>@item.TotalPrice</td>
-                        <td>@item.CardName</td>
-                        <td>@item.CardNumber</td>
-                        <td>@item.DateTime?.ToString("M/d/yyyy HH:mm:ss")</td>
-                    </tr>
-                }
+                    @foreach (var item in Model.orderModel)
+                    {
+                        <tr>
+                            <td>@item.UserName</td>
+                            <td>@item.CoinName</td>
+                            <td>@item.PriceCoin</td>
+                            <td>@item.Amount</td>
+                            <td>@item.TotalPrice</td>
+                            <td>@item.CardName</td>
+                            <td>@item.CardNumber</td>
+                            <td>@item.DateTime?.ToString("M/d/yyyy HH:mm:ss")</td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         }

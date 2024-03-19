@@ -49,6 +49,9 @@ namespace Basket.API.Services
             {
                 var urlw = new Uri("http://wallet.api/api/Wallet");
 
+                //var urlw = new Uri("https://localhost:7004/api/Wallet");
+                _logger.LogInformation($"--- > urlw : {urlw}");
+
                 _logger.LogInformation($"--- > {JsonConvert.SerializeObject(walletModel)}");
                 var response = await _httpClient.PostAsJsonAsync(urlw, walletModel);
 

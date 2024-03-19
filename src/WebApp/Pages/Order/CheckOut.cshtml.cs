@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using NuGet.ContentModel;
+using WebApp.Model;
 using WebApp.Model.AccountModel;
 using WebApp.Model.Basket;
 using WebApp.Services;
@@ -14,17 +16,19 @@ namespace WebApp.Pages.Order
         private readonly IBasketService _basketService;
         private readonly ILogger<CheckOutModel> _logger;
         private readonly UserManager<AppUser> _userManager;
-
+        private readonly IWalletService _walletservice;
         public CheckOutModel(IBasketService basketService, ILogger<CheckOutModel> logger,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager, IWalletService walletservice)
         {
             _basketService = basketService;
             _logger = logger;
             _userManager = userManager;
+            _walletservice = walletservice;
         }
 
         [BindProperty] public CheckOut check { get; set; }
         [BindProperty] public CoinCart CoinCartItem { get; set; }
+        [BindProperty] public WalletModel wallet { get; set; }  
 
         public async Task OnGet()
         {
@@ -58,6 +62,25 @@ namespace WebApp.Pages.Order
 
             // _logger.LogInformation($"CheckOut send:{check}");
 
+            wallet.UserName = coinUser.UserName;
+            var walletModel = new WalletModel
+            {
+                UserName = coinUser.UserName,
+                walletCoins = new List<WalletCoinModel>
+            {
+                new WalletCoinModel
+                {
+                    NameCoin = check.CoinName,
+                    Amount = check.Amount,
+                    PriceUSD = check.TotalPrice,
+                    coinPrice = check.PriceCoin
+                }
+            }
+            };
+
+             _logger.LogInformation($"CheckOut send:{walletModel}");
+
+            await _basketService.SendWallet(wallet.UserName);
             await _basketService.CheckOutBasket(check);
 
             TempData["sendToIndex"] = $"buy coin ";

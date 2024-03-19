@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using WebApp.Model;
 using WebApp.Model.AccountModel;
 using WebApp.Model.OrderModel;
 using WebApp.Services;
@@ -13,16 +14,19 @@ public class Profile : PageModel
     private readonly UserManager<AppUser> _userManager;
     private readonly IOrderService _orderService;
     private readonly ILogger<Profile> _logger;
+    private readonly IWalletService _walletService;
     [BindProperty] public UserDto UserDto { get; set; }
     [BindProperty] public AppUser appuser { get; set; }
     [BindProperty] public List<OrderModel> orderModel { get; set; }
+    [BindProperty] public List<WalletModel> wallet { get; set; }
     public bool ErrorFlags { get; set; } = false;
 
-    public Profile(UserManager<AppUser> userManager, IOrderService orderService, ILogger<Profile> logger)
+    public Profile(UserManager<AppUser> userManager, IOrderService orderService, ILogger<Profile> logger, IWalletService walletService)
     {
         _userManager = userManager;
         _orderService = orderService;
         _logger = logger;
+        _walletService = walletService;
     }
 
     public async Task<IActionResult> OnGet(string id)
@@ -49,8 +53,10 @@ public class Profile : PageModel
                 Role = userP.Role,
             };
 
-            orderModel = await _orderService.GetOrder(userP.UserName);
-            // _logger.LogInformation($"order : --->{orderModel}");
+            orderModel = (await _orderService.GetOrder(userP.UserName)).OrderByDescending(order => order.DateTime).ToList();
+
+            wallet = await _walletService.OnGetWalletByUserName(userP.UserName);
+
             return Page();
         }
         catch (Exception ex)

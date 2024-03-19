@@ -28,6 +28,10 @@ builder.Services.AddHttpClient<IBasketService, BasketService>(client =>
 {
     client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
 });
+builder.Services.AddHttpClient<IWalletService, WalletService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]!);
+});
 
 
 //builder.Services.AddHttpClient()

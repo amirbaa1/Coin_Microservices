@@ -138,7 +138,7 @@
       //"AllowedScopes": []
     },
     {
-      "DownstreamPathTemplate": "/basket/wallet",
+      "DownstreamPathTemplate": "/basket/wallet/{username}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [
         {
@@ -146,10 +146,10 @@
           "Port": "80"
         }
       ],
-      "UpstreamPathTemplate": "/basket/wallet",
+      "UpstreamPathTemplate": "/basket/wallet/{username}",
       "UpstreamHttpMethod": [
         "POST"
-      ],
+      ]
       //"AuthenticationProviderKey": "IdentityApiKey",
       //"AllowedScopes": []
     },
@@ -403,6 +403,20 @@
 //        "POST"
 //      ]
 //    },
+//    {
+//      "DownstreamPathTemplate": "/basket/wallet/{username}",
+//      "DownstreamScheme": "https",
+//      "DownstreamHostAndPorts": [
+//        {
+//          "Host": "localhost",
+//          "Port": "7002"
+//        }
+//      ],
+//      "UpstreamPathTemplate": "/basket/wallet/{username}",
+//      "UpstreamHttpMethod": [
+//        "POST"
+//      ]
+//    },
 //    //////////////////////////////////////
 //    {
 //      "DownstreamPathTemplate": "/api/Order/{username}",
@@ -462,7 +476,7 @@
 //        "DELETE"
 //      ]
 //    },
-////////////////////
+//    //////////////////
 //    {
 //      "DownstreamPathTemplate": "/api/wallet",
 //      "DownstreamScheme": "https",
