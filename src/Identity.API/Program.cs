@@ -29,9 +29,12 @@ builder.Services.AddScoped<ResponseDto>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 // ------------------------------------//
 
-// ---------------------Data ---------------//
+//// ---------------------Data ---------------//
+//builder.Services.AddDbContext<IdentityAppdbContext>(x =>
+//    x.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]));
+
 builder.Services.AddDbContext<IdentityAppdbContext>(x =>
-    x.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]));
+    x.UseNpgsql(builder.Configuration["ConnectionStrings:IdentityConnectionString"]));
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(
         op => { op.SignIn.RequireConfirmedEmail = true; })
@@ -74,16 +77,36 @@ builder.Services.AddAuthentication(op =>
 //    AddTestUsers(Config.TestUsers).
 //    AddDeveloperSigningCredential();
 
+//builder.Services.AddIdentityServer()
+//    .AddConfigurationStore(options =>
+//    {
+//        options.ConfigureDbContext = b =>
+//            b.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+//    })
+//    .AddOperationalStore(options =>
+//    {
+//        options.ConfigureDbContext = bu =>
+//            bu.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+
+
+//        options.EnableTokenCleanup = true;
+//        options.TokenCleanupInterval = 3600; // time expe 
+//    })
+//    .AddInMemoryApiResources(Config.ApiResources)
+//    .AddInMemoryApiScopes(Config.ApiScopes)
+//    .AddAspNetIdentity<AppUser>();
+
+
 builder.Services.AddIdentityServer()
     .AddConfigurationStore(options =>
     {
         options.ConfigureDbContext = b =>
-            b.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+            b.UseNpgsql(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
     })
     .AddOperationalStore(options =>
     {
         options.ConfigureDbContext = bu =>
-            bu.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+            bu.UseNpgsql(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
 
 
         options.EnableTokenCleanup = true;
@@ -92,6 +115,7 @@ builder.Services.AddIdentityServer()
     .AddInMemoryApiResources(Config.ApiResources)
     .AddInMemoryApiScopes(Config.ApiScopes)
     .AddAspNetIdentity<AppUser>();
+//-------------------------------------------//
 
 
 builder.Services.AddControllersWithViews();

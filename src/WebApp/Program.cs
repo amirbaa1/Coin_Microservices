@@ -42,9 +42,13 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 //-------------------------------------//
 
 // ---------------Data --------------------//
+//builder.Services.AddDbContext<DatadbContext>(op =>
+//{
+//    op.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+//});
 builder.Services.AddDbContext<DatadbContext>(op =>
 {
-    op.UseSqlServer(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+    op.UseNpgsql(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
 });
 //-----------------------------------------//
 

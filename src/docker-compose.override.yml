@@ -12,6 +12,16 @@ services:
 #      - /var/run/docker.sock:/var/run/docker.sock
 #      - portainer_data:/data
  
+  pgadmin:
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=a@b.com
+      - PGADMIN_DEFAULT_PASSWORD=admin1234
+    restart: always
+    ports:
+      - "5050:80"
+    volumes:
+      - pgadmin_data:/root/.pgadmin
  
   rabbitmq:
     container_name: rabbitmq
@@ -39,15 +49,26 @@ services:
     ports:
       - "1434:1433"
 
-
+  # identitydb:
+  #   container_name: identitydb
+  #   environment:
+  #     - SA_PASSWORD=amirB1379
+  #     - ACCEPT_EULA=Y
+  #   restart: always
+  #   ports:
+  #     - "1433:1433"
+    
   identitydb:
     container_name: identitydb
     environment:
-      - SA_PASSWORD=amirB1379
-      - ACCEPT_EULA=Y
+      - POSTGRES_USER=Admin
+      - POSTGRES_PASSWORD=admin1234
+      - POSTGRES_DB=identitydb 
     restart: always
     ports:
-      - "1433:1433"
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
 
 
   walletdb:
@@ -58,6 +79,7 @@ services:
     volumes:
       - mongo_data:/data/db 
    
+    
 
       ###############################
 
@@ -108,7 +130,8 @@ services:
     container_name: identity.api
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
-      - "ConnectionStrings:IdentityConnectionString=Server=identitydb;TrustServerCertificate=True;Database=Identity.API;User ID=sa;Password=amirB1379"
+      # - "ConnectionStrings:IdentityConnectionString=Server=identitydb;TrustServerCertificate=True;Database=Identity.API;User ID=sa;Password=amirB1379"
+      - "ConnectionStrings:IdentityConnectionString=Host=identitydb;Port=5432;Database=identitydb;Username=Admin;Password=admin1234;"
     depends_on:
       - identitydb
     ports:

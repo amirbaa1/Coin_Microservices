@@ -51,7 +51,7 @@ public class Register : PageModel
 
         //create role 
 
-        var claimRole = new Claim("AccountRole", "V1");
+        var claimRole = new Claim("RoleAccount", "V1");
 
         //_logger.LogInformation($"User : {appUser}");
         try
