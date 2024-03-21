@@ -30,5 +30,17 @@ namespace WebApp.Services
                 throw new Exception("Something went wrong when calling api.");
             }
         }
+
+        public Task<List<WalletModel>> UpdateCoiWallet(string userame)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Something went wrong when calling api.");
+            }
+        }
     }
 }

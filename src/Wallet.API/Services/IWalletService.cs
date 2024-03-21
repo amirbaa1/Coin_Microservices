@@ -6,9 +6,8 @@ namespace Wallet.API.Services
     public interface IWalletService
     {
         Task<IEnumerable<WalletModel>> GetUserNameWallet(string username);
-
-        //Task AddWallet(string username);
         Task AddWallet(WalletModel wallet);
         Task UpdateWallet(WalletModel wallet);
+        Task<bool> UpdateCoinWallet(string username);  
     }
 }

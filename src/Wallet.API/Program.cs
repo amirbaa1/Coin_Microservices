@@ -1,6 +1,7 @@
 
 using Wallet.API.Data;
 using Wallet.API.Services;
+using Wallet.API.Services.Coin;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,14 +12,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddHttpClient();
+
 // ---------------- serivec --------------//
 builder.Services.AddScoped<IWalletdbContext, WalletDbContext>();
 builder.Services.AddScoped<IWalletService, WalletService>();
+builder.Services.AddScoped<ICoinService,CoinService>();
+
 builder.Services.AddAutoMapper(typeof(Program));
 
-// builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly()));
-// builder.Services.AddTransient<IRequestHandler<CheckWalletCommand, ObjectId>>();
-// builder.Services.AddTransient<IRequestHandler<WalletCommand>>();
+builder.Services.AddHttpClient<ICoinService, CoinService>(client =>
+{
+    client.BaseAddress = new Uri(builder.Configuration["OcelotAPI:ApiGateways"]!);
+});
 
 //--------------------------------------//
 

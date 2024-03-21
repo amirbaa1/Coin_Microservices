@@ -44,5 +44,20 @@ namespace Wallet.API.Controllers
 
             return Ok(userw);
         }
+        [HttpPut("{username}")]
+        public async Task<IActionResult> UpdateWalletCoin(string username)
+        {
+            var userw = await _walletService.GetUserNameWallet(username);
+            if (userw == null)
+            {
+                return BadRequest("You have not wallet!");
+            }
+            var updateCoin = await _walletService.UpdateCoinWallet(username);
+            if (updateCoin == null)
+            {
+                return BadRequest(updateCoin.ToString());
+            }
+            return Ok(updateCoin);
+        }
     }
 }

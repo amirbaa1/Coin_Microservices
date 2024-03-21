@@ -119,7 +119,9 @@ app.UseStaticFiles();
 
 app.UseExceptionHandler("/Error");
 app.UseHsts();
+
 app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+
 app.MapControllers();
 app.MapHub<CoinLiveHub>("/hub/coinlive");
 app.MapHub<CoinLivePriceHub>("/hub/coinmarket");
