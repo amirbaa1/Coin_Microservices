@@ -16,17 +16,21 @@ namespace Wallet.API.Services.Coin
 
         public async Task<CoinSearchResponse> GetCoinBySymbol(string symbol)
         {
-            try
-            {
-                var response = await _httpClient.GetAsync($"/coin/{symbol}");
-                _logger.LogInformation($"Wallet get coin : {response}");
-                var content = await response.Content.ReadAsStringAsync();
-                return JsonConvert.DeserializeObject<CoinSearchResponse>(content);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Something went wrong when calling api.!");
-            }
+            var response = await _httpClient.GetAsync($"/coin/{symbol}");
+            _logger.LogInformation($"Wallet get coin : {response}");
+            //try
+            //{
+            //    //var response = await _httpClient.GetAsync($"/coin/{symbol}");
+            //    //_logger.LogInformation($"Wallet get coin : {response}");
+            //    var content = await response.Content.ReadAsStringAsync();
+            //    return JsonConvert.DeserializeObject<CoinSearchResponse>(content);
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw new Exception("Something went wrong when calling api.!");
+            //}
+            var content = await response.Content.ReadAsStringAsync();
+            return JsonConvert.DeserializeObject<CoinSearchResponse>(content);
         }
     }
 }

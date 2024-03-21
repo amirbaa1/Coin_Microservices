@@ -244,12 +244,13 @@
       ],
       "UpstreamPathTemplate": "/wallet/{userName}",
       "UpstreamHttpMethod": [
-        "GET"
+        "GET",
+        "PUT"
       ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http//localhost:8010"
+    "BaseUrl": "http://localhost:8010"
   }
 }
 
@@ -502,7 +503,8 @@
 //      ],
 //      "UpstreamPathTemplate": "/wallet/{userName}",
 //      "UpstreamHttpMethod": [
-//        "GET"
+//        "GET",
+//        "PUT"
 //      ]
 //    }
 //  ],

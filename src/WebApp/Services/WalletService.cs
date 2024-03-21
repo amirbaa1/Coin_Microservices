@@ -31,16 +31,16 @@ namespace WebApp.Services
             }
         }
 
-        public Task<List<WalletModel>> UpdateCoiWallet(string userame)
-        {
-            try
-            {
+        //public Task<List<WalletModel>> UpdateCoiWallet(string userame)
+        //{
+        //    try
+        //    {
 
-            }
-            catch (Exception ex)
-            {
-                throw new Exception("Something went wrong when calling api.");
-            }
-        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw new Exception("Something went wrong when calling api.");
+        //    }
+        //}
     }
 }

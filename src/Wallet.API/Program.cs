@@ -12,18 +12,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddHttpClient();
+//builder.Services.AddHttpClient();
 
 // ---------------- serivec --------------//
 builder.Services.AddScoped<IWalletdbContext, WalletDbContext>();
 builder.Services.AddScoped<IWalletService, WalletService>();
-builder.Services.AddScoped<ICoinService,CoinService>();
-
-builder.Services.AddAutoMapper(typeof(Program));
+//builder.Services.AddScoped<ICoinService,CoinService>();
 
 builder.Services.AddHttpClient<ICoinService, CoinService>(client =>
 {
-    client.BaseAddress = new Uri(builder.Configuration["OcelotAPI:ApiGateways"]!);
+    client.BaseAddress = new Uri(builder.Configuration["ConnectionStrings:ApiGateways"]);
 });
 
 //--------------------------------------//
@@ -34,22 +32,6 @@ builder.Services.AddHttpClient<ICoinService, CoinService>(client =>
 //builder.Services.AddDbContext<WalletDbContext>(op => op.UseSqlServer(builder.Configuration["ConnectionStrings:WalletConnectionString"]));
 
 //-----------------------//
-
-
-
-//----------------------RabbitMQ---------------------//
-// builder.Services.AddMassTransit(config =>
-// {
-//     config.AddConsumer<WalletConsumer>();
-//     config.UsingRabbitMq((ctx, cfg) =>
-//     {
-//         cfg.Host(builder.Configuration["EventBusSettings:HostAddress"]);
-//         cfg.ReceiveEndpoint(EventBusConstants.WalletQueue,
-//             c => { c.ConfigureConsumer<WalletConsumer>(ctx); });
-//     });
-// });
-//--------------------------------------------------//
-
 
 
 
@@ -64,6 +46,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();

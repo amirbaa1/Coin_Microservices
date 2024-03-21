@@ -1,5 +1,4 @@
-﻿using MassTransit.Mediator;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using MongoDB.Bson;
 using Wallet.API.Model;
 using Wallet.API.Services;
