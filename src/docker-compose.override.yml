@@ -143,6 +143,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - "WalletStoreDatabase:ConnectionString=mongodb://walletdb:27017"
+      - "ConnectionStrings:ApiGateways=http://ocelot.Gateways:80" 
     depends_on:
       - walletdb
     ports:

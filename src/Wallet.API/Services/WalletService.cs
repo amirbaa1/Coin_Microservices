@@ -52,6 +52,7 @@ namespace Wallet.API.Services
         {
             var GetWallet = await GetUserNameWallet(username);
             _logger.LogInformation($"Get wallet service : {GetWallet}");
+            var round = 0;
 
             if (GetWallet == null)
             {
@@ -60,6 +61,9 @@ namespace Wallet.API.Services
 
             foreach (var i in GetWallet)
             {
+                _logger.LogInformation($"All count : {i.walletCoins.Count()}");
+                round = 0;
+
                 foreach (var coin in i.walletCoins)
                 {
                     var coinname = coin.NameCoin;
@@ -69,16 +73,15 @@ namespace Wallet.API.Services
 
                         foreach (var coinItem in getCoin.Data.Values)
                         {
+
                             foreach (var coinSearch in coinItem)
                             {
                                 if (coinSearch.Quote != null && coinSearch.Quote.ContainsKey("USD"))
                                 {
                                     coin.coinPrice = coinSearch.Quote["USD"].Price;
                                     coin.PriceUSD = coinSearch.Quote["USD"].Price * coin.Amount;
-                                    
 
                                     _logger.LogInformation($"Update Coin service : {JsonConvert.SerializeObject(coin)}");
-
                                     _logger.LogInformation($"Update wallet service : {JsonConvert.SerializeObject(i)}");
 
                                     //var result = await _dbContext.wallets.UpdateOneAsync(
@@ -86,18 +89,25 @@ namespace Wallet.API.Services
                                     //    Builders<WalletModel>.Update.Set(w => w.walletCoins, i.walletCoins));
 
                                     await _dbContext.wallets.ReplaceOneAsync(g => g.UserName == i.UserName, i);
+                                    round++;
+                                    _logger.LogInformation($"count1 : {round}");
+                                    if (round == i.walletCoins.Count())
+                                    {
+                                        return true;
+                                    }
 
-                                    return true;
+                                    break;
+
                                 }
+
                             }
                         }
-
                     }
                 }
 
+
             }
             return false;
-
         }
     }
 }
