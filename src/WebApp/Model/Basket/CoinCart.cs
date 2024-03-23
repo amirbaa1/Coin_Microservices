@@ -4,7 +4,6 @@
     {
         public string UserName { get; set; }
         public CoinCartList CoinCarts { get; set; } = new CoinCartList();
-
         public double TotalPrice
         {
             get
@@ -14,6 +13,7 @@
                 return total;
             }
         }
+        public string Status { get; set; }
         public CoinCart() 
         {
         }

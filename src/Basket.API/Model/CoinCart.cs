@@ -4,6 +4,7 @@
     {
         public string UserName { get; set; }
         public CoinCartList CoinCarts { get; set; } =new CoinCartList();
+        public string Status { get; set; }
         public CoinCart(string username)
         {
             UserName = username;

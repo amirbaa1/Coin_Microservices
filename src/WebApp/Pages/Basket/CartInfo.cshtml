@@ -21,6 +21,7 @@
                     <th>id</th>
                     <th>Name Coin</th>
                     <th>Price Coin</th>
+                    <th>Status</th>
                     <th>Amount</th>
                     <th>Total Price</th>
                 </tr>
@@ -41,19 +42,16 @@
                     <td id="price">@Model.CoinCartItem.CoinCarts.PriceCoin$</td>
                     <input type="hidden" asp-for="CoinCartItem.CoinCarts.PriceCoin" />
 
+                    <td>@Model.CoinCartItem.Status</td>
+                    <input type="hidden" asp-for="CoinCartItem.Status" />
+
                     <td>
                         <input type="number" asp-for="CoinCartItem.CoinCarts.Amount" id="amountInput" class="form-control" oninput="updateTotalPrice()" step="any" />
                     </td>
                     <td id="totalPrice">@Model.CoinCartItem.TotalPrice</td>
+
                 </tr>
 
-                @*   <tr>
-            <td>@item.CoinId</td>
-            <td>@item.CoinName</td>
-            <td>@item.PriceCoin</td>
-            <td>@item.Amount</td>
-            </tr>
-            @* } *@
             </tbody>
         </table>
         <button class="btn btn-success" type="submit">Update</button>

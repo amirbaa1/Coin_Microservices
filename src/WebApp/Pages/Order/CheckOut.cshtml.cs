@@ -43,35 +43,36 @@ namespace WebApp.Pages.Order
         public async Task<IActionResult> OnPost()
         {
             var userGet = await _userManager.GetUserAsync(User);
-            var coinUser = await _basketService.GetBasket(userGet.UserName);
+            var UserBasket = await _basketService.GetBasket(userGet.UserName);
 
             check.EmailAddress = _userManager.FindByNameAsync(User.Identity.Name).Result.Email;
-            check.UserName = coinUser.UserName;
+            check.UserName = UserBasket.UserName;
 
             check.FirstName = "Tester";
             check.LastName = "TesterB";
 
 
-            check.CoinId = coinUser.CoinCarts.CoinId;
-            check.CoinName = coinUser.CoinCarts.CoinName;
-            check.PriceCoin = coinUser.CoinCarts.PriceCoin;
-            check.Amount = coinUser.CoinCarts.Amount;
-            check.TotalPrice = coinUser.TotalPrice;
+            check.CoinId = UserBasket.CoinCarts.CoinId;
+            check.CoinName = UserBasket.CoinCarts.CoinName;
+            check.PriceCoin = UserBasket.CoinCarts.PriceCoin;
+            check.Amount = UserBasket.CoinCarts.Amount;
+            check.TotalPrice = UserBasket.TotalPrice;
+            check.Status = UserBasket.Status;
             check.DateTime = DateTime.Now;
 
 
             // _logger.LogInformation($"CheckOut send:{check}");
 
-            wallet.UserName = coinUser.UserName;
+            wallet.UserName = UserBasket.UserName;
             var walletModel = new WalletModel
             {
-                UserName = coinUser.UserName,
+                UserName = UserBasket.UserName,
                 walletCoins = new List<WalletCoinModel>
             {
                 new WalletCoinModel
                 {
                     NameCoin = check.CoinName,
-                    Symbol = coinUser.CoinCarts.Symbol,
+                    Symbol = UserBasket.CoinCarts.Symbol,
                     Amount = check.Amount,
                     PriceUSD = check.TotalPrice,
                     coinPrice = check.PriceCoin

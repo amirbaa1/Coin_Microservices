@@ -109,6 +109,7 @@ namespace WebApp.Pages
 
             //}) ;
 
+            basketUser.Status = "Buy";
             basketUser.CoinCarts = new CoinCartList
             {
                 CoinId = coin.Data[coinSymbol][0].Id,
@@ -116,6 +117,7 @@ namespace WebApp.Pages
                 Symbol = coin.Data[coinSymbol][0].Symbol,
                 Amount = 0,
                 PriceCoin = coin.Data[coinSymbol][0].Quote["USD"].Price,
+             
             };
 
             var basketPost = await _basketService.PostBasket(basketUser);

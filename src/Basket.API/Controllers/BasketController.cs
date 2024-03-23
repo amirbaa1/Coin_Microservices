@@ -59,6 +59,7 @@ namespace Basket.API.Controllers
             eventMessage.CoinName = basket.CoinCarts.CoinName;
             //eventMessage.s = basket.CoinCarts.Slug;
             eventMessage.Amount = basket.CoinCarts.Amount;
+            eventMessage.Status = basket.Status;
             eventMessage.PriceCoin = basket.CoinCarts.PriceCoin;
             eventMessage.TotalPrice = basket.TotalPrice;
             eventMessage.DateTime = DateTime.Now;
