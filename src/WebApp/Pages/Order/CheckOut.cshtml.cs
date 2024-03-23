@@ -71,6 +71,7 @@ namespace WebApp.Pages.Order
                 new WalletCoinModel
                 {
                     NameCoin = check.CoinName,
+                    Symbol = coinUser.CoinCarts.Symbol,
                     Amount = check.Amount,
                     PriceUSD = check.TotalPrice,
                     coinPrice = check.PriceCoin

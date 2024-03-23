@@ -57,6 +57,7 @@ namespace Basket.API.Controllers
 
             eventMessage.CoinId = basket.CoinCarts.CoinId;
             eventMessage.CoinName = basket.CoinCarts.CoinName;
+            //eventMessage.s = basket.CoinCarts.Slug;
             eventMessage.Amount = basket.CoinCarts.Amount;
             eventMessage.PriceCoin = basket.CoinCarts.PriceCoin;
             eventMessage.TotalPrice = basket.TotalPrice;
@@ -85,6 +86,7 @@ namespace Basket.API.Controllers
                 new WalletCoinModel
                 {
                     NameCoin = basket.CoinCarts.CoinName,
+                    Symbol = basket.CoinCarts.Symbol,
                     Amount = basket.CoinCarts.Amount,
                     PriceUSD = basket.TotalPrice,
                     coinPrice = basket.CoinCarts.PriceCoin

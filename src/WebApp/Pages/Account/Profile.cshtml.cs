@@ -53,6 +53,8 @@ public class Profile : PageModel
                 Role = userP.Role,
             };
 
+            await _walletService.UpdateCoinWallet(userP.UserName);
+
             orderModel = (await _orderService.GetOrder(userP.UserName)).OrderByDescending(order => order.DateTime).ToList();
 
             wallet = await _walletService.OnGetWalletByUserName(userP.UserName);

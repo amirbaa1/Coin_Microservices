@@ -33,8 +33,9 @@
                     <td>@Model.CoinCartItem.CoinCarts.CoinId</td>
                     <input type="hidden" asp-for="CoinCartItem.CoinCarts.CoinId" />
 
-                    <td>@Model.CoinCartItem.CoinCarts.CoinName</td>
+                    <td>@Model.CoinCartItem.CoinCarts.CoinName/<b>@Model.CoinCartItem.CoinCarts.Symbol</b></td>
                     <input type="hidden" asp-for="CoinCartItem.CoinCarts.CoinName" />
+                    <input type="hidden" asp-for="CoinCartItem.CoinCarts.Symbol" />
 
 
                     <td id="price">@Model.CoinCartItem.CoinCarts.PriceCoin$</td>

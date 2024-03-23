@@ -10,6 +10,7 @@ namespace Ordering.Application.Features.Orders.Commands.CheckoutOrder
         public double PriceCoin { get; set; }
         public double Amount { get; set; }
         public double TotalPrice { get; set; }
+        public string Status { get; set; }
         public DateTime? DateTime { get; set; }
 
 

@@ -16,6 +16,8 @@ namespace Ordering.Domain.Entities
         public double Amount { get; set; }
         public double TotalPrice { get; set; }
         public DateTime? DateTime { get; set; }
+        public string Status { get; set; }
+
 
         // BillingAddress
         public string FirstName { get; set; }

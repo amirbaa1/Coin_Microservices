@@ -49,10 +49,10 @@ public class CartInfo : PageModel
             var user = await _userManager.GetUserAsync(User);
 
             CoinCartItem.UserName = user.UserName;
-            _logger.LogInformation($"--> CoinItem : {CoinCartItem}");
+            //_logger.LogInformation($"--> CoinItem : {CoinCartItem}");
 
             //var user = await _userManager.GetUserAsync(User);
-            _logger.LogInformation($"--> CoinItem : {CoinCartItem}");
+            //_logger.LogInformation($"--> CoinItem : {CoinCartItem}");
 
             var basketPost = await _basketService.PostBasket(CoinCartItem);
             return RedirectToPage("/order/checkout");

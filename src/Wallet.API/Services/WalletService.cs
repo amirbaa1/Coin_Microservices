@@ -66,7 +66,7 @@ namespace Wallet.API.Services
 
                 foreach (var coin in i.walletCoins)
                 {
-                    var coinname = coin.NameCoin;
+                    var coinname = coin.Symbol;
                     if (coinname != null)
                     {
                         var getCoin = await _coinService.GetCoinBySymbol(coinname);

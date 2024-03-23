@@ -1,6 +1,9 @@
 ﻿
+using Newtonsoft.Json;
+using System.Net.Http;
 using System.Text.Json;
 using WebApp.Model;
+using WebApp.Model.OrderModel;
 
 namespace WebApp.Services
 {
@@ -23,7 +26,7 @@ namespace WebApp.Services
 
                 var read = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 
-                return JsonSerializer.Deserialize<List<WalletModel>>(read, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+                return System.Text.Json.JsonSerializer.Deserialize<List<WalletModel>>(read, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
             }
             catch (Exception ex)
             {
@@ -31,16 +34,22 @@ namespace WebApp.Services
             }
         }
 
-        //public Task<List<WalletModel>> UpdateCoiWallet(string userame)
-        //{
-        //    try
-        //    {
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception("Something went wrong when calling api.");
-        //    }
-        //}
+        public async Task UpdateCoinWallet(string userame)
+        {
+            try
+            {
+                var empty = new StringContent(string.Empty);
+                var response = await _httpClient.PutAsync($"/wallet/{userame}", empty);
+                var read = await response.Content.ReadAsStringAsync(); 
+                
+                //return JsonSerializer.Deserialize<List<WalletModel>>(read);
+                
+                //return JsonConvert.DeserializeObject<List<WalletModel>>(read)!;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Something went wrong when calling api.");
+            }
+        }
     }
 }

@@ -14,8 +14,9 @@ namespace Ordering.Application.Features.Orders.Queries.GetOrderList
         public double PriceCoin { get; set; }
         public double Amount { get; set; }
         public double TotalPrice { get; set; }
-
         public DateTime? DateTime { get; set; }
+        public string Status { get; set; }
+
 
         // BillingAddress
         public string FirstName { get; set; }

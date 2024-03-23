@@ -113,6 +113,7 @@ namespace WebApp.Pages
             {
                 CoinId = coin.Data[coinSymbol][0].Id,
                 CoinName = coin.Data[coinSymbol][0].Name,
+                Symbol = coin.Data[coinSymbol][0].Symbol,
                 Amount = 0,
                 PriceCoin = coin.Data[coinSymbol][0].Quote["USD"].Price,
             };
