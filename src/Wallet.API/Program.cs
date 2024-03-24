@@ -1,4 +1,6 @@
 
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Wallet.API.Data;
 using Wallet.API.Services;
 using Wallet.API.Services.Coin;
@@ -33,6 +35,10 @@ builder.Services.AddHttpClient<ICoinService, CoinService>(client =>
 
 //-----------------------//
 
+//------------------health-----------------//
+builder.Services.AddHealthChecks().AddMongoDb(builder.Configuration["WalletStoreDatabase:ConnectionString"]);
+//------------------------------------------//
+
 
 
 var app = builder.Build();
@@ -50,5 +56,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHealthChecks("_health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+});
 
 app.Run();

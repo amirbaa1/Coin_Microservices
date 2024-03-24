@@ -1,6 +1,9 @@
 using Basket.API.Mapping;
 using Basket.API.Services;
+using HealthChecks.Redis;
+using HealthChecks.UI.Client;
 using MassTransit;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Text;
@@ -21,6 +24,13 @@ builder.Services.AddAutoMapper(typeof(BasketProfile));
 //builder.Services.AddTransient<IBasketService, BasketService>();
 
 // ----------------------------------------------- //
+
+//-----------------heltly-------------------------//
+builder.Services.AddHealthChecks()
+    .AddRedis(builder.Configuration["ConnectionStrings:localhost"], name: "redis")
+    .AddRabbitMQ(builder.Configuration["EventBusSettings:HostAddress"], name: "rabbitMQ");
+//-----------------------------------------------//
+
 
 // --------------- redis --------------------------//
 builder.Services.AddStackExchangeRedisCache(op =>
@@ -113,6 +123,12 @@ app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "Basket AP
 
 
 app.UseHttpsRedirection();
+
+app.MapHealthChecks("/_health", new HealthCheckOptions
+{
+   ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+});
+
 
 app.UseAuthentication();
 app.UseAuthorization();

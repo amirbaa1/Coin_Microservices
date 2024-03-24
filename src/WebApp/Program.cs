@@ -1,6 +1,9 @@
 using System.Configuration;
+using HealthChecks.UI.Client;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using WebApp.Data;
 using WebApp.Extensions;
 using WebApp.Hubs;
@@ -92,6 +95,22 @@ builder.Services.AddAuthentication().AddGoogle(googleOpt =>
 
 //-------------------------------------//
 
+//------------------------------------//
+builder.Services.AddHealthChecks()
+    .AddUrlGroup(new Uri(builder.Configuration["health:WalletHealth"]), "wallet")
+    .AddUrlGroup(new Uri(builder.Configuration["health:OrderHealth"]), "order")
+    .AddUrlGroup(new Uri(builder.Configuration["health:BasketHealth"]), "basket");
+
+
+
+
+
+builder.Services.AddHealthChecksUI(op =>
+{
+    op.AddHealthCheckEndpoint("Health Check API", "/healthcheck");
+}).AddInMemoryStorage();
+//------------------------------------//
+
 
 builder.Services.AddSignalR();
 
@@ -128,5 +147,11 @@ app.MapHub<CoinLivePriceHub>("/hub/coinmarket");
 
 app.MapRazorPages();
 
+app.MapHealthChecks("/healthcheck", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+});
+
+app.MapHealthChecksUI(op => op.UIPath = "/dashbord");
 
 app.Run();

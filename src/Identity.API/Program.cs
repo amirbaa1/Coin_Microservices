@@ -9,6 +9,8 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Identity.API.Extensions;
 using Identity.API.Services.Mail;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +30,12 @@ builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<ResponseDto>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 // ------------------------------------//
+
+// ------------------health -------------//
+builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
+//---------------------------------------//
+
+
 
 //// ---------------------Data ---------------//
 //builder.Services.AddDbContext<IdentityAppdbContext>(x =>
@@ -138,6 +146,11 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseAuthorization();
+
+app.MapHealthChecks("_health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+});
 
 app.MapControllers();
 app.Run();

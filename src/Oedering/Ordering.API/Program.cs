@@ -11,6 +11,8 @@ using System.Text;
 using Microsoft.OpenApi.Models;
 using Microsoft.Extensions.Configuration;
 using Ordering.Application.Model;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using HealthChecks.UI.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -109,6 +111,14 @@ builder.Services.AddSwaggerGen(op =>
 });
 //-----------------------------------------------//
 
+
+//------------------health-------------------------//
+builder.Services.AddHealthChecks()
+    .AddSqlServer(builder.Configuration["ConnectionStrings:OrderingConnectionString"], name: "SqlServer")
+    .AddRabbitMQ(builder.Configuration["EventBusSettings:HostAddress"], name: "RabbitMQ");
+//---------------------------------------------------//
+
+
 var app = builder.Build();
 //----------------------migrations db -----------------//
 //app.MigrateDatabase<Program>();
@@ -138,5 +148,10 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapHealthChecks("_health", new HealthCheckOptions
+{
+    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse,
+});
 
 app.Run();
