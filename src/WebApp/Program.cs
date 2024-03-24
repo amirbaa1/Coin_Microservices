@@ -99,7 +99,8 @@ builder.Services.AddAuthentication().AddGoogle(googleOpt =>
 builder.Services.AddHealthChecks()
     .AddUrlGroup(new Uri(builder.Configuration["health:WalletHealth"]), "wallet")
     .AddUrlGroup(new Uri(builder.Configuration["health:OrderHealth"]), "order")
-    .AddUrlGroup(new Uri(builder.Configuration["health:BasketHealth"]), "basket");
+    .AddUrlGroup(new Uri(builder.Configuration["health:BasketHealth"]), "basket")
+    .AddNpgSql(builder.Configuration["ConnectionStrings:IdentityConnectionString"]);
 
 
 
