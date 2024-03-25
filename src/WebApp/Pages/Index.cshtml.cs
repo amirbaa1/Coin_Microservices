@@ -94,6 +94,10 @@ namespace WebApp.Pages
             var coin = await _coinService.GetCoinBySymbol(coinSymbol);
 
             var user = await _userManager.GetUserAsync(User);
+            if(user== null)
+            {
+                return RedirectToPage("/account/login");
+            }
             var basketUser = await _basketService.GetBasket(user.UserName);
             if (basketUser.UserName == null)
             {
