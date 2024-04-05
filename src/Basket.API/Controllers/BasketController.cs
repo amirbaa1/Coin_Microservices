@@ -94,7 +94,10 @@ namespace Basket.API.Controllers
                 }
             }
             };
-
+            if (basket.Status == "Sell")
+            {
+                await _basketService.DeleteBasket(walletModel.UserName);
+            }
             var send = await _basketService.SendBasketWallet(walletModel);
 
             if (send != null)

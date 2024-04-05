@@ -58,11 +58,22 @@
                             @foreach (var userItemCoin in item.walletCoins)
                             {
                                 <tr>
+                                    <form method="post" asp-page-handler="SellCoin">
+                                        <input type="hidden" name="NameCoin" value="@userItemCoin.NameCoin" />
+                                        <input type="hidden" name="Amount" value="@userItemCoin.Amount" />
+                                        <input type="hidden" name="coinPrice" value="@userItemCoin.coinPrice" />
+                                        <input type="hidden" name="PriceUSD" value="@userItemCoin.PriceUSD" />                                        <input type="hidden" name="PriceUSD" value="@userItemCoin.PriceUSD" />
+                                        <input type="hidden" name="Symbol" value="@userItemCoin.Symbol" />                                        <input type="hidden" name="PriceUSD" value="@userItemCoin.PriceUSD" />
+
+
                                     <th>@userItemCoin.NameCoin</th>
                                     <th>@userItemCoin.Amount</th>
                                     <th>@string.Format("{0:N2}$", userItemCoin.coinPrice)</th>
-                                    @* <th>@userItemCoin.PriceUSD $</th> *@
                                     <th>@string.Format("{0:N2}$", userItemCoin.PriceUSD)</th>
+                                    <th>
+                                        <button type="submit" class="btn btn-success">Sell</button>
+                                    </th>
+                                    </form>
                                 </tr>
                             }
                         }
