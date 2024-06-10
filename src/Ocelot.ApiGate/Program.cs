@@ -2,6 +2,9 @@ using Microsoft.IdentityModel.Tokens;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
 using System.Text;
+using Ocelot.Provider.Polly;
+using Ocelot.Cache.CacheManager;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,7 +33,21 @@ builder.Services.AddAuthentication("Bearer")
 //--------------------------------------------//
 
 
-builder.Services.AddOcelot();
+//builder.Services.AddOcelot();
+
+
+IWebHostEnvironment webHostEnvironment = builder.Environment;
+builder.Configuration.SetBasePath(webHostEnvironment.ContentRootPath)
+    .AddJsonFile("ocelot.json")
+    .AddOcelot(webHostEnvironment)
+    .AddEnvironmentVariables();
+
+builder.Services.AddOcelot(builder.Configuration)
+    .AddPolly()
+    .AddCacheManager(x =>
+    {
+        x.WithDictionaryHandle();
+    });
 
 
 var app = builder.Build();

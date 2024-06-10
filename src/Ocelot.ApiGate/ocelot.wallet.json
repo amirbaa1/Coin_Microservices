@@ -1,0 +1,50 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/wallet",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "wallet.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/wallet",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/Wallet/{userName}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "wallet.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/wallet/{userName}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "PUT"
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/_health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "wallet.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/wallet_health",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8010"
+  }
+}

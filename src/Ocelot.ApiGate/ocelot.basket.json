@@ -1,0 +1,102 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/basket/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket/{username}",
+      "UpstreamHttpMethod": [
+        "GET",
+        "DELETE"
+      ],
+      "AuthenticationProviderKey": "IdentityApiKey",
+      "AllowedScopes": []
+    },
+    {
+      "DownstreamPathTemplate": "/basket",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
+    },
+    //    {
+    //      "DownstreamPathTemplate": "/basket/{username}",
+    //      "DownstreamScheme": "http",
+    //      "DownstreamHostAndPorts": [
+    //        {
+    //          "Host": "basket.api",
+    //          "Port": "80"
+    //        }
+    //      ],
+    //      "UpstreamPathTemplate": "/basket/{username}",
+    //      "UpstreamHttpMethod": [
+    //        "DELETE"
+    //      ],
+    //      "AuthenticationProviderKey": "IdentityApiKey",
+    //      "AllowedScopes": []
+    //    },
+    {
+      "DownstreamPathTemplate": "/basket/BasketCheckOut",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket/BasketCheckOut",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
+    },
+    {
+      "DownstreamPathTemplate": "/basket/wallet/{username}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket/wallet/{username}",
+      "UpstreamHttpMethod": [
+        "POST"
+      ]
+      //"AuthenticationProviderKey": "IdentityApiKey",
+      //"AllowedScopes": []
+    },
+    {
+      "DownstreamPathTemplate": "/_health",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "basket.api",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/basket_health",
+      "UpstreamHttpMethod": [
+        "GET"
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:8010"
+  }
+}
